@@ -9,6 +9,8 @@
 
 # production
 /es
+/lib
+/dist
 /docs-dist
 
 # misc
@@ -22,5 +24,4 @@
 .env.local
 
 # ide
-/.vscode
 /.idea

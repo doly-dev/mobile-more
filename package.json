@@ -14,7 +14,9 @@
     "prepublishOnly": "npm run build",
     "commit": "cz",
     "lint:js": "eslint --ext .js,.jsx,.ts,.tsx src",
-    "lint-fix:js": "npm run lint:js -- --fix"
+    "lint-fix:js": "npm run lint:js -- --fix",
+    "lint:style": "stylelint src/**/*.less",
+    "lint-fix:style": "npm run lint:stylelint -- --fix"
   },
   "module": "es/index.js",
   "typings": "es/index.d.ts",
@@ -58,6 +60,14 @@
     "gh-pages": "^3.0.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
+    "prettier-plugin-two-style-order": "^1.0.1",
+    "stylelint": "^14.3.0",
+    "stylelint-config-css-modules": "^2.3.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "stylelint-no-unsupported-browser-features": "^5.0.2",
     "yarn": "^1.22.17",
     "yorkie": "^2.0.0"
   }
