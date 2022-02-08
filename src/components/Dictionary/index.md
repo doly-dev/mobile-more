@@ -16,6 +16,10 @@
 
 <code src='./demos/match.tsx' />
 
+### 自定义包裹组件
+
+<code src='./demos/component.tsx' />
+
 ## API
 
 ```typescript
@@ -34,6 +38,7 @@ export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<H
     value?: string;
   };
   match?: (itemValue: ValueType, value: ValueType) => boolean;
+  component?: keyof React.ReactHTML | null;
 }
 ```
 
@@ -45,3 +50,4 @@ export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<H
 | stylePropName | 枚举数据中的样式属性名。<br/>在匹配到值之后，会将样式带入。 | `string` | `'style'` |
 | fieldNames | 自定义字段名 | `{ label?: string; value?: string; }` | - |
 | match | 自定义 value 匹配方法 | `(itemValue: ValueType, currentValue: ValueType) => boolean;` | - |
+| component | 包裹组件 | `keyof React.ReactHTML \| null` | `span` |

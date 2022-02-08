@@ -11,7 +11,7 @@ function Demo() {
       <Dictionary valueEnum={ApproveOptions} value={Approve.Refused} />
       <br />
       <br />
-      <Dictionary valueEnum={ApproveOptions} value="no" />
+      <Dictionary valueEnum={ApproveOptions} value="notmatch" />
     </>
   );
 }

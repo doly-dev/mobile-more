@@ -16,6 +16,7 @@ export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<H
     value?: string;
   };
   match?: (itemValue: ValueType, value: ValueType) => boolean;
+  component?: keyof React.ReactHTML | null;
 }
 
 const Dictionary: React.FC<DictionaryProps> = ({
@@ -26,6 +27,7 @@ const Dictionary: React.FC<DictionaryProps> = ({
   stylePropName = 'style',
   style,
   match,
+  component = 'span',
   ...restProps
 }) => {
   const { label: labelKey, value: valueKey } = React.useMemo(
@@ -49,11 +51,21 @@ const Dictionary: React.FC<DictionaryProps> = ({
     [matchMethod, value, valueEnum, valueKey]
   );
 
-  return (
-    <span style={{ ...ret?.[stylePropName], ...style }} {...restProps}>
-      {ret?.[labelKey] || defaultLabel}
-    </span>
-  );
+  if (component) {
+    return React.createElement(
+      component,
+      {
+        style: {
+          ...ret?.[stylePropName],
+          ...style
+        },
+        ...restProps
+      },
+      ret?.[labelKey] || defaultLabel
+    );
+  }
+
+  return ret?.[labelKey] || defaultLabel;
 };
 
 export default Dictionary;
