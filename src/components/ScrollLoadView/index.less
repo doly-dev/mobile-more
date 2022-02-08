@@ -1,0 +1,17 @@
+@import '../../config/prefixClass.less';
+
+@prefixCls: ~'@{prefixClass}-scrollLoadView';
+
+.@{prefixCls} {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+  color: gray;
+  font-size: 13px;
+  cursor: default;
+
+  &-error {
+    color: red;
+  }
+}

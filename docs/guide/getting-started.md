@@ -2,6 +2,8 @@
 
 [![npm][npm]][npm-url] ![GitHub](https://img.shields.io/github/license/doly-dev/mobile-more.svg)
 
+基于 [antd-mobile v5](http://mobile.ant.design/) 扩展移动端 UI 组件。
+
 ## 使用
 
 ### npm 或 yarn 安装
@@ -19,32 +21,25 @@ yarn add mobile-more
 ### 示例
 
 ```javascript
-import { BizField } from 'mobile-more';
+import { Descriptions } from 'mobile-more';
 
-// 值类型为颜色，显示红色色块
-ReactDon.render(<BizField value="red" valueType="color" />, mountNode);
+ReactDon.render(
+  <Descriptions>
+    <Descriptions.Item label="名称">xxx</Descriptions.Item>
+    <Descriptions.Item label="类型">xxx</Descriptions.Item>
+  </Descriptions>,
+  mountNode
+);
 ```
 
 ## API
 
-- **数据展示**
-  - [BizField] - 业务字段
-  - [BizDescriptions] - 业务描述
-  - [BizTable] - 业务表格
-  - [EditableBizTable] - 可编辑业务表格
-- **数据录入**
-  - [BizForm] - 业务表单
-  - [Item] - 表单项
-  - [Modal/Drawer] - 浮层表单
-  - [QueryForm] - 查询表单
-  - [StepsForm] - 分步表单
-
-## 精选第三方 react 组件
-
-- [qrcode.react] - 生成二维码
-- [wangeditor] - 轻量级 web 富文本编辑器
+- [Descriptions](/components/descriptions) - 描述列表
+- [Dictionary](/components/dictionary) - 数据字典
+- [Image](/components/image) - 图片，支持预览
+- [ImageUploader](/components/image-uploader) - 图片上传
+- [ScrollLoadView](/components/scroll-load-view) - 滚动加载视图
 
 [npm]: https://img.shields.io/npm/v/mobile-more.svg
 [npm-url]: https://npmjs.com/package/mobile-more
 [site]: https://doly-dev.github.io/mobile-more/latest/index.html
-[babel-plugin-import]: https://www.npmjs.com/package/babel-plugin-import

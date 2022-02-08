@@ -1,0 +1,56 @@
+@import '../../config/prefixClass.less';
+
+@prefixCls: ~'@{prefixClass}-descriptions';
+
+.@{prefixCls} {
+  --font-size: 14px;
+  --color: #333;
+  --title-color: var(--color);
+  --padding-inner: 6px;
+  --justify-content: flex-start;
+  --flex-direction: row;
+  --label-color: var(--color);
+  --label-width: auto;
+  --label-text-align: left;
+  --content-color: var(--color);
+  --content-text-align: left;
+
+  &-title {
+    margin-bottom: var(--padding-inner);
+    padding: var(--padding-inner) 0;
+    font-weight: 600;
+    font-size: calc(var(--font-size) + 2px);
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: var(--flex-direction);
+    justify-content: var(--justify-content);
+    width: 100%;
+    padding: var(--padding-inner) 0;
+    font-size: var(--font-size);
+    line-height: 1.5;
+
+    &-label {
+      flex-shrink: 0;
+      width: var(--label-width);
+      color: var(--label-color);
+      white-space: nowrap;
+      text-align: var(--label-text-align);
+    }
+
+    &-content {
+      color: var(--content-color);
+      text-align: var(--content-text-align);
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+
+  &-colon &-item-label::after {
+    position: relative;
+    top: -0.5px;
+    margin: 0 8px 0 2px;
+    content: ':';
+  }
+}
