@@ -21,14 +21,14 @@ const prodConfig: any = {};
 if (process.env.NODE_ENV === 'production') {
   prodConfig.headScripts = [
     {
-      src: 'https://www.googletagmanager.com/gtag/js?id=G-R1F3Q898DB',
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-Z3NN7XXV9E',
       async: true
     },
     {
       content: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-R1F3Q898DB');
+gtag('config', 'G-Z3NN7XXV9E');
     `
     }
   ];
