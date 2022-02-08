@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Dictionary from '..';
+import { Dictionary } from 'mobile-more';
 
 const ApproveOptions = [
   {

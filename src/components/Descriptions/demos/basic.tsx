@@ -6,10 +6,10 @@ function Demo() {
     <>
       <Descriptions title="标题">
         <Descriptions.Item label="营业执照编号">1**************6</Descriptions.Item>
-        <Descriptions.Item label="商户名称">金牛区时尚生活馆</Descriptions.Item>
+        <Descriptions.Item label="商户名称">xxx生活馆</Descriptions.Item>
         <Descriptions.Item label="商户类型">有限责任公司</Descriptions.Item>
         <Descriptions.Item label="经营场所">
-          上海市浦东新区大道镇杨春街道1234弄4支弄502室
+          上海市浦东新区xx镇xx街道xx弄x支弄xxx室
         </Descriptions.Item>
       </Descriptions>
       <br />
@@ -31,10 +31,10 @@ function Demo() {
         style={{ '--label-width': '7em', '--label-text-align': 'right' }}
       >
         <Descriptions.Item label="营业执照编号">1**************6</Descriptions.Item>
-        <Descriptions.Item label="商户名称">金牛区时尚生活馆</Descriptions.Item>
+        <Descriptions.Item label="商户名称">xxx生活馆</Descriptions.Item>
         <Descriptions.Item label="商户类型">有限责任公司</Descriptions.Item>
         <Descriptions.Item label="经营场所">
-          上海市浦东新区大道镇杨春街道1234弄4支弄502室
+          上海市浦东新区xx镇xx街道xx弄x支弄xxx室
         </Descriptions.Item>
       </Descriptions>
       <br />

@@ -40,7 +40,7 @@ export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<H
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | value | 值 | `any` | - |
-| valueEnum | 值枚举数据 | `{ label?: ReactNode; value: any; style?: CSSPropertiesWithVariable; [key:string]: any; }` | - |
+| valueEnum | 值枚举数据 | `{ label?: ReactNode; value?: any; style?: CSSPropertiesWithVariable; [key:string]: any; }` | - |
 | defaultLabel | 没有匹配到值时默认展示内容 | `ReactNode` | `'-'` |
 | stylePropName | 枚举数据中的样式属性名。<br/>在匹配到值之后，会将样式带入。 | `string` | `'style'` |
 | fieldNames | 自定义字段名 | `{ label?: string; value?: string; }` | - |

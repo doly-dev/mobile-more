@@ -10,10 +10,10 @@ export enum Approve {
 export const ApproveOptions = [
   {
     label: '审核中',
-    value: Approve.Processing,
-    style: {
-      color: '#1A7BF1'
-    }
+    value: Approve.Processing
+    // style: {
+    //   color: '#1A7BF1'
+    // }
   },
   {
     label: '审核通过',
