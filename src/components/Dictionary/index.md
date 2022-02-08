@@ -20,20 +20,20 @@
 
 ```typescript
 export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<HTMLSpanElement> {
-  fieldNames?: {
-    label?: string;
-    value?: string;
-  };
   valueEnum: {
     label?: React.ReactNode;
     value?: ValueType;
     style?: CSSPropertiesWithVariable;
     [key: string]: any;
   }[];
-  value?: ValueType;
+  value: ValueType;
   defaultLabel?: React.ReactNode;
   stylePropName?: string;
-  match?: (itemValue: ValueType, currentValue: ValueType) => boolean;
+  fieldNames?: {
+    label?: string;
+    value?: string;
+  };
+  match?: (itemValue: ValueType, value: ValueType) => boolean;
 }
 ```
 

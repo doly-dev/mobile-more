@@ -42,8 +42,8 @@ const DescriptionsItem: React.FC<DescriptionsItemProps> = ({
 export interface DescriptionsProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'style'> {
   title?: React.ReactNode;
-  style?: CSSPropertiesWithVariable;
   colon?: boolean;
+  style?: CSSPropertiesWithVariable;
 }
 
 const Descriptions: React.FC<DescriptionsProps> & {

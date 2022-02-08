@@ -2,19 +2,19 @@ import * as React from 'react';
 import { CSSPropertiesWithVariable } from '../../types/css';
 
 export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<HTMLSpanElement> {
-  fieldNames?: {
-    label?: string;
-    value?: string;
-  };
   valueEnum: {
     label?: React.ReactNode;
     value?: ValueType;
     style?: CSSPropertiesWithVariable;
     [key: string]: any;
   }[];
-  value?: ValueType;
+  value: ValueType;
   defaultLabel?: React.ReactNode;
   stylePropName?: string;
+  fieldNames?: {
+    label?: string;
+    value?: string;
+  };
   match?: (itemValue: ValueType, value: ValueType) => boolean;
 }
 

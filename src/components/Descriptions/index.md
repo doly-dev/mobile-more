@@ -21,9 +21,11 @@
 ### Descriptions
 
 ```typescript
-export interface DescriptionsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+export interface DescriptionsProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'style'> {
   title?: React.ReactNode;
   colon?: boolean;
+  style?: CSSPropertiesWithVariable;
 }
 ```
 
