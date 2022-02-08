@@ -5,10 +5,7 @@ const CurrencyData = [
   {
     symbol: '¥',
     code: 'CNY',
-    name: '人民币',
-    tag: {
-      color: 'orange'
-    }
+    name: '人民币'
   },
   {
     symbol: '$',
