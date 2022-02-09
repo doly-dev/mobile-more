@@ -5,7 +5,7 @@ import { List } from 'antd-mobile';
 import getUserList from './services/getUserList';
 
 function Demo() {
-  const wrapperRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
   const { noMore, loading, loadMore, data, error } = useLoadMore(
     ({ current }) => {
       return getUserList({
@@ -16,15 +16,13 @@ function Demo() {
       }));
     },
     {
-      target: () => wrapperRef.current,
+      target: () => containerRef.current,
       isNoMore: (res) => !!(res?.list && res.list.length >= res?.total)
     }
   );
 
-  console.log(data);
-
   return (
-    <div ref={wrapperRef} style={{ height: 300, overflow: 'auto' }}>
+    <div ref={containerRef} style={{ height: 300, overflow: 'auto' }}>
       <List header="用户列表">
         {data?.list.map((item) => (
           <List.Item key={item.id} description={item.email}>
