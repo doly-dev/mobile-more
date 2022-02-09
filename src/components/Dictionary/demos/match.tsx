@@ -26,11 +26,11 @@ const ApproveOptions = [
 ];
 
 function Demo() {
-  const customMatch = React.useCallback((itemValue, value) => {
+  const customMatch = React.useCallback((itemValue, currentValue) => {
     if (Array.isArray(itemValue)) {
-      return itemValue.includes(value);
+      return itemValue.includes(currentValue);
     }
-    return itemValue === value;
+    return itemValue === currentValue;
   }, []);
 
   return (

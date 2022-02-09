@@ -11,7 +11,6 @@ export interface ImageProps extends ImageBaseProps {
   border?: 'dashed' | 'solid';
   name?: React.ReactNode;
   preview?: boolean;
-  // TODO: 预览图片支持异步获取
   previewUrl?: string;
 }
 
