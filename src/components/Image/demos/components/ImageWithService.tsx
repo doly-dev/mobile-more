@@ -24,11 +24,14 @@ interface ImageWithServiceProps extends Omit<ImageProps, 'src'> {
 }
 
 const ImageWithService: React.FC<ImageWithServiceProps> = ({ fssid, ...restProps }) => {
-  const { data, run, loading, error } = useAsync(
+  const { data, run, loading } = useAsync(
     () =>
       filedownload({ fssid } as { fssid: string }).then((res) => transformBase64(res.data.buffer)),
     {
-      autoRun: false
+      autoRun: false,
+      cacheKey: fssid,
+      cacheTime: 30 * 60 * 1000,
+      persisted: true
     }
   );
 
@@ -42,7 +45,7 @@ const ImageWithService: React.FC<ImageWithServiceProps> = ({ fssid, ...restProps
     <Image
       src={data || ''}
       placeholder={LoadingView}
-      fallback={!loading && error ? undefined : LoadingView}
+      fallback={loading ? LoadingView : undefined}
       {...restProps}
     />
   );
