@@ -29,27 +29,27 @@ export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<H
   valueEnum: {
     label?: React.ReactNode;
     value?: ValueType;
-    style?: CSSPropertiesWithVariable;
+    props?: Record<string, any>; // 组件属性
     [key: string]: any;
   }[];
   value: ValueType;
   defaultLabel?: React.ReactNode;
-  stylePropName?: string;
   fieldNames?: {
     label?: string;
     value?: string;
+    props?: string;
   };
   match?: (itemValue: ValueType, value: ValueType) => boolean;
-  component?: keyof React.ReactHTML | null;
+  component?: keyof HTMLElement | Parameters<typeof React.cloneElement>[0] | null;
+  [key: string]: any;
 }
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | value | 值 | `any` | - |
-| valueEnum | 值枚举数据 | `{ label?: ReactNode; value?: any; style?: CSSPropertiesWithVariable; [key:string]: any; }` | - |
+| valueEnum | 值枚举数据 | `{ label?: ReactNode; value?: any; props?: Record<string,any>; [key:string]: any; }` | - |
 | defaultLabel | 没有匹配到值时默认展示内容 | `ReactNode` | `'-'` |
-| stylePropName | 枚举数据中的样式属性名。<br/>在匹配到值之后，会将样式带入。 | `string` | `'style'` |
-| fieldNames | 自定义字段名 | `{ label?: string; value?: string; }` | - |
+| fieldNames | 自定义字段名 | `{ label?: string; value?: string; props?: string; }` | - |
 | match | 自定义 value 匹配方法 | `(itemValue: ValueType, currentValue: ValueType) => boolean;` | - |
-| component | 包裹组件 | `keyof React.ReactHTML \| null` | `span` |
+| component | 包裹组件 | `keyof HTMLElement \| Parameters<typeof React.cloneElement>[0] \| null` | `span` |

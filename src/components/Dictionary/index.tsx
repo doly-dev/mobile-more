@@ -1,22 +1,22 @@
 import * as React from 'react';
-import { CSSPropertiesWithVariable } from '../../types/css';
 
-export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<HTMLSpanElement> {
+export interface DictionaryProps<ValueType = any> {
   valueEnum: {
     label?: React.ReactNode;
     value?: ValueType;
-    style?: CSSPropertiesWithVariable;
+    props?: Record<string, any>;
     [key: string]: any;
   }[];
   value: ValueType;
   defaultLabel?: React.ReactNode;
-  stylePropName?: string;
   fieldNames?: {
     label?: string;
     value?: string;
+    props?: string;
   };
   match?: (itemValue: ValueType, value: ValueType) => boolean;
-  component?: keyof React.ReactHTML | null;
+  component?: keyof HTMLElement | Parameters<typeof React.cloneElement>[0] | null;
+  [key: string]: any;
 }
 
 const Dictionary: React.FC<DictionaryProps> = ({
@@ -24,16 +24,19 @@ const Dictionary: React.FC<DictionaryProps> = ({
   valueEnum,
   value,
   defaultLabel = '-',
-  stylePropName = 'style',
-  style,
   match,
   component = 'span',
   ...restProps
 }) => {
-  const { label: labelKey, value: valueKey } = React.useMemo(
+  const {
+    label: labelKey,
+    value: valueKey,
+    props: propsKey
+  } = React.useMemo(
     () => ({
       label: 'label',
       value: 'value',
+      props: 'props',
       ...fieldNames
     }),
     [fieldNames]
@@ -51,21 +54,24 @@ const Dictionary: React.FC<DictionaryProps> = ({
     [matchMethod, value, valueEnum, valueKey]
   );
 
-  if (component) {
-    return React.createElement(
-      component,
-      {
-        style: {
-          ...ret?.[stylePropName],
-          ...style
-        },
-        ...restProps
-      },
-      ret?.[labelKey] || defaultLabel
-    );
+  const props = {
+    ...ret?.[propsKey],
+    ...restProps
+  };
+
+  const child = ret?.[labelKey] || defaultLabel;
+
+  // html标签
+  if (typeof component === 'string') {
+    return React.createElement(component, props, child);
   }
 
-  return ret?.[labelKey] || defaultLabel;
+  // 自定义组件
+  if (component) {
+    return React.cloneElement(component, props, child);
+  }
+
+  return child;
 };
 
 export default Dictionary;

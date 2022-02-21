@@ -6,19 +6,28 @@ import { Approve, ApproveOptions } from './constants';
 function Demo() {
   return (
     <>
-      <Tag color="primary">
-        <Dictionary valueEnum={ApproveOptions} value={Approve.Processing} component={null} />
-      </Tag>
+      <Dictionary
+        valueEnum={ApproveOptions}
+        value={Approve.Processing}
+        component={<Tag />}
+        fieldNames={{ props: 'tagProps' }}
+      />
       <br />
       <br />
-      <Tag color="success">
-        <Dictionary valueEnum={ApproveOptions} value={Approve.Approve} component={null} />
-      </Tag>
+      <Dictionary
+        valueEnum={ApproveOptions}
+        value={Approve.Approve}
+        component={<Tag />}
+        fieldNames={{ props: 'tagProps' }}
+      />
       <br />
       <br />
-      <Tag color="danger">
-        <Dictionary valueEnum={ApproveOptions} value={Approve.Refused} component={null} />
-      </Tag>
+      <Dictionary
+        valueEnum={ApproveOptions}
+        value={Approve.Refused}
+        component={<Tag />}
+        fieldNames={{ props: 'tagProps' }}
+      />
     </>
   );
 }
