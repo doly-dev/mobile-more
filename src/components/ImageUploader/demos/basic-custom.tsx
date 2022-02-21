@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ImageUploader } from 'mobile-more';
-import waitTime from '../../../utils/waitTime';
+import { waitTime } from 'util-helpers';
 
 function Demo() {
   const cacheURL: string[] = []; // 组件卸载时 revokeObjectURL

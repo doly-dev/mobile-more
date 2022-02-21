@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ImageUploader, ImageUploadItem, ImageUploaderActionType } from 'mobile-more';
-import waitTime from '../../../utils/waitTime';
+import { waitTime } from 'util-helpers';
 
 function Demo() {
   const actionRef = React.useRef<ImageUploaderActionType>();

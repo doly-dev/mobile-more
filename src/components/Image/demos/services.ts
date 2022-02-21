@@ -1,4 +1,4 @@
-import waitTime from '../../../utils/waitTime';
+import { waitTime } from 'util-helpers';
 
 export async function filedownload({ fssid }: { fssid: string }) {
   await waitTime(3000);

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useAsync } from 'rc-hooks';
 import { SpinLoading } from 'antd-mobile';
 import { Image, ImageProps } from 'mobile-more';
+import { setDataURLPrefix } from 'util-helpers';
 import { filedownload } from '../services';
-import { transformBase64 } from '../utils';
 
 const LoadingView = (
   <div
@@ -26,7 +26,7 @@ interface ImageWithServiceProps extends Omit<ImageProps, 'src'> {
 const ImageWithService: React.FC<ImageWithServiceProps> = ({ fssid, ...restProps }) => {
   const { data, run, loading } = useAsync(
     () =>
-      filedownload({ fssid } as { fssid: string }).then((res) => transformBase64(res.data.buffer)),
+      filedownload({ fssid } as { fssid: string }).then((res) => setDataURLPrefix(res.data.buffer)),
     {
       autoRun: false,
       cacheKey: fssid,

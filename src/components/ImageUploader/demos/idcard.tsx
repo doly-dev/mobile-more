@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid } from 'antd-mobile';
 import { ImageUploader, ImageUploadItem } from 'mobile-more';
-import waitTime from '../../../utils/waitTime';
+import { waitTime } from 'util-helpers';
 
 function Demo() {
   const [idcardFront, setIdcardFront] = React.useState<ImageUploadItem[]>();
