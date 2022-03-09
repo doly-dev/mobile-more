@@ -18,7 +18,7 @@
 
 ## API
 
-更多配置参数，请查阅 [antd-mobile Popup](ttps://mobile.ant.design/zh/components/popup#属性)
+除了以下属性，其余和 [antd-mobile Popup](ttps://mobile.ant.design/zh/components/popup#属性) 一样。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

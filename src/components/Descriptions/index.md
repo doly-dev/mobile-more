@@ -20,31 +20,12 @@
 
 ### Descriptions
 
-```typescript
-export interface DescriptionsProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'style'> {
-  title?: React.ReactNode;
-  colon?: boolean;
-  style?: CSSPropertiesWithVariable;
-}
-```
-
 | 参数  | 说明 | 类型        | 默认值 |
 | ----- | ---- | ----------- | ------ |
 | title | 标题 | `ReactNode` | -      |
 | colon | 冒号 | `boolean`   | `true` |
 
 ### Descriptions.Item
-
-```typescript
-export interface DescriptionsItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  label?: React.ReactNode;
-  labelStyle?: React.CSSProperties;
-  labelClassName?: string;
-  contentStyle?: React.CSSProperties;
-  contentClassName?: string;
-}
-```
 
 | 参数             | 说明             | 类型            | 默认值 |
 | ---------------- | ---------------- | --------------- | ------ |

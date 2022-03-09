@@ -24,27 +24,6 @@
 
 ## API
 
-```typescript
-export interface DictionaryProps<ValueType = any> extends React.HTMLAttributes<HTMLSpanElement> {
-  valueEnum: {
-    label?: React.ReactNode;
-    value?: ValueType;
-    props?: Record<string, any>; // 组件属性
-    [key: string]: any;
-  }[];
-  value: ValueType;
-  defaultLabel?: React.ReactNode;
-  fieldNames?: {
-    label?: string;
-    value?: string;
-    props?: string;
-  };
-  match?: (itemValue: ValueType, value: ValueType) => boolean;
-  component?: keyof HTMLElement | Parameters<typeof React.cloneElement>[0] | null;
-  [key: string]: any;
-}
-```
-
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | value | 值 | `any` | - |

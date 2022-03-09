@@ -30,38 +30,9 @@
 
 <code src='./demos/actionRef.tsx' />
 
-### 表单中使用
-
-> TODO
-
-<!-- ### 上传背景
-
-内置三种上传背景
-
-<code src='./demos/bg.tsx' /> -->
-
 ## API
 
 除了以下属性，其余和 [antd-mobile ImageUploader](ttps://mobile.ant.design/zh/components/image-uploader#属性) 一样。
-
-```typescript
-import type { ImageUploaderProps as ImageUploaderBaseProps } from 'antd-mobile/es/components/image-uploader';
-import type { ImageUploadItem } from 'antd-mobile/es/components/image-uploader';
-
-export type { ImageUploadItem };
-
-export type ImageUploaderActionType = {
-  // api 触发上传
-  clickInput: () => void;
-};
-
-export interface ImageUploaderProps extends ImageUploaderBaseProps {
-  type?: 'license' | 'idcardFront' | 'idcardBack';
-  maxSize?: number;
-  comfirmDelete?: boolean;
-  actionRef?: MutableRefObject<ImageUploaderActionType | undefined>;
-}
-```
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

@@ -34,17 +34,6 @@
 
 除了以下属性，其余和 [antd-mobile Image](ttps://mobile.ant.design/zh/components/image#属性) 一样。
 
-```typescript
-import { ImageProps as ImageBaseProps } from 'antd-mobile/es/components/image';
-
-export interface ImageProps extends ImageBaseProps {
-  border?: 'dashed' | 'solid';
-  name?: React.ReactNode;
-  preview?: boolean;
-  previewUrl?: string;
-}
-```
-
 | 参数       | 说明                   | 类型                | 默认值  |
 | ---------- | ---------------------- | ------------------- | ------- |
 | border     | 边框                   | `'dashed'\|'solid'` | -       |

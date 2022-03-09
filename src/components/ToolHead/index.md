@@ -20,14 +20,6 @@
 
 ### ToolHead
 
-```typescript
-export interface BaseToolHeadProps extends React.HTMLAttributes<HTMLDivElement> {
-  left?: React.ReactNode | React.ReactNode[];
-  right?: React.ReactNode | React.ReactNode[];
-  center?: React.ReactNode;
-}
-```
-
 | 参数   | 说明     | 类型                       | 默认值 |
 | ------ | -------- | -------------------------- | ------ |
 | left   | 左边内容 | `ReactNode \| ReactNode[]` | -      |
@@ -35,17 +27,6 @@ export interface BaseToolHeadProps extends React.HTMLAttributes<HTMLDivElement> 
 | center | 中间内容 | `ReactNode`                | -      |
 
 ### ToolHead.CloseToolHead
-
-```typescript
-export interface CloseToolHeadProps
-  extends Omit<BaseToolHeadProps, 'left' | 'right' | 'center' | 'title'> {
-  title?: React.ReactNode;
-  showCloseIcon?: boolean;
-  closeIcon?: React.ReactNode;
-  onClickCloseIcon?: () => void;
-  closePlacement?: 'left' | 'right';
-}
-```
 
 | 参数             | 说明             | 类型                | 默认值    |
 | ---------------- | ---------------- | ------------------- | --------- |
@@ -56,17 +37,6 @@ export interface CloseToolHeadProps
 | closePlacement   | 关闭图标位置     | `'left' \| 'right'` | `'right'` |
 
 ### ToolHead.ConfirmToolHead
-
-```typescript
-export interface ConfirmToolHeadProps
-  extends Omit<BaseToolHeadProps, 'left' | 'right' | 'center' | 'title'> {
-  title?: React.ReactNode;
-  cancelText?: React.ReactNode;
-  confirmText?: React.ReactNode;
-  onConfirm?: () => void;
-  onCancel?: () => void;
-}
-```
 
 | 参数        | 说明         | 类型        | 默认值   |
 | ----------- | ------------ | ----------- | -------- |
