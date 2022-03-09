@@ -1,0 +1,21 @@
+@import '../../config/prefixClass.less';
+
+@prefixCls: ~'@{prefixClass}-checklist-popup';
+
+.@{prefixCls} {
+  --list-font-size: 15px;
+
+  &-loading {
+    display: flex;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  .adm-list {
+    --font-size: var(--list-font-size);
+
+    a:active {
+      color: var(--adm-color-primary);
+    }
+  }
+}

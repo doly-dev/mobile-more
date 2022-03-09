@@ -18,3 +18,6 @@ export * from './components/ToolHead';
 
 export { default as Popup } from './components/Popup';
 export * from './components/Popup';
+
+export { default as CheckListPopup } from './components/CheckListPopup';
+export * from './components/CheckListPopup';
