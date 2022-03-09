@@ -15,3 +15,6 @@ export * from './components/ScrollLoadView';
 
 export { default as ToolHead } from './components/ToolHead';
 export * from './components/ToolHead';
+
+export { default as Popup } from './components/Popup';
+export * from './components/Popup';
