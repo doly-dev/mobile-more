@@ -12,3 +12,6 @@ export * from './components/ImageUploader';
 
 export { default as ScrollLoadView } from './components/ScrollLoadView';
 export * from './components/ScrollLoadView';
+
+export { default as ToolHead } from './components/ToolHead';
+export * from './components/ToolHead';

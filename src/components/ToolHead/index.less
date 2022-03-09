@@ -1,0 +1,67 @@
+@import '../../config/prefixClass.less';
+
+@prefixCls: ~'@{prefixClass}-tool-head';
+
+.@{prefixCls} {
+  --title-font-size: 15px;
+  --side-font-size: 15px;
+
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 44px;
+  border-bottom: 1px solid var(--adm-border-color);
+
+  &-left,
+  &-right {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    font-size: var(--side-font-size);
+  }
+
+  &-right {
+    justify-content: flex-end;
+  }
+
+  &-center {
+    align-self: center;
+    padding: 0 12px;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: var(--title-font-size);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 4px;
+    white-space: nowrap;
+    user-select: none;
+
+    > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+  }
+
+  &-close {
+    &-icon {
+      padding: 0 8px;
+      color: var(--adm-color-light);
+      cursor: pointer;
+    }
+  }
+
+  &-confirm {
+    &-action {
+      padding: 0 8px;
+    }
+  }
+}
