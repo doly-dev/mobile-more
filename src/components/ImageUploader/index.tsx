@@ -51,24 +51,21 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
   }, [type]);
 
   const handleBeforeUpload = React.useCallback(
-    (files: File[]) => {
-      const ret = files.filter((file) => {
-        // 校验文件大小
-        if (file.size > maxSize * 1024 * 1024) {
-          Toast.show(`请选择小于 ${maxSize}M 的图片`);
-          return false;
-        }
+    (file: File, files: File[]) => {
+      // 校验文件大小
+      if (file.size > maxSize * 1024 * 1024) {
+        Toast.show(`请选择小于 ${maxSize}M 的图片`);
+        return null;
+      }
 
-        // 校验文件类型
-        const isSupportFileType = checkFileType(file, accept);
-        if (!isSupportFileType) {
-          Toast.show(`只支持上传 ${accept} 文件`);
-          return false;
-        }
+      // 校验文件类型
+      const isSupportFileType = checkFileType(file, accept);
+      if (!isSupportFileType) {
+        Toast.show(`只支持上传 ${accept} 文件`);
+        return null;
+      }
 
-        return true;
-      });
-      return typeof beforeUpload === 'function' ? beforeUpload(ret) : ret;
+      return typeof beforeUpload === 'function' ? beforeUpload?.(file, files) : file;
     },
     [accept, beforeUpload, maxSize]
   );
