@@ -67,8 +67,15 @@ const Dictionary: React.FC<DictionaryProps> = ({
   }
 
   // 自定义组件
-  if (component) {
-    return React.cloneElement(component, props, child);
+  if (React.isValidElement(component)) {
+    return React.cloneElement(
+      component,
+      {
+        ...props,
+        ...((component?.props as any) || {})
+      },
+      child
+    );
   }
 
   return child;
