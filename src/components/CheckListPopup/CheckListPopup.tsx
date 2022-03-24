@@ -26,7 +26,7 @@ export interface CheckListPopupProps
   onChange?: (value: any) => void;
   changeClosable?: boolean; // 修改值后是否关闭弹层
   renderLabel?: (option: Option) => React.ReactNode;
-  options?: Option[];
+  options: Option[];
   filterOption?: (searchValue: string, option: Option) => boolean;
   fieldNames?: { label?: string; value?: string; readOnly?: string; disabled?: string };
   showSearch?: boolean;
@@ -161,7 +161,6 @@ function CheckListPopup(props: CheckListPopupProps) {
       bodyStyle={{ maxHeight: '70vh', ...bodyStyle }}
       headerStyle={{ marginBottom: -1, ...headerStyle }}
       extra={
-        options.length > 0 &&
         showSearch && (
           <div style={{ padding: 16 }}>
             <SearchBar
