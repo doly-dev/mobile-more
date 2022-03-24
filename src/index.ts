@@ -21,3 +21,6 @@ export * from './components/Popup';
 
 export { default as CheckListPopup } from './components/CheckListPopup';
 export * from './components/CheckListPopup';
+
+export { default as BizForm } from './components/BizForm';
+export * from './components/BizForm';

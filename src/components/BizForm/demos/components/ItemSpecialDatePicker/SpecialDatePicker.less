@@ -1,0 +1,38 @@
+.specialDatePicker {
+  display: flex;
+  align-items: center;
+
+  .datePicker {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+
+    :global {
+      .doly-icon {
+        color: var(--adm-color-light);
+        font-size: calc(var(--font-size) + 2px);
+      }
+
+      .doly-icon::after {
+        display: inline-block;
+        width: 1px;
+        height: 18px;
+        margin: 0 10px;
+        background-color: var(--adm-color-light);
+        content: '';
+      }
+    }
+  }
+
+  .checkbox {
+    :global {
+      .adm-checkbox {
+        --font-size: var(--font-size);
+        --icon-size: 20px;
+        width: 100%;
+        min-height: 24px;
+      }
+    }
+  }
+}
