@@ -21,8 +21,7 @@ const prodConfig: any = {};
 if (process.env.NODE_ENV === 'production') {
   prodConfig.headScripts = [
     {
-      src: 'https://www.googletagmanager.com/gtag/js?id=G-Z3NN7XXV9E',
-      async: true
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-Z3NN7XXV9E'
     },
     {
       content: `window.dataLayer = window.dataLayer || [];
@@ -30,6 +29,12 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-Z3NN7XXV9E');
     `
+    },
+    {
+      src: 'https://cdn.bootcdn.net/ajax/libs/vConsole/3.13.0/vconsole.min.js'
+    },
+    {
+      content: 'var vConsole = new window.VConsole();'
     }
   ];
   prodConfig.chunks = ['vendors', 'umi'];
