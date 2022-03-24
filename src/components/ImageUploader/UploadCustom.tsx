@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { prefixClass } from '../../config/prefixClass';
 import './index.less';
 
-const prefixCls = `${prefixClass}-uploadCustom`;
+const prefixCls = `${prefixClass}-upload-custom`;
 
 export interface UploadCustomProps {
   border?: 'dashed' | 'solid';

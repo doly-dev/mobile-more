@@ -1,6 +1,11 @@
-# ImageUploader
+---
+group:
+  title: 其他
+---
 
-图片上传
+# ImageUploader - 图片上传
+
+图片上传，扩展了文件类型、文件大小校验。
 
 ## 代码演示
 
@@ -15,6 +20,10 @@
 自定义上传按钮
 
 <code src='./demos/basic-custom.tsx' />
+
+使用默认的删除样式
+
+<code src='./demos/delete-style.tsx' />
 
 ### 营业执照
 
@@ -36,7 +45,8 @@
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 使用内置的上传背景类型 | `'license'\|'idcardFront'\|'idcardBack'` | - |
+| type | 使用内置的上传背景类型 | `'license' \| 'idcardFront' \| 'idcardBack'` | - |
 | maxSize | 最大上传文件大小，单位 `MB` | `number` | `2` |
 | comfirmDelete | 删除时是否需要二次确认 | `boolean` | `false` |
+| deleteStyle | 删除样式 | `'default' \| 'circle'` | `'circle'` |
 | actionRef | 操作引用 | `MutableRefObject<ImageUploaderActionType \| undefined>` | - |

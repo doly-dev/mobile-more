@@ -9,7 +9,7 @@ import checkFileType from './checkFileType';
 import { prefixClass } from '../../config/prefixClass';
 import './index.less';
 
-const prefixCls = `${prefixClass}-imageUploader`;
+const prefixCls = `${prefixClass}-image-uploader`;
 
 export type { ImageUploadItem, UploadCustomProps, UploadBackgroundProps };
 
@@ -20,6 +20,7 @@ export type ImageUploaderActionType = {
 
 export interface ImageUploaderProps extends ImageUploaderBaseProps {
   type?: 'license' | 'idcardFront' | 'idcardBack';
+  deleteStyle?: 'default' | 'circle';
   maxSize?: number;
   comfirmDelete?: boolean;
   actionRef?: React.MutableRefObject<ImageUploaderActionType | undefined>;
@@ -30,6 +31,7 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
   UploadCustom: typeof UploadCustom;
 } = ({
   type,
+  deleteStyle = 'circle',
   comfirmDelete = false,
   maxSize = 2, // 单位 MB
   beforeUpload,
@@ -42,10 +44,7 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
 }) => {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
 
-  const maxCount = React.useMemo(
-    () => (type ? outMaxCount || 1 : outMaxCount),
-    [outMaxCount, type]
-  );
+  const maxCount = React.useMemo(() => (type ? 1 : outMaxCount), [outMaxCount, type]);
   const bgview = React.useMemo(() => {
     return type ? <UploadBackground type={type} /> : null;
   }, [type]);
@@ -98,7 +97,8 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
     <div
       className={classnames(prefixCls, {
         [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-only`]: maxCount === 1
+        [`${prefixCls}-block`]: !!type,
+        [`${prefixCls}-delete-circle`]: deleteStyle === 'circle'
       })}
       ref={wrapperRef}
     >
@@ -106,7 +106,7 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
         accept={accept}
         beforeUpload={handleBeforeUpload}
         onDelete={handleDelete}
-        maxCount={type ? 1 : maxCount}
+        maxCount={maxCount}
         {...restProps}
       >
         {children || bgview}

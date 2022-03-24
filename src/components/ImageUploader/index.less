@@ -1,39 +1,42 @@
 @import '../../config/prefixClass.less';
 
-@prefixCls: ~'@{prefixClass}-imageUploader';
-@prefixClsUploadBackground: ~'@{prefixClass}-uploadBackground';
-@prefixClsUploadCustom: ~'@{prefixClass}-uploadCustom';
+@prefixCls: ~'@{prefixClass}-image-uploader';
+@prefixClsUploadBackground: ~'@{prefixClass}-upload-background';
+@prefixClsUploadCustom: ~'@{prefixClass}-upload-custom';
 
 .@{prefixCls} {
-  &-only {
+  .adm-image-uploader-space {
+    display: flex;
+  }
+
+  &-block {
     .adm-image-uploader {
       height: var(--cell-size);
     }
 
     .adm-image-uploader-space {
-      display: block;
-      margin-bottom: 0;
-
       .adm-space-item {
-        padding-bottom: 0;
+        flex: 1;
       }
     }
   }
 
-  .adm-image-uploader-cell {
-    overflow: visible;
-  }
+  &-delete-circle {
+    .adm-image-uploader-cell {
+      overflow: visible;
+    }
 
-  .adm-image-uploader-cell-delete {
-    top: -11px;
-    right: -11px;
-    width: 22px;
-    height: 22px;
-    background: url('../../assets/images/icon-delete@2x.png') 0 0 no-repeat;
-    background-size: 22px;
+    .adm-image-uploader-cell-delete {
+      top: -11px;
+      right: -11px;
+      width: 22px;
+      height: 22px;
+      background: url('../../assets/images/icon-delete@2x.png') 0 0 no-repeat;
+      background-size: 22px;
 
-    svg {
-      display: none;
+      svg {
+        display: none;
+      }
     }
   }
 
