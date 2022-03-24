@@ -73,6 +73,10 @@ export default defineConfig({
       title: '组件',
       path: '/components'
     },
+    {
+      title: '更多场景',
+      path: '/scenes'
+    },
     // {
     //   title: `v${preMajorVersionNumber}.x`,
     //   path: `https://doly-dev.github.io/mobile-more/${preVersionSiteRoot}/index.html`
