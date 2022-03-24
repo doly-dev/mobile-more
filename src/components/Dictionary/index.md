@@ -1,4 +1,9 @@
-# Dictionary
+---
+group:
+  title: 数据展示
+---
+
+# Dictionary - 数据字典
 
 数据字典
 

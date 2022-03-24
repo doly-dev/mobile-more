@@ -1,6 +1,11 @@
-# Popup
+---
+group:
+  title: 其他
+---
 
-弹出层
+# Popup - 弹出层
+
+弹出层，扩展了工具头 ToolHead。
 
 ## 代码演示
 
