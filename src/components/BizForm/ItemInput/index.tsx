@@ -23,7 +23,7 @@ export interface BizFormItemInputProps
       | 'precision'
       | 'disabledWhiteSpace'
     > {
-  inputProps?: Omit<InputProps, 'max' | 'min' | 'precision' | 'type'>;
+  inputProps?: InputProps;
 
   // only type password
   visibilityToggle?: boolean; // 是否显示密码切换按钮
@@ -48,20 +48,23 @@ const BizFormItemInput: React.FC<BizFormItemInputProps> = ({
   ...restProps
 }) => {
   const label = getLabel(restProps);
+  const mergeType = React.useMemo(() => {
+    return outType || inputProps?.type || 'text';
+  }, [inputProps?.type, outType]);
 
   // only type password
   const [visibilityPassword, setVisibilityPassword] = React.useState(false); // 密码是否可见
   const extraIcon = React.useMemo(() => {
-    if (outType !== 'password' || !visibilityToggle) {
+    if (mergeType !== 'password' || !visibilityToggle) {
       return null;
     }
     if (typeof iconRender === 'function') {
       return iconRender(visibilityPassword);
     }
     return visibilityPassword ? <Eye /> : <EyeSlash />;
-  }, [iconRender, outType, visibilityPassword, visibilityToggle]);
+  }, [iconRender, mergeType, visibilityPassword, visibilityToggle]);
   const extra = React.useMemo(() => {
-    if (outType === 'password' && visibilityToggle) {
+    if (mergeType === 'password' && visibilityToggle) {
       return (
         <div className={`${prefixCls}-extra`}>
           <div
@@ -75,23 +78,23 @@ const BizFormItemInput: React.FC<BizFormItemInputProps> = ({
       );
     }
     return outExtra;
-  }, [extraIcon, outExtra, outType, visibilityToggle]);
+  }, [extraIcon, outExtra, mergeType, visibilityToggle]);
 
   const transform = React.useCallback(
     (value: string) => {
-      if ((outType === 'bankCard' || outType === 'mobile') && value) {
+      if ((mergeType === 'bankCard' || mergeType === 'mobile') && value) {
         return value.replace(/\D/g, '');
       }
       return value;
     },
-    [outType]
+    [mergeType]
   );
   const type = React.useMemo(() => {
-    if (outType === 'password') {
+    if (mergeType === 'password') {
       return !visibilityPassword ? 'password' : 'text';
     }
-    return outType;
-  }, [outType, visibilityPassword]);
+    return mergeType;
+  }, [mergeType, visibilityPassword]);
 
   return (
     <BizFormItem
