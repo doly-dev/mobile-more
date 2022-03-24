@@ -23,7 +23,7 @@ export interface BizFormItemInputProps
       | 'precision'
       | 'disabledWhiteSpace'
     > {
-  inputProps?: InputProps;
+  inputProps?: Omit<InputProps, 'max' | 'min' | 'precision' | 'type'>;
 
   // only type password
   visibilityToggle?: boolean; // 是否显示密码切换按钮

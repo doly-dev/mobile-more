@@ -28,8 +28,8 @@ const BizFormItemImageUploader: React.FC<BizFormItemImageUploaderProps> = ({
 }) => {
   const label = getLabel(restProps);
   const realNoStyle = React.useMemo(
-    () => (typeof noStyle !== 'undefined' ? noStyle : !!type),
-    [noStyle, type]
+    () => (typeof noStyle !== 'undefined' ? noStyle : !!type || !!imageUploaderProps?.type),
+    [imageUploaderProps?.type, noStyle, type]
   );
 
   return (

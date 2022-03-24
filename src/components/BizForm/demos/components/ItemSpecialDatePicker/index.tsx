@@ -3,9 +3,9 @@ import dayjs from 'dayjs';
 import { DatePickerProps } from 'antd-mobile/es/components/date-picker';
 import { BizFormItem, BizFormItemProps } from 'mobile-more';
 import SpecialDatePicker, { SpecialDatePickerProps } from './SpecialDatePicker';
-import getLabel from '../../../../../../es/components/BizForm/utils/getLabel';
+import getLabel from '../../../utils/getLabel';
 
-interface DatePickerSpecialProps
+interface ItemSpecialDatePickerProps
   extends Omit<BizFormItemProps, 'children'>,
     Pick<SpecialDatePickerProps, 'specialValue' | 'specialLabel' | 'title'> {
   format?: string;
@@ -14,7 +14,7 @@ interface DatePickerSpecialProps
   datePickerProps?: DatePickerProps;
 }
 
-const DatePickerSpecial: React.FC<DatePickerSpecialProps> = ({
+const ItemSpecialDatePicker: React.FC<ItemSpecialDatePickerProps> = ({
   datePickerProps,
   format = 'YYYY-MM-DD',
   readOnly,
@@ -75,4 +75,4 @@ const DatePickerSpecial: React.FC<DatePickerSpecialProps> = ({
   );
 };
 
-export default DatePickerSpecial;
+export default ItemSpecialDatePicker;
