@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 import { DatePickerProps } from 'antd-mobile/es/components/date-picker';
 import { BizFormItem, BizFormItemProps } from 'mobile-more';
 import SpecialDatePicker, { SpecialDatePickerProps } from './SpecialDatePicker';
-import getLabel from '../../../utils/getLabel';
 
 interface ItemSpecialDatePickerProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -26,7 +25,7 @@ const ItemSpecialDatePicker: React.FC<ItemSpecialDatePickerProps> = ({
   required,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
+  const label = restProps?.messageVariables?.label || restProps?.label;
   const [visible, setVisible] = React.useState(false);
   const transform = React.useCallback(
     (value: Date) => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import IconScanCard from './icon-scan-card@3x.png';
-import styles from './index.less';
+import styles from './index.module.less';
 
 interface BankCardOCRProps {
   onChange?: (file: File) => void;
