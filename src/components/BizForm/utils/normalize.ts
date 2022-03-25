@@ -18,7 +18,7 @@ export const normalizeBankCard = (value: string, symbol = '') => {
 // 标准化输入身份证号
 export const normalizeIdCard = (value: string, symbol = '') => {
   const valueStr = normalizeString(value);
-  const reg = symbol ? new RegExp(`[^\\d|x|\\${symbol}]`, 'ig') : /[^\d|x]/gi;
+  const reg = symbol ? new RegExp(`[^\\dx\\${symbol}]`, 'gi') : /[^\dx]/gi;
   return valueStr.replace(reg, '').substring(0, 18).toUpperCase();
 };
 

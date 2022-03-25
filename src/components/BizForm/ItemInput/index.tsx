@@ -52,6 +52,15 @@ const BizFormItemInput: React.FC<BizFormItemInputProps> = ({
     return outType || inputProps?.type || 'text';
   }, [inputProps?.type, outType]);
 
+  const hasSpecialType = React.useMemo(
+    () =>
+      mergeType === 'bankCard' ||
+      mergeType === 'mobile' ||
+      mergeType === 'idCard' ||
+      mergeType === 'number',
+    [mergeType]
+  );
+
   // only type password
   const [visibilityPassword, setVisibilityPassword] = React.useState(false); // 密码是否可见
   const extraIcon = React.useMemo(() => {
@@ -129,6 +138,7 @@ const BizFormItemInput: React.FC<BizFormItemInputProps> = ({
       transform={transform}
       extra={extra}
       className={classnames(prefixCls, className)}
+      validateTrigger={hasSpecialType ? 'onBlur' : 'onChange'}
       {...restProps}
     >
       <Input
