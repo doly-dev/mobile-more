@@ -18,7 +18,7 @@ function Demo() {
   return (
     <DemoForm>
       <BizForm.Header>BizFormItemCascadePicker - 级联选择器</BizForm.Header>
-      <BizFormItemCascadePicker name="address" label="所在城市" options={options} />
+      <BizFormItemCascadePicker name="location" label="所在城市" options={options} />
       <BizForm.Header>BizFormItemCheckList - 勾选列表</BizForm.Header>
       <BizFormItemCheckList
         label="商户类型"
