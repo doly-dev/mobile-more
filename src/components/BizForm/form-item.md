@@ -44,6 +44,13 @@ type Option = Partial<Omit<CascadePickerProps['options'][0], 'children'>> &
   Record<string, any> & {
     children?: Option[];
   };
+
+type CascadePickerColumnItem = Partial<PickerColumnItem> & Record<string, any>;
+
+type CascadePickerValueExtend = {
+  columns: CascadePickerColumnItem[][];
+  items: (CascadePickerColumnItem | null)[];
+};
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -53,7 +60,7 @@ type Option = Partial<Omit<CascadePickerProps['options'][0], 'children'>> &
 | title | CascadePicker 标题 | `ReactNode` | - |
 | options | CascadePicker 树形的选项数据 | `Option[]` | - |
 | fieldNames | 自定义 options 数据节点 `label` `value` `children` 字段名 | `{ label?: string; value?: string; children?: string; }` | - |
-| renderCurrentValue | 自定义渲染当前选中值 | `(value: any, flatOptions: (Omit<Option, 'children'> \| null)[]) => string \| undefined;` | - |
+| renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], extend: CascadePickerValueExtend) => string \| undefined;` | - |
 | cascadePickerProps | 透传 CascadePicker 组件属性 | [CascadePickerProps](https://mobile.ant.design/zh/components/picker#cascadepicker) | - |
 
 ### CheckList - 勾选列表

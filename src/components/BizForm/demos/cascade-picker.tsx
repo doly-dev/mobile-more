@@ -15,14 +15,23 @@ function Demo() {
 
   return (
     <DemoForm>
-      <BizFormItemCascadePicker name="address" label="所在城市" options={options} />
+      <BizFormItemCascadePicker
+        name="address"
+        label="所在城市"
+        options={options}
+        cascadePickerProps={{
+          onSelect: (value, extend) => {
+            console.log(value, extend);
+          }
+        }}
+      />
       <BizForm.Header>特殊自定义</BizForm.Header>
       <BizFormItemCascadePicker
         name="mcc"
         label="经营范围"
         options={data}
         fieldNames={{ label: 'name', value: 'code' }}
-        renderCurrentValue={(_, valueFlatOptions) => valueFlatOptions.reverse()[0]?.name}
+        renderCurrentValue={(value, { items }) => items.reverse()[1]?.name}
       />
       <ItemAreaCode name="areaCode" label="地区码" />
     </DemoForm>

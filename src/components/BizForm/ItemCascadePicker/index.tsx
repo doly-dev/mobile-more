@@ -13,7 +13,7 @@ export interface BizFormItemCascadePickerProps
       'placeholder' | 'title' | 'options' | 'fieldNames' | 'renderCurrentValue'
     > {
   readOnly?: boolean;
-  cascadePickerProps?: CascadePickerProps;
+  cascadePickerProps?: Partial<CascadePickerProps>;
 }
 
 const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({

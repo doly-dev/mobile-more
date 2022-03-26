@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getPCA, getPC } from 'lcn';
-// import { getPCA, isCrownCountryCityCode } from 'lcn';
+// import { getPCA, getPC, isCrownCountryCityCode } from 'lcn';
 import { BizFormItemCascadePicker, BizFormItemCascadePickerProps } from 'mobile-more';
 
 const pcaOptions = getPCA({ fieldNames: { code: 'value', name: 'label' }, inland: true });
@@ -15,9 +15,9 @@ const ItemAreaCode: React.FC<ItemAreaCodeProps> = ({ showArea = true, ...restPro
   return (
     <BizFormItemCascadePicker
       options={showArea ? pcaOptions : pcOptions}
-      // renderCurrentValue={(value, valueFlatOptions) => {
+      // renderCurrentValue={(value, { items }) => {
       //   const arr: string[] = [];
-      //   valueFlatOptions.forEach(item => {
+      //   items.forEach(item => {
       //     // 展示时过滤直辖市或直辖县的市级，如海南省的直辖县级行政区划、新疆维吾尔自治区的自治区直辖县级行政区划
       //     if (item?.value && !isCrownCountryCityCode(item.value)) {
       //       arr.push(item.label);
