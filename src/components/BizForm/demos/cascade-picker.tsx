@@ -15,16 +15,9 @@ function Demo() {
 
   return (
     <DemoForm>
-      <BizFormItemCascadePicker
-        name="address"
-        label="所在城市"
-        options={options}
-        cascadePickerProps={{
-          onSelect: (value, extend) => {
-            console.log(value, extend);
-          }
-        }}
-      />
+      <BizFormItemCascadePicker name="cascadePicker1" label="级联选择" options={options} />
+      <BizFormItemCascadePicker name="cascadePicker2" label="只读" options={options} readOnly />
+      <BizFormItemCascadePicker name="cascadePicker3" label="禁用" options={options} disabled />
       <BizForm.Header>特殊自定义</BizForm.Header>
       <BizFormItemCascadePicker
         name="mcc"
