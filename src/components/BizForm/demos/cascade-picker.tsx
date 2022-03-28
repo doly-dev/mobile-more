@@ -25,6 +25,7 @@ function Demo() {
         options={data}
         fieldNames={{ label: 'name', value: 'code' }}
         renderCurrentValue={(value, { items }) => items.reverse()[1]?.name}
+        help="自定义渲染，只显示二级类目"
       />
       <ItemAreaCode name="areaCode" label="地区码" />
     </DemoForm>

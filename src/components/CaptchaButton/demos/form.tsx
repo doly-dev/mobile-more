@@ -14,20 +14,19 @@ function Demo() {
   const [loading, setLoading] = React.useState(false);
   const [start, setStart] = React.useState(false);
 
-  const handleClickCaptcha = React.useCallback(() => {
-    form
-      .validateFields(['mobile'])
-      .then(async () => {
-        setLoading(true);
-        await sendCaptcha(form.getFieldValue(['mobile']));
-        setStart(true);
-      })
-      .catch(() => {
-        Toast.show({ content: '请输入正确的手机号码' });
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+  const handleClickCaptcha = React.useCallback(async () => {
+    try {
+      await form.validateFields(['mobile']);
+    } catch (err: any) {
+      Toast.show({ content: err.errorFields[0].errors[0] });
+      return false;
+    }
+
+    setLoading(true);
+    return sendCaptcha(form.getFieldValue(['mobile'])).finally(() => {
+      setLoading(false);
+      setStart(true);
+    });
   }, [form]);
 
   return (
@@ -54,19 +53,12 @@ function Demo() {
         label="手机号码"
         type="number"
         maxLength={11}
-        rules={[
-          {
-            required: true,
-            message: '请输入手机号码'
-          },
+        required
+        extendRules={[
           {
             validator(_, value) {
-              let errMsg = '';
               if (value && !isMobile(value)) {
-                errMsg = '请输入正确的手机号码';
-              }
-              if (errMsg) {
-                return Promise.reject(errMsg);
+                return Promise.reject('请输入正确的手机号码');
               }
               return Promise.resolve();
             }

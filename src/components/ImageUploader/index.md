@@ -5,6 +5,8 @@ group:
 
 # ImageUploader - 图片上传
 
+> 推荐使用 [BizFormItemImageUploader](/components/biz-form/form-item#imageuploader---图片上传)
+
 图片上传，扩展了文件类型、文件大小校验。
 
 ## 代码演示

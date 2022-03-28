@@ -31,6 +31,34 @@ import { BizFormItem, BizFormItemProps } from 'mobile-more';
 
 下列组件是基于 BizFormItem 扩展，继承 BizFormItem 所有属性。
 
+### Captcha - 验证码
+
+<code src='./demos/captcha.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemCaptcha, BizFormItemCaptchaProps } from 'mobile-more';
+
+interface BizFormItemCaptchaProps
+  extends BizFormItemInputProps,
+    Pick<CaptchaButtonProps, 'initText' | 'runText' | 'resetText' | 'second'> {
+  onGetCaptcha?: () => boolean | Promise<any>;
+  captchaButtonProps?: CaptchaButtonProps;
+}
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| placeholder | 占位符，提示文本 | `string` | - |
+| onGetCaptcha | 点击按钮触发。用于验证手机号码或邮箱，请求获取验证码。如果返回 `false` 或 `Promise.reject()` 表示验证失败。 | `()=> boolean \| Promise<any>` | `()=>true` |
+| initText | 按钮初始显示文本 | `string` | `获取验证码` |
+| runText | 按钮倒计时显示文本，包含 `%s` 会自动替换为秒数 | `string` | `%s秒后重新获取` |
+| resetText | 按钮倒计时结束显示文本 | `string` | `重新获取验证码` |
+| second | 按钮倒计时时长，单位秒 | `number` | `60` |
+| inputProps | 输入框的属性 | [InputProps](https://mobile.ant.design/zh/components/input#属性) | - |
+| captchaButtonProps | 按钮的属性 | [CaptchaButtonProps](/components/captcha-button#api) | - |
+
 ### CascadePicker - 级联选择器
 
 <code src='./demos/cascade-picker.tsx' />

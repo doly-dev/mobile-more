@@ -5,6 +5,8 @@ group:
 
 # CaptchaButton - 验证码按钮
 
+> 推荐使用 [BizFormItemCaptcha](/components/biz-form/form-item#captcha---验证码)。
+
 验证码按钮，用于获取手机号验证码、邮箱验证码等场景。
 
 ## 代码演示
