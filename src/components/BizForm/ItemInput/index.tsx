@@ -63,7 +63,7 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
 
     // only type password
     const [visibilityPassword, setVisibilityPassword] = React.useState(false); // 密码是否可见
-    const extraIcon = React.useMemo(() => {
+    const passwordVisibilityIcon = React.useMemo(() => {
       if (mergeType !== 'password' || !visibilityToggle) {
         return null;
       }
@@ -147,7 +147,7 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
           maxLength={maxLength}
           max={max}
           min={min}
-          suffix={extraIcon}
+          suffix={passwordVisibilityIcon}
           {...inputProps}
           ref={inputRef}
           type={type}

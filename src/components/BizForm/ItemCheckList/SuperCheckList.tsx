@@ -33,14 +33,14 @@ const SuperCheckList: React.FC<SuperCheckListProps> = ({
   const option = React.useMemo(() => {
     return options.find((item) => item[valueKey] === value);
   }, [options, value, valueKey]);
-  const valueView =
+  const valueStr =
     typeof renderCurrentValue === 'function'
       ? renderCurrentValue(value, option)
       : option?.[labelKey] || '';
 
   return (
     <>
-      <Input readOnly value={valueView} placeholder={placeholder} />
+      <Input readOnly value={valueStr} placeholder={placeholder} />
       <CheckListPopup value={value} options={options} fieldNames={fieldNames} {...restProps} />
     </>
   );
