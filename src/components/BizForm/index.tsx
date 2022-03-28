@@ -5,8 +5,9 @@ import BizFormItemCaptcha, { BizFormItemCaptchaProps } from './ItemCaptcha';
 import BizFormItemCascadePicker, { BizFormItemCascadePickerProps } from './ItemCascadePicker';
 import BizFormItemCheckList, { BizFormItemCheckListProps } from './ItemCheckList';
 import BizFormItemDatePicker, { BizFormItemDatePickerProps } from './ItemDatePicker';
-import BizFormItemInput, { BizFormItemInputProps } from './ItemInput';
 import BizFormItemImageUploader, { BizFormItemImageUploaderProps } from './ItemImageUploader';
+import BizFormItemInput, { BizFormItemInputProps } from './ItemInput';
+import BizFormItemPicker, { BizFormItemPickerProps } from './ItemPicker';
 import BizFormItemTextArea, { BizFormItemTextAreaProps } from './ItemTextArea';
 
 export {
@@ -16,8 +17,9 @@ export {
   BizFormItemCascadePicker,
   BizFormItemCheckList,
   BizFormItemDatePicker,
-  BizFormItemInput,
   BizFormItemImageUploader,
+  BizFormItemInput,
+  BizFormItemPicker,
   BizFormItemTextArea
 };
 
@@ -29,8 +31,9 @@ export type {
   BizFormItemCascadePickerProps,
   BizFormItemCheckListProps,
   BizFormItemDatePickerProps,
-  BizFormItemInputProps,
   BizFormItemImageUploaderProps,
+  BizFormItemInputProps,
+  BizFormItemPickerProps,
   BizFormItemTextAreaProps
 };
 

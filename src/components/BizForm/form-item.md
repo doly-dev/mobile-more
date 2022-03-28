@@ -50,7 +50,7 @@ interface BizFormItemCaptchaProps
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| placeholder | 占位符，提示文本 | `string` | - |
+| placeholder | 占位符，提示文本 | `string` | `'请输入'` |
 | onGetCaptcha | 点击按钮触发。用于验证手机号码或邮箱，请求获取验证码。如果返回 `false` 或 `Promise.reject()` 表示验证失败。 | `()=> boolean \| Promise<any>` | `()=>true` |
 | initText | 按钮初始显示文本 | `string` | `获取验证码` |
 | runText | 按钮倒计时显示文本，包含 `%s` 会自动替换为秒数 | `string` | `%s秒后重新获取` |
@@ -72,23 +72,17 @@ type Option = Partial<Omit<CascadePickerProps['options'][0], 'children'>> &
   Record<string, any> & {
     children?: Option[];
   };
-
-type CascadePickerColumnItem = Partial<PickerColumnItem> & Record<string, any>;
-
-type CascadePickerValueExtend = {
-  columns: CascadePickerColumnItem[][];
-  items: (CascadePickerColumnItem | null)[];
-};
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| placeholder | 占位符，提示文本 | `string` | - |
+| placeholder | 占位符，提示文本 | `string` | `'请选择'` |
 | readOnly | 只读。<br/>点击不弹出 CascadePicker 。 | `boolean` | - |
 | title | CascadePicker 标题 | `ReactNode` | - |
 | options | CascadePicker 树形的选项数据 | `Option[]` | - |
-| fieldNames | 自定义 options 数据节点 `label` `value` `children` 字段名 | `{ label?: string; value?: string; children?: string; }` | - |
-| renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], extend: CascadePickerValueExtend) => string \| undefined;` | - |
+| fieldNames | 将数据转为 `label` `value` `children` 字段名 | `{ label?: string; value?: string; children?: string; }` | - |
+| separator | 默认渲染当前值的分隔符 | `string` | `'/'` |
+| renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
 | cascadePickerProps | 透传 CascadePicker 组件属性 | [CascadePickerProps](https://mobile.ant.design/zh/components/picker#cascadepicker) | - |
 
 ### CheckList - 勾选列表
@@ -111,7 +105,7 @@ type Option = {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| placeholder | 占位符，提示文本 | `string` | - |
+| placeholder | 占位符，提示文本 | `string` | `'请选择'` |
 | readOnly | 只读。<br/>点击不弹出 CheckListPopup 。 | `boolean` | - |
 | title | CheckListPopup 标题 | `ReactNode` | - |
 | loading | 显示加载中 | `boolean` | - |
@@ -145,7 +139,7 @@ export const defaultFormat = {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| placeholder | 占位符，提示文本 | `string` | - |
+| placeholder | 占位符，提示文本 | `string` | `'请选择'` |
 | readOnly | 只读。<br/>点击不弹出 CheckListPopup 。 | `boolean` | - |
 | title | CheckListPopup 标题 | `ReactNode` | - |
 | format | 日期格式，默认根据不同 `precision` 设置。 | `string \| ((date: Date, precision: DatePickerProps['precision']) => string)` | - |
@@ -185,7 +179,7 @@ import { BizFormItemInput, BizFormItemInputProps } from 'mobile-more';
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| placeholder | 占位符，提示文本 | `string` | - |
+| placeholder | 占位符，提示文本 | `string` | `'请输入'` |
 | type | 类型，在原生基础上做了扩展。 | `HTMLInputTypeAttribute \| 'mobile' \| 'bankCard' \| 'idCard'` | `'text'` |
 | clearable | 是否启用清除图标，点击清除图标后会清空输入框 | `boolean` | `false` |
 | maxLength | 最大字符数 | `number` | - |
@@ -196,6 +190,31 @@ import { BizFormItemInput, BizFormItemInputProps } from 'mobile-more';
 | visibilityToggle | 是否显示密码切换按钮，仅在 `type` 为 `password` 时生效。 | `boolean` | `true` |
 | iconRender | 自定义切换按钮，仅在 `type` 为 `password` 时生效。 | `(visibility: boolean) => ReactNode;` | - |
 | inputProps | 透传 Input 组件属性 | [InputProps](https://mobile.ant.design/zh/components/input#属性) | - |
+
+### Picker - 选择器
+
+<code src='./demos/picker.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemPicker, BizFormItemPickerProps } from 'mobile-more';
+
+type SuperPickerColumnItem = Partial<PickerColumnItem> & Record<string, any>;
+
+type SuperPickerColumn = (string | SuperPickerColumnItem)[];
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| placeholder | 占位符，提示文本 | `string` | `'请选择'` |
+| readOnly | 只读。<br/>点击不弹出 Picker 。 | `boolean` | - |
+| title | Picker 标题 | `ReactNode` | - |
+| columns | Picker 二维数组选项数据 | `SuperPickerColumn[] \| ((value?: PickerValue[]) => SuperPickerColumn[])[]` | - |
+| fieldNames | 将数据转为 `label` `value` 字段名 | `{ label?: string; value?: string; }` | - |
+| separator | 默认渲染当前值的分隔符 | `string` | `' - '` |
+| renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
+| pickerProps | 透传 Picker 组件属性 | [PickerProps](https://mobile.ant.design/zh/components/picker#属性) | - |
 
 ### TextArea - 文本域
 
@@ -209,7 +228,7 @@ import { BizFormItemTextArea, BizFormItemTextAreaProps } from 'mobile-more';
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| placeholder | 占位符，提示文本 | `string` | - |
+| placeholder | 占位符，提示文本 | `string` | `'请输入'` |
 | autoSize | 自适应内容高度 | `boolean \| { minRows?: number, maxRows?: number }` | `false` |
 | rows | 行数 | `number` | `2` |
 | maxLength | 最大字符数 | `number` | - |

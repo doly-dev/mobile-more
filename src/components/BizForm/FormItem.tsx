@@ -4,7 +4,7 @@ import { FormItemProps } from 'antd-mobile/es/components/form';
 import FormContext from './FormContext';
 import FormArrayContext from './FormArrayContext';
 
-// TODO: 新增 ItemCascade,ItemPicker,ItemRate,ItemSlider,ItemStepper,ItemSwich
+// TODO: 新增 ItemCascade,ItemRate,ItemSlider,ItemStepper,ItemSwich
 
 export interface BizFormItemProps<ValueType = any> extends FormItemProps {
   extendRules?: FormItemProps['rules'];
