@@ -57,6 +57,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.17.0",
+    "countdown-pro": "^1.0.2",
     "dayjs": "^1.11.0",
     "doly-icons": "^1.2.1",
     "rc-hooks": "^2.0.2",

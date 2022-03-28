@@ -24,3 +24,6 @@ export * from './components/CheckListPopup';
 
 export { default as BizForm } from './components/BizForm';
 export * from './components/BizForm';
+
+export { default as CaptchaButton } from './components/CaptchaButton';
+export * from './components/CaptchaButton';
