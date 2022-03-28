@@ -23,7 +23,7 @@ const BankCardOCR: React.FC<BankCardOCRProps> = ({ onChange }) => {
       <input
         type="file"
         accept="image/*"
-        capture="environment"
+        // capture="environment"
         onChange={handleChange}
         ref={inputRef}
       />
