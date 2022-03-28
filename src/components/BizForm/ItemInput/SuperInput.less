@@ -1,0 +1,22 @@
+@import '../../../config/prefixClass.less';
+
+@prefixCls: ~'@{prefixClass}-input';
+
+.@{prefixCls} {
+  display: flex;
+  align-items: center;
+
+  &-prefix,
+  &-suffix {
+    display: flex;
+    align-items: center;
+  }
+
+  &-prefix {
+    margin-right: 4px;
+  }
+
+  &-suffix {
+    margin-left: 4px;
+  }
+}
