@@ -15,7 +15,7 @@ const ItemAreaCode: React.FC<ItemAreaCodeProps> = ({ showArea = true, ...restPro
   return (
     <BizFormItemCascadePicker
       options={showArea ? pcaOptions : pcOptions}
-      // renderCurrentValue={(value, { items }) => {
+      // renderCurrentValue={(value, items) => {
       //   const arr: string[] = [];
       //   items.forEach(item => {
       //     // 展示时过滤直辖市或直辖县的市级，如海南省的直辖县级行政区划、新疆维吾尔自治区的自治区直辖县级行政区划

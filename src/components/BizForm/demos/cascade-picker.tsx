@@ -24,7 +24,7 @@ function Demo() {
         label="经营范围"
         options={data}
         fieldNames={{ label: 'name', value: 'code' }}
-        renderCurrentValue={(value, { items }) => items.reverse()[1]?.name}
+        renderCurrentValue={(value, items) => (items[1]?.label as string) || ''}
         help="自定义渲染，只显示二级类目"
       />
       <ItemAreaCode name="areaCode" label="地区码" />

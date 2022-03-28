@@ -1,19 +1,16 @@
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import getLabel from '../utils/getLabel';
-import SuperCascadePicker, {
-  SuperCascadePickerProps,
-  CascadePickerProps
-} from './SuperCascadePicker';
+import SuperCascadePicker, { SuperCascadePickerProps } from './SuperCascadePicker';
 
 export interface BizFormItemCascadePickerProps
   extends Omit<BizFormItemProps, 'children'>,
     Pick<
       SuperCascadePickerProps,
-      'placeholder' | 'title' | 'options' | 'fieldNames' | 'renderCurrentValue'
+      'placeholder' | 'title' | 'options' | 'fieldNames' | 'renderCurrentValue' | 'separator'
     > {
   readOnly?: boolean;
-  cascadePickerProps?: Partial<CascadePickerProps>;
+  cascadePickerProps?: Partial<SuperCascadePickerProps>;
 }
 
 const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
@@ -25,6 +22,7 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
   options,
   fieldNames,
   renderCurrentValue,
+  separator,
   cascadePickerProps,
 
   // item props
@@ -71,6 +69,7 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
         fieldNames={fieldNames}
         placeholder={placeholder}
         renderCurrentValue={renderCurrentValue}
+        separator={separator}
         {...cascadePickerProps}
       />
     </BizFormItem>
