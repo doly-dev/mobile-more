@@ -68,10 +68,9 @@ interface BizFormItemCaptchaProps
 ```typescript
 import { BizFormItemCascadePicker, BizFormItemCascadePickerProps } from 'mobile-more';
 
-type Option = Partial<Omit<CascadePickerProps['options'][0], 'children'>> &
-  Record<string, any> & {
-    children?: Option[];
-  };
+type Option = Partial<Omit<CascadePickerOption, 'children'>> & {
+  children?: Option[];
+} & Record<string, any>;
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -201,7 +200,6 @@ import { BizFormItemInput, BizFormItemInputProps } from 'mobile-more';
 import { BizFormItemPicker, BizFormItemPickerProps } from 'mobile-more';
 
 type SuperPickerColumnItem = Partial<PickerColumnItem> & Record<string, any>;
-
 type SuperPickerColumn = (string | SuperPickerColumnItem)[];
 ```
 
