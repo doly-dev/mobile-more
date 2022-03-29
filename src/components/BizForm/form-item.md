@@ -84,6 +84,31 @@ type Option = Partial<Omit<CascadePickerOption, 'children'>> & {
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
 | cascadePickerProps | 透传 CascadePicker 组件属性 | [CascadePickerProps](https://mobile.ant.design/zh/components/picker#cascadepicker) | - |
 
+### Cascader - 级联选择
+
+<code src='./demos/cascader.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemCascader, BizFormItemCascaderProps } from 'mobile-more';
+
+type Option = Partial<Omit<CascaderOption, 'children'>> & {
+  children?: Option[];
+} & Record<string, any>;
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| placeholder | 占位符，提示文本 | `string` | `'请选择'` |
+| readOnly | 只读。<br/>点击不弹出 Cascader 。 | `boolean` | - |
+| title | Cascader 标题 | `ReactNode` | - |
+| options | Cascader 树形的选项数据 | `Option[]` | - |
+| mapKeys | 数据转换为 `label` `value` `disabled` `children` 键 | `{ label?: string; value?: string; disabled?: string; children?: string; }` | - |
+| separator | 默认渲染当前值的分隔符 | `string` | `'/'` |
+| renderCurrentValue | 自定义渲染当前选中值 | `(value: CascaderValue[] \| undefined, items: (CascaderOption \| null)[]) => string \| undefined;` | - |
+| cascaderProps | 透传 Cascader 组件属性 | [CascaderProps](https://mobile.ant.design/zh/components/cascader#属性) | - |
+
 ### CheckList - 勾选列表
 
 <code src='./demos/check-list.tsx' />

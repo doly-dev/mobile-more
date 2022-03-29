@@ -1,25 +1,29 @@
-export type Obj = {
+type Keys = {
   label?: string;
   value?: string;
   [key: string]: any;
 };
 
-export type ObjWithChildren = Obj & {
+type KeysWithChildren = Keys & {
   children?: string;
 };
 
 type DateItem = string | Record<string, any>;
 
-function mapKeys(data: DateItem[], obj?: Obj): Required<Obj>[];
-function mapKeys(data: DateItem[], keys?: ObjWithChildren): Required<ObjWithChildren>[];
-function mapKeys(data: DateItem[], keys: ObjWithChildren = {}) {
+function transformKeys(data: DateItem[], keys?: Keys): Required<Keys>[];
+function transformKeys(data: DateItem[], keys?: KeysWithChildren): Required<KeysWithChildren>[];
+function transformKeys(data: DateItem[], keys: KeysWithChildren = {}) {
   const {
     label: labelKey,
     value: valueKey,
+    disabled: disabledKey,
+    readOnly: readOnlyKey,
     children: childrenKey
   } = {
     label: 'label',
     value: 'value',
+    disabled: 'disabled',
+    readOnly: 'readOnly',
     children: 'children',
     ...keys
   };
@@ -32,14 +36,20 @@ function mapKeys(data: DateItem[], keys: ObjWithChildren = {}) {
           value: item
         };
       }
-      const newItem = {
+      const newItem: Record<string, any> = {
         label: item[labelKey],
         value: item[valueKey]
       };
 
+      if (typeof item?.[disabledKey] !== 'undefined') {
+        newItem.disabled = item[disabledKey];
+      }
+
+      if (typeof item?.[readOnlyKey] !== 'undefined') {
+        newItem.readOnly = item[readOnlyKey];
+      }
+
       if (Array.isArray(item[childrenKey]) && item[childrenKey].length > 0) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         newItem.children = recursion(item[childrenKey]);
       }
       return newItem;
@@ -49,4 +59,4 @@ function mapKeys(data: DateItem[], keys: ObjWithChildren = {}) {
   return recursion(data);
 }
 
-export default mapKeys;
+export default transformKeys;

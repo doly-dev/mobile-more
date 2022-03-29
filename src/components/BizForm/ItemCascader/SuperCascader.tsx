@@ -1,30 +1,34 @@
 import * as React from 'react';
-import { CascadePicker, Input } from 'antd-mobile';
-import { CascadePickerProps, CascadePickerOption } from 'antd-mobile/es/components/cascade-picker';
-import { PickerValue, PickerValueExtend } from 'antd-mobile/es/components/picker';
+import { Cascader, Input } from 'antd-mobile';
+import {
+  CascaderProps,
+  CascaderOption,
+  CascaderValue,
+  CascaderValueExtend
+} from 'antd-mobile/es/components/cascader';
 import { InputProps } from 'antd-mobile/es/components/input';
 import transformKeys from '../utils/transformKeys';
 
-export type { CascadePickerProps };
+export type { CascaderProps };
 
-type Option = Partial<Omit<CascadePickerOption, 'children'>> & { children?: Option[] } & Record<
+type Option = Partial<Omit<CascaderOption, 'children'>> & { children?: Option[] } & Record<
     string,
     any
   >;
 
-export interface SuperCascadePickerProps
+export interface SuperCascaderProps
   extends Pick<InputProps, 'placeholder'>,
-    Omit<CascadePickerProps, 'options'> {
+    Omit<CascaderProps, 'options'> {
   options: Option[];
   renderCurrentValue?: (
-    value: PickerValue[] | undefined,
-    items: PickerValueExtend['items']
+    value: CascaderValue[] | undefined,
+    items: CascaderValueExtend['items']
   ) => string | undefined;
-  mapKeys?: { label?: string; value?: string; children?: string };
+  mapKeys?: { label?: string; value?: string; disabled?: string; children?: string };
   separator?: string;
 }
 
-const SuperCascadePicker: React.FC<SuperCascadePickerProps> = ({
+const SuperCascader: React.FC<SuperCascaderProps> = ({
   placeholder = '请选择',
   value,
   options: outOptions = [],
@@ -37,11 +41,11 @@ const SuperCascadePicker: React.FC<SuperCascadePickerProps> = ({
     if (mapKeys) {
       return transformKeys(outOptions, mapKeys);
     }
-    return outOptions as CascadePickerProps['options'];
+    return outOptions as unknown as CascaderOption[];
   }, [mapKeys, outOptions]);
 
   return (
-    <CascadePicker value={value} options={options} {...restProps}>
+    <Cascader value={value} options={options} {...restProps}>
       {(items) => {
         const valueStr =
           typeof renderCurrentValue === 'function'
@@ -49,8 +53,8 @@ const SuperCascadePicker: React.FC<SuperCascadePickerProps> = ({
             : items.map((item) => item?.label).join(separator);
         return <Input value={valueStr} placeholder={placeholder} readOnly />;
       }}
-    </CascadePicker>
+    </Cascader>
   );
 };
 
-export default SuperCascadePicker;
+export default SuperCascader;

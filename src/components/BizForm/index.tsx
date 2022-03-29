@@ -3,6 +3,7 @@ import BizFormArray, { BizFormArrayProps } from './FormArray';
 import BizFormItem, { BizFormItemProps } from './FormItem';
 import BizFormItemCaptcha, { BizFormItemCaptchaProps } from './ItemCaptcha';
 import BizFormItemCascadePicker, { BizFormItemCascadePickerProps } from './ItemCascadePicker';
+import BizFormItemCascader, { BizFormItemCascaderProps } from './ItemCascader';
 import BizFormItemCheckList, { BizFormItemCheckListProps } from './ItemCheckList';
 import BizFormItemDatePicker, { BizFormItemDatePickerProps } from './ItemDatePicker';
 import BizFormItemImageUploader, { BizFormItemImageUploaderProps } from './ItemImageUploader';
@@ -15,6 +16,7 @@ export {
   BizFormItem,
   BizFormItemCaptcha,
   BizFormItemCascadePicker,
+  BizFormItemCascader,
   BizFormItemCheckList,
   BizFormItemDatePicker,
   BizFormItemImageUploader,
@@ -29,6 +31,7 @@ export type {
   BizFormItemProps,
   BizFormItemCaptchaProps,
   BizFormItemCascadePickerProps,
+  BizFormItemCascaderProps,
   BizFormItemCheckListProps,
   BizFormItemDatePickerProps,
   BizFormItemImageUploaderProps,
