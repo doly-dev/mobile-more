@@ -120,7 +120,7 @@ function Demo() {
           placeholder="请选择经营范围"
           title="请选择经营范围"
           options={mccOptions}
-          fieldNames={{ label: 'name', value: 'code' }}
+          mapKeys={{ label: 'name', value: 'code' }}
           required
         />
         <BizFormItemDatePicker
