@@ -80,7 +80,7 @@ type Option = Partial<Omit<CascadePickerProps['options'][0], 'children'>> &
 | readOnly | 只读。<br/>点击不弹出 CascadePicker 。 | `boolean` | - |
 | title | CascadePicker 标题 | `ReactNode` | - |
 | options | CascadePicker 树形的选项数据 | `Option[]` | - |
-| fieldNames | 将数据转为 `label` `value` `children` 字段名 | `{ label?: string; value?: string; children?: string; }` | - |
+| mapKeys | 数据转换为 `label` `value` `children` 键 | `{ label?: string; value?: string; children?: string; }` | - |
 | separator | 默认渲染当前值的分隔符 | `string` | `'/'` |
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
 | cascadePickerProps | 透传 CascadePicker 组件属性 | [CascadePickerProps](https://mobile.ant.design/zh/components/picker#cascadepicker) | - |
@@ -211,7 +211,7 @@ type SuperPickerColumn = (string | SuperPickerColumnItem)[];
 | readOnly | 只读。<br/>点击不弹出 Picker 。 | `boolean` | - |
 | title | Picker 标题 | `ReactNode` | - |
 | columns | Picker 二维数组选项数据 | `SuperPickerColumn[] \| ((value?: PickerValue[]) => SuperPickerColumn[])[]` | - |
-| fieldNames | 将数据转为 `label` `value` 字段名 | `{ label?: string; value?: string; }` | - |
+| mapKeys | 数据转换为 `label` `value` 键 | `{ label?: string; value?: string; }` | - |
 | separator | 默认渲染当前值的分隔符 | `string` | `' - '` |
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
 | pickerProps | 透传 Picker 组件属性 | [PickerProps](https://mobile.ant.design/zh/components/picker#属性) | - |

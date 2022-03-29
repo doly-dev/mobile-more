@@ -8,7 +8,7 @@ import {
   PickerValue,
   PickerValueExtend
 } from 'antd-mobile/es/components/picker';
-import transformFieldNames from '../utils/transformFieldNames';
+import transformKeys from '../utils/transformKeys';
 
 type SuperPickerColumnItem = Partial<PickerColumnItem> & Record<string, any>;
 
@@ -22,14 +22,14 @@ export interface SuperPickerProps
     value: PickerValue[] | undefined,
     items: PickerValueExtend['items']
   ) => string | undefined;
-  fieldNames?: { label?: string; value?: string };
+  mapKeys?: { label?: string; value?: string };
   separator?: string;
 }
 
 const SuperPicker: React.FC<SuperPickerProps> = ({
   placeholder = '请选择',
   renderCurrentValue,
-  fieldNames,
+  mapKeys,
   columns: outColumns = [],
   value,
   separator = ' - ',
@@ -41,11 +41,11 @@ const SuperPicker: React.FC<SuperPickerProps> = ({
   );
 
   const columns = React.useMemo(() => {
-    if (fieldNames) {
-      return realColumns.map((item) => transformFieldNames(item, fieldNames));
+    if (mapKeys) {
+      return realColumns.map((item) => transformKeys(item, mapKeys));
     }
     return realColumns as PickerColumn[];
-  }, [fieldNames, realColumns]);
+  }, [mapKeys, realColumns]);
 
   return (
     <Picker columns={columns} value={value} {...restProps}>

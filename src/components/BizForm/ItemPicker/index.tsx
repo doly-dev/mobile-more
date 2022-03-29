@@ -7,7 +7,7 @@ export interface BizFormItemPickerProps
   extends Omit<BizFormItemProps, 'children'>,
     Pick<
       SuperPickerProps,
-      'columns' | 'renderCurrentValue' | 'separator' | 'fieldNames' | 'title' | 'placeholder'
+      'columns' | 'renderCurrentValue' | 'separator' | 'mapKeys' | 'title' | 'placeholder'
     > {
   readOnly?: boolean;
   pickerProps?: Partial<SuperPickerProps>;
@@ -15,7 +15,7 @@ export interface BizFormItemPickerProps
 
 const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
   placeholder,
-  fieldNames,
+  mapKeys,
   renderCurrentValue,
   separator,
   columns = [],
@@ -62,7 +62,7 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
         visible={visible}
         onClose={() => setVisible(false)}
         placeholder={placeholder}
-        fieldNames={fieldNames}
+        mapKeys={mapKeys}
         renderCurrentValue={renderCurrentValue}
         separator={separator}
         columns={columns}

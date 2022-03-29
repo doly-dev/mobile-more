@@ -1,21 +1,18 @@
-export type FieldNames = {
+export type Obj = {
   label?: string;
   value?: string;
   [key: string]: any;
 };
 
-export type FieldNamesWithChildren = FieldNames & {
+export type ObjWithChildren = Obj & {
   children?: string;
 };
 
 type DateItem = string | Record<string, any>;
 
-function transformFieldNames(data: DateItem[], fieldNames?: FieldNames): Required<FieldNames>[];
-function transformFieldNames(
-  data: DateItem[],
-  fieldNames?: FieldNamesWithChildren
-): Required<FieldNamesWithChildren>[];
-function transformFieldNames(data: DateItem[], fieldNames: FieldNamesWithChildren = {}) {
+function mapKeys(data: DateItem[], obj?: Obj): Required<Obj>[];
+function mapKeys(data: DateItem[], keys?: ObjWithChildren): Required<ObjWithChildren>[];
+function mapKeys(data: DateItem[], keys: ObjWithChildren = {}) {
   const {
     label: labelKey,
     value: valueKey,
@@ -24,7 +21,7 @@ function transformFieldNames(data: DateItem[], fieldNames: FieldNamesWithChildre
     label: 'label',
     value: 'value',
     children: 'children',
-    ...fieldNames
+    ...keys
   };
 
   function recursion(list: DateItem[]) {
@@ -52,4 +49,4 @@ function transformFieldNames(data: DateItem[], fieldNames: FieldNamesWithChildre
   return recursion(data);
 }
 
-export default transformFieldNames;
+export default mapKeys;

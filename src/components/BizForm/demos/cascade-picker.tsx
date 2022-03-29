@@ -23,7 +23,7 @@ function Demo() {
         name="mcc"
         label="经营范围"
         options={data}
-        fieldNames={{ label: 'name', value: 'code' }}
+        mapKeys={{ label: 'name', value: 'code' }}
         renderCurrentValue={(value, items) => (items[1]?.label as string) || ''}
         help="自定义渲染，只显示二级类目"
       />

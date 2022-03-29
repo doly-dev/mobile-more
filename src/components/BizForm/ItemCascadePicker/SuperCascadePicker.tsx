@@ -3,7 +3,7 @@ import { CascadePicker, Input } from 'antd-mobile';
 import { CascadePickerProps, CascadePickerOption } from 'antd-mobile/es/components/cascade-picker';
 import { PickerValue, PickerValueExtend } from 'antd-mobile/es/components/picker';
 import { InputProps } from 'antd-mobile/es/components/input';
-import transformFieldNames from '../utils/transformFieldNames';
+import transformKeys from '../utils/transformKeys';
 
 export type { CascadePickerProps };
 
@@ -17,7 +17,7 @@ export interface SuperCascadePickerProps
     value: PickerValue[] | undefined,
     items: PickerValueExtend['items']
   ) => string | undefined;
-  fieldNames?: { label?: string; value?: string; children?: string };
+  mapKeys?: { label?: string; value?: string; children?: string };
   separator?: string;
 }
 
@@ -25,17 +25,17 @@ const SuperCascadePicker: React.FC<SuperCascadePickerProps> = ({
   placeholder = '请选择',
   value,
   options: outOptions = [],
-  fieldNames,
+  mapKeys,
   renderCurrentValue,
   separator = '/',
   ...restProps
 }) => {
   const options = React.useMemo(() => {
-    if (!fieldNames) {
+    if (!mapKeys) {
       return outOptions as CascadePickerProps['options'];
     }
-    return transformFieldNames(outOptions, fieldNames);
-  }, [fieldNames, outOptions]);
+    return transformKeys(outOptions, mapKeys);
+  }, [mapKeys, outOptions]);
 
   return (
     <CascadePicker value={value} options={options} {...restProps}>

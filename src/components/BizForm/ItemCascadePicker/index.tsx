@@ -7,7 +7,7 @@ export interface BizFormItemCascadePickerProps
   extends Omit<BizFormItemProps, 'children'>,
     Pick<
       SuperCascadePickerProps,
-      'placeholder' | 'title' | 'options' | 'fieldNames' | 'renderCurrentValue' | 'separator'
+      'placeholder' | 'title' | 'options' | 'mapKeys' | 'renderCurrentValue' | 'separator'
     > {
   readOnly?: boolean;
   cascadePickerProps?: Partial<SuperCascadePickerProps>;
@@ -20,7 +20,7 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
   // cascadePicker props
   title,
   options,
-  fieldNames,
+  mapKeys,
   renderCurrentValue,
   separator,
   cascadePickerProps,
@@ -66,7 +66,7 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
         visible={visible}
         onClose={() => setVisible(false)}
         options={options}
-        fieldNames={fieldNames}
+        mapKeys={mapKeys}
         placeholder={placeholder}
         renderCurrentValue={renderCurrentValue}
         separator={separator}
