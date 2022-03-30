@@ -7,8 +7,6 @@ import FormArrayContext from './FormArrayContext';
 import { formItemPrefixCls } from './config';
 import './FormItem.less';
 
-// TODO: 新增 ItemStepper,ItemSwich,ItemRadio,ItemCheckbox
-
 export interface BizFormItemProps<ValueType = any> extends FormItemProps {
   extendRules?: FormItemProps['rules'];
   transform?: (value: ValueType) => any;

@@ -110,6 +110,33 @@ type Option = Partial<Omit<CascaderOption, 'children'>> & {
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: CascaderValue[] \| undefined, items: (CascaderOption \| null)[]) => string \| undefined;` | - |
 | cascaderProps | 透传 Cascader 组件属性 | [CascaderProps](https://mobile.ant.design/zh/components/cascader#属性) | - |
 
+### Checkbox - 复选框
+
+<code src='./demos/checkbox.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemCheckbox, BizFormItemCheckboxProps } from 'mobile-more';
+
+type Option = {
+  label?: ReactNode;
+  value?: CheckboxValue;
+  disabled?: boolean;
+  [key: string]: any;
+};
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- | --- | --- |
+| options | 可选项 | `string[] | number[] | Option[]` | `[]` |
+| fieldNames | 自定义 `label` `value` `disabled` 字段名 | `{ label?: string; value?: string; disabled?: string }` | - |
+| block | 是否渲染为块级元素 | `boolean` | `false` |
+| icon | 自定义 `icon` 图标 | `(checked: boolean) => React.ReactNode` | - |
+| spaceProps | 透传 Space 组件属性 | [SpaceProps](https://mobile.ant.design/zh/components/space#属性) | - |
+| checkboxProps | 透传 Checkbox 组件属性 | [CheckboxProps](https://mobile.ant.design/zh/components/checkbox#checkbox) | - |
+| checkboxGroupProps | 透传 Checkbox.Group 组件属性 | [CheckboxGroupProps](https://mobile.ant.design/zh/components/checkbox#checkboxgroup) | - |
+
 ### CheckList - 勾选列表
 
 <code src='./demos/check-list.tsx' />
@@ -239,6 +266,33 @@ type SuperPickerColumn = (string | SuperPickerColumnItem)[];
 | separator | 默认渲染当前值的分隔符 | `string` | `' - '` |
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
 | pickerProps | 透传 Picker 组件属性 | [PickerProps](https://mobile.ant.design/zh/components/picker#属性) | - |
+
+### Radio - 单选框
+
+<code src='./demos/radio.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemRadio, BizFormItemRadioProps } from 'mobile-more';
+
+type Option = {
+  label?: ReactNode;
+  value?: RadioValue;
+  disabled?: boolean;
+  [key: string]: any;
+};
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- | --- | --- |
+| options | 可选项 | `string[] | number[] | Option[]` | `[]` |
+| fieldNames | 自定义 `label` `value` `disabled` 字段名 | `{ label?: string; value?: string; disabled?: string }` | - |
+| block | 是否渲染为块级元素 | `boolean` | `false` |
+| icon | 自定义 `icon` 图标 | `(checked: boolean) => React.ReactNode` | - |
+| spaceProps | 透传 Space 组件属性 | [SpaceProps](https://mobile.ant.design/zh/components/space#属性) | - |
+| radioProps | 透传 Radio 组件属性 | [RadioProps](https://mobile.ant.design/zh/components/radio#radio) | - |
+| radioGroupProps | 透传 Radio.Group 组件属性 | [RadioGroupProps](https://mobile.ant.design/zh/components/radio#radiogroup) | - |
 
 ### Rate - 评分
 

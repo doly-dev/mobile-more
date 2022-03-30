@@ -4,11 +4,13 @@ import {
   BizFormItemCaptcha,
   BizFormItemCascadePicker,
   BizFormItemCascader,
+  BizFormItemCheckbox,
   BizFormItemCheckList,
   BizFormItemDatePicker,
   BizFormItemImageUploader,
   BizFormItemInput,
   BizFormItemPicker,
+  BizFormItemRadio,
   BizFormItemRate,
   BizFormItemSlider,
   BizFormItemStepper,
@@ -21,6 +23,7 @@ import { MerchantTypeOptions } from './constants';
 import options from './constants-options';
 import mockUpload from './services/mockUpload';
 import basicColumns from './constants-columns';
+import FruiltOptions from './constants-options2';
 
 function Demo() {
   return (
@@ -31,6 +34,8 @@ function Demo() {
       <BizFormItemCascadePicker name="cascadePicker" label="所在城市" options={options} />
       <BizForm.Header>级联选择</BizForm.Header>
       <BizFormItemCascader name="cascader" label="所在城市" options={options} />
+      <BizForm.Header>复选框</BizForm.Header>
+      <BizFormItemCheckbox name="checkbox" label="复选框" options={FruiltOptions} />
       <BizForm.Header>勾选列表</BizForm.Header>
       <BizFormItemCheckList
         label="商户类型"
@@ -63,6 +68,8 @@ function Demo() {
       <BizFormItemInput label="密码" name="input7" type="password" clearable />
       <BizForm.Header>选择器</BizForm.Header>
       <BizFormItemPicker name="picker" label="选择" columns={basicColumns} />
+      <BizForm.Header>单选框</BizForm.Header>
+      <BizFormItemRadio name="radio" label="单选框" options={FruiltOptions} />
       <BizForm.Header>评分</BizForm.Header>
       <BizFormItemRate name="rate" label="评分" />
       <BizForm.Header>滑块输入条</BizForm.Header>

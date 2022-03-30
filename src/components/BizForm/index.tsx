@@ -4,11 +4,13 @@ import BizFormItem, { BizFormItemProps } from './FormItem';
 import BizFormItemCaptcha, { BizFormItemCaptchaProps } from './ItemCaptcha';
 import BizFormItemCascadePicker, { BizFormItemCascadePickerProps } from './ItemCascadePicker';
 import BizFormItemCascader, { BizFormItemCascaderProps } from './ItemCascader';
+import BizFormItemCheckbox, { BizFormItemCheckboxProps } from './ItemCheckbox';
 import BizFormItemCheckList, { BizFormItemCheckListProps } from './ItemCheckList';
 import BizFormItemDatePicker, { BizFormItemDatePickerProps } from './ItemDatePicker';
 import BizFormItemImageUploader, { BizFormItemImageUploaderProps } from './ItemImageUploader';
 import BizFormItemInput, { BizFormItemInputProps } from './ItemInput';
 import BizFormItemPicker, { BizFormItemPickerProps } from './ItemPicker';
+import BizFormItemRadio, { BizFormItemRadioProps } from './ItemRadio';
 import BizFormItemRate, { BizFormItemRateProps } from './ItemRate';
 import BizFormItemSlider, { BizFormItemSliderProps } from './ItemSlider';
 import BizFormItemStepper, { BizFormItemStepperProps } from './ItemStepper';
@@ -21,11 +23,13 @@ export {
   BizFormItemCaptcha,
   BizFormItemCascadePicker,
   BizFormItemCascader,
+  BizFormItemCheckbox,
   BizFormItemCheckList,
   BizFormItemDatePicker,
   BizFormItemImageUploader,
   BizFormItemInput,
   BizFormItemPicker,
+  BizFormItemRadio,
   BizFormItemRate,
   BizFormItemSlider,
   BizFormItemStepper,
@@ -43,11 +47,13 @@ export type {
   BizFormItemCaptchaProps,
   BizFormItemCascadePickerProps,
   BizFormItemCascaderProps,
+  BizFormItemCheckboxProps,
   BizFormItemCheckListProps,
   BizFormItemDatePickerProps,
   BizFormItemImageUploaderProps,
   BizFormItemInputProps,
   BizFormItemPickerProps,
+  BizFormItemRadioProps,
   BizFormItemRateProps,
   BizFormItemSliderProps,
   BizFormItemStepperProps,
