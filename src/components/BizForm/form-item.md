@@ -233,7 +233,7 @@ type SuperPickerColumn = (string | SuperPickerColumnItem)[];
 | placeholder | 占位符，提示文本 | `string` | `'请选择'` |
 | readOnly | 只读。<br/>点击不弹出 Picker 。 | `boolean` | - |
 | title | Picker 标题 | `ReactNode` | - |
-| columns | Picker 二维数组选项数据 | `SuperPickerColumn[] \| ((value?: PickerValue[]) => SuperPickerColumn[])[]` | - |
+| columns | Picker 二维数组选项数据 | `SuperPickerColumn[] \| ((value?: PickerValue[]) => SuperPickerColumn[])` | - |
 | mapKeys | 数据转换为 `label` `value` 键 | `{ label?: string; value?: string; }` | - |
 | separator | 默认渲染当前值的分隔符 | `string` | `' - '` |
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
