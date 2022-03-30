@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { EmojiSmile } from 'doly-icons';
-import BizFormItemRate from '../ItemRate';
+import { BizFormItemRate } from 'mobile-more';
 import DemoForm from './components/DemoForm';
 
 function Demo() {

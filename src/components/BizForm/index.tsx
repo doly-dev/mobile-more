@@ -10,6 +10,7 @@ import BizFormItemImageUploader, { BizFormItemImageUploaderProps } from './ItemI
 import BizFormItemInput, { BizFormItemInputProps } from './ItemInput';
 import BizFormItemPicker, { BizFormItemPickerProps } from './ItemPicker';
 import BizFormItemRate, { BizFormItemRateProps } from './ItemRate';
+import BizFormItemSlider, { BizFormItemSliderProps } from './ItemSlider';
 import BizFormItemTextArea, { BizFormItemTextAreaProps } from './ItemTextArea';
 
 export {
@@ -24,6 +25,7 @@ export {
   BizFormItemInput,
   BizFormItemPicker,
   BizFormItemRate,
+  BizFormItemSlider,
   BizFormItemTextArea
 };
 
@@ -40,6 +42,7 @@ export type {
   BizFormItemInputProps,
   BizFormItemPickerProps,
   BizFormItemRateProps,
+  BizFormItemSliderProps,
   BizFormItemTextAreaProps
 };
 

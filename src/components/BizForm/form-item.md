@@ -258,6 +258,28 @@ import { BizFormItemRate, BizFormItemRateProps } from 'mobile-more';
 | readOnly | 只读，无法进行交互 | `boolean` | `false` |
 | rateProps | 透传 Rate 组件属性 | [RateProps](https://mobile.ant.design/zh/components/rate#属性) | - |
 
+### Slider - 滑块输入条
+
+<code src='./demos/slider.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemSlider, BizFormItemSliderProps } from 'mobile-more';
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| min | 最小值 | `number` | `0` |
+| max | 最大值 | `number` | `100` |
+| marks | 刻度标记 | `{ [key: number]: React.ReactNode }` | - |
+| step | 步距，取值必须大于 0，并且可被 `(max - min)` 整除。当 `marks` 不为空对象时，`step` 的配置失效 | `number` | `1` |
+| ticks | 是否显示刻度 | `boolean` | `false` |
+| range | 是否为双滑块 | `boolean` | `false` |
+| onAfterChange | 与 `touchend` 触发时机一致，把当前值作为参数传入 | `(value: number \| [number, number]) => void` | - |
+| icon | 滑块的图标 | `ReactNode` | - |
+| sliderProps | 透传 Slider 组件属性 | [SliderProps](https://mobile.ant.design/zh/components/slider#属性) | - |
+
 ### TextArea - 文本域
 
 <code src='./demos/text-area.tsx' />
