@@ -13,7 +13,12 @@ function Demo() {
   });
 
   return (
-    <DemoForm>
+    <DemoForm
+      initialValues={{
+        cascadePicker2: ['浙江', '宁波'],
+        cascadePicker3: ['浙江', '宁波']
+      }}
+    >
       <BizFormItemCascader name="cascadePicker1" label="级联选择" options={options} />
       <BizFormItemCascader name="cascadePicker2" label="只读" options={options} readOnly />
       <BizFormItemCascader name="cascadePicker3" label="禁用" options={options} disabled />

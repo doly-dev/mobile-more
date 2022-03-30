@@ -33,6 +33,9 @@ function Demo() {
       onFinishFailed={(errInfo) => {
         Toast.show({ content: errInfo.errorFields[0].errors[0] });
       }}
+      initialValues={{
+        mobile: '13000000000'
+      }}
     >
       <BizFormItemInput
         name="mobile"

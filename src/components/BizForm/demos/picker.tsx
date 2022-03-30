@@ -5,7 +5,12 @@ import basicColumns from './constants-columns';
 
 function Demo() {
   return (
-    <DemoForm>
+    <DemoForm
+      initialValues={{
+        picker2: ['Fri', 'pm'],
+        picker3: ['Fri', 'pm']
+      }}
+    >
       <BizFormItemPicker name="picker1" label="选择" columns={basicColumns} />
       <BizFormItemPicker name="picker2" label="只读" columns={basicColumns} readOnly />
       <BizFormItemPicker name="picker3" label="禁用" columns={basicColumns} disabled />

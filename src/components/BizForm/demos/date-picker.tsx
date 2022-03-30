@@ -8,6 +8,7 @@ function Demo() {
       initialValues={{
         date2: '2020-10-10',
         date3: new Date(),
+        date4: new Date(),
         dateStr1: '2020-10-10',
         dateStr2: '2020.10.10',
         dateStr3: '2020-10-10 10:10:10'
@@ -16,7 +17,7 @@ function Demo() {
       <BizFormItemDatePicker name="date1" label="日期" />
       <BizFormItemDatePicker name="date2" label="自定义格式" format="YYYY.MM.DD" />
       <BizFormItemDatePicker name="date3" label="只读" readOnly />
-      <BizFormItemDatePicker name="date4" label="禁用" precision="second" disabled />
+      <BizFormItemDatePicker name="date4" label="禁用" disabled />
       <BizForm.Header>string 默认值</BizForm.Header>
       <BizFormItemDatePicker name="dateStr1" label="日期1" />
       <BizFormItemDatePicker name="dateStr2" label="日期2" />
