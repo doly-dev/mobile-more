@@ -303,6 +303,24 @@ import { BizFormItemStepper, BizFormItemStepperProps } from 'mobile-more';
 | icon | 滑块的图标 | `ReactNode` | - |
 | sliderProps | 透传 Slider 组件属性 | [SliderProps](https://mobile.ant.design/zh/components/slider#属性) | - |
 
+### Switch - 开关
+
+<code src='./demos/switch.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemSwitch, BizFormItemSwitchProps } from 'mobile-more';
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| loading | 加载状态 | `boolean` | `false` |
+| beforeChange | 变化前执行 | `(value: boolean) => Promise<void>` | - |
+| checkedText | 选中时的内容 | `ReactNode` | - |
+| uncheckedText | 非选中时的内容 | `ReactNode` | - |
+| switchProps | 透传 Switch 组件属性 | [SwitchProps](https://mobile.ant.design/zh/components/switch#属性) | - |
+
 ### TextArea - 文本域
 
 <code src='./demos/text-area.tsx' />

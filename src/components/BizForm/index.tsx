@@ -12,6 +12,7 @@ import BizFormItemPicker, { BizFormItemPickerProps } from './ItemPicker';
 import BizFormItemRate, { BizFormItemRateProps } from './ItemRate';
 import BizFormItemSlider, { BizFormItemSliderProps } from './ItemSlider';
 import BizFormItemStepper, { BizFormItemStepperProps } from './ItemStepper';
+import BizFormItemSwitch, { BizFormItemSwitchProps } from './ItemSwitch';
 import BizFormItemTextArea, { BizFormItemTextAreaProps } from './ItemTextArea';
 
 export {
@@ -28,6 +29,7 @@ export {
   BizFormItemRate,
   BizFormItemSlider,
   BizFormItemStepper,
+  BizFormItemSwitch,
   BizFormItemTextArea
 };
 
@@ -49,6 +51,7 @@ export type {
   BizFormItemRateProps,
   BizFormItemSliderProps,
   BizFormItemStepperProps,
+  BizFormItemSwitchProps,
   BizFormItemTextAreaProps
 };
 
