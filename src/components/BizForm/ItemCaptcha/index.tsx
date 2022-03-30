@@ -2,10 +2,10 @@ import * as React from 'react';
 import classnames from 'classnames';
 import BizFormItemInput, { BizFormItemInputProps, InputRef } from '../ItemInput';
 import CaptchaButton, { CaptchaButtonProps } from '../../CaptchaButton';
-import { prefixClass } from '../../../config/prefixClass';
+import { formPrefixCls } from '../config';
 import './index.less';
 
-const prefixCls = `${prefixClass}-form-item-captcha`;
+const prefixCls = `${formPrefixCls}-item-captcha`;
 
 const checkResult = async (fn: () => boolean | Promise<boolean>) => {
   try {

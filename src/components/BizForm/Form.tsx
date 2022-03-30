@@ -8,10 +8,8 @@ import { transformFormValues } from './utils/transform';
 import FormContext, { FormContextValue } from './FormContext';
 import FormArray from './FormArray';
 import FormItem from './FormItem';
-import { prefixClass } from '../../config/prefixClass';
+import { formPrefixCls } from './config';
 import './Form.less';
-
-const prefixCls = `${prefixClass}-form`;
 
 export type BizFormProps = FormProps;
 
@@ -43,7 +41,7 @@ const BizForm: React.FC<BizFormProps> & {
   return (
     <FormContext.Provider value={{ setFieldTransform }}>
       <Form
-        className={classnames(prefixCls, className)}
+        className={classnames(formPrefixCls, className)}
         onFinish={(values) => {
           if (typeof onFinish !== 'function') {
             return;

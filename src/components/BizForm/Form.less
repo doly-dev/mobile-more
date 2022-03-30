@@ -1,13 +1,31 @@
 @import '../../config/prefixClass.less';
 
-@prefixCls: ~'@{prefixClass}-form';
+@formPrefixCls: ~'@{prefixClass}-form';
+@formItemAdjustPrefixCls: ~'@{formPrefixCls}-item-adjust';
 
-.@{prefixCls} {
+.@{formPrefixCls} {
   .adm-input {
     --font-size: var(--font-size);
   }
 
   .adm-text-area {
     --font-size: var(--font-size);
+  }
+}
+
+.@{formItemAdjustPrefixCls} {
+  &.adm-form-item-horizontal {
+    .adm-form-item-child {
+      height: 100%;
+    }
+
+    .adm-form-item-child-inner {
+      display: flex;
+      align-items: center;
+
+      > * {
+        margin: -15px 0;
+      }
+    }
   }
 }
