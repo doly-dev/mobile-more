@@ -1,7 +1,7 @@
 @import '../../config/prefixClass.less';
 
 @formPrefixCls: ~'@{prefixClass}-form';
-@formItemAdjustPrefixCls: ~'@{formPrefixCls}-item-adjust';
+@formItemPrefixCls: ~'@{formPrefixCls}-item';
 
 .@{formPrefixCls} {
   .adm-input {
@@ -10,23 +10,5 @@
 
   .adm-text-area {
     --font-size: var(--font-size);
-  }
-}
-
-.@{formItemAdjustPrefixCls} {
-  &.adm-form-item-horizontal {
-    .adm-form-item-child {
-      height: 100%;
-    }
-
-    .adm-form-item-child-inner {
-      display: flex;
-      align-items: center;
-
-      > * {
-        width: 100%;
-        margin: -15px 0;
-      }
-    }
   }
 }

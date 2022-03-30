@@ -7,7 +7,6 @@ function Demo() {
   return (
     <BizForm
       name="form-other"
-      layout="horizontal"
       requiredMarkStyle="text-optional"
       hasFeedback={false}
       onFinish={(values) => {

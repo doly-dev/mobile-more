@@ -7,7 +7,6 @@ function Demo() {
   return (
     <DemoForm
       mode="card"
-      // layout='vertical'
       initialValues={{
         contacts: [{}]
       }}

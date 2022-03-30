@@ -45,7 +45,6 @@ function Demo() {
     <BizForm
       name="form-license"
       className={styles.wrapper}
-      layout="horizontal"
       requiredMarkStyle="text-optional"
       hasFeedback={false}
       onFinish={(values) => {

@@ -2,9 +2,12 @@ import * as React from 'react';
 import classnames from 'classnames';
 import { Rate } from 'antd-mobile';
 import { RateProps } from 'antd-mobile/es/components/rate';
-import BizFormItem, { BizFormItemProps } from './FormItem';
-import getLabel from './utils/getLabel';
-import { formItemAdjustPrefixCls } from './config';
+import BizFormItem, { BizFormItemProps } from '../FormItem';
+import getLabel from '../utils/getLabel';
+import { formPrefixCls } from '../config';
+import './index.less';
+
+const prefixCls = `${formPrefixCls}-item-rate`;
 
 export interface BizFormItemRateProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -36,7 +39,7 @@ const BizFormItemRate: React.FC<BizFormItemRateProps> = ({
         }
       ]}
       clickable={false}
-      className={classnames(formItemAdjustPrefixCls, className)}
+      className={classnames(prefixCls, className)}
       {...restProps}
     >
       <Rate

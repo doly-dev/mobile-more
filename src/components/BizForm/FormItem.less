@@ -1,0 +1,42 @@
+@import './Form.less';
+
+.@{formItemPrefixCls} {
+  .adm-form-item-child {
+    height: 100%;
+  }
+
+  .adm-form-item-child-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &-start .adm-form-item-child-inner {
+    justify-content: flex-start;
+
+    > .momo-input .adm-input-element,
+    > .adm-input .adm-input-element,
+    > .adm-text-area .adm-text-area-element {
+      text-align: left;
+    }
+  }
+
+  &-center .adm-form-item-child-inner {
+    justify-content: center;
+
+    > .momo-input .adm-input-element,
+    > .adm-input .adm-input-element,
+    > .adm-text-area .adm-text-area-element {
+      text-align: center;
+    }
+  }
+
+  &-end .adm-form-item-child-inner {
+    justify-content: flex-end;
+
+    > .momo-input .adm-input-element,
+    > .adm-input .adm-input-element,
+    > .adm-text-area .adm-text-area-element {
+      text-align: right;
+    }
+  }
+}

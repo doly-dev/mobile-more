@@ -32,7 +32,6 @@ function Demo() {
   return (
     <BizForm
       name="form-settlement"
-      layout="horizontal"
       form={form}
       requiredMarkStyle="text-optional"
       hasFeedback={false}
@@ -62,7 +61,9 @@ function Demo() {
         name={['settlementInfo', 'bankCardNo']}
         placeholder="请输入银行账号"
         type="bankCard"
-        extra={<BankCardOCR onChange={handleOCR} />}
+        inputProps={{
+          suffix: <BankCardOCR onChange={handleOCR} />
+        }}
         clearable
         required
       />

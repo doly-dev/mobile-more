@@ -33,7 +33,6 @@ function Demo() {
   return (
     <BizForm
       name="form-login2"
-      layout="horizontal"
       requiredMarkStyle="text-optional"
       hasFeedback={false}
       form={form}

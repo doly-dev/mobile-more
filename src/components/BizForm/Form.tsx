@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import { Form } from 'antd-mobile';
-import type { FormProps } from 'antd-mobile/es/components/form';
+import type { FormProps, FormLayout, FormInstance } from 'antd-mobile/es/components/form';
 import namePathSet from 'rc-util/es/utils/set';
 import getNamePaths from './utils/getNamePaths';
 import { transformFormValues } from './utils/transform';
@@ -11,7 +11,13 @@ import FormItem from './FormItem';
 import { formPrefixCls } from './config';
 import './Form.less';
 
-export type BizFormProps = FormProps;
+export type BizFormLayout = FormLayout;
+export type BizFormInstance = FormInstance;
+export type BizFormJustify = FormContextValue['justify'];
+
+export type BizFormProps = FormProps & {
+  justify?: BizFormJustify;
+};
 
 const BizForm: React.FC<BizFormProps> & {
   Item: typeof FormItem;
@@ -19,7 +25,7 @@ const BizForm: React.FC<BizFormProps> & {
   Subscribe: typeof Form.Subscribe;
   Header: typeof Form.Header;
   useForm: typeof Form.useForm;
-} = ({ onFinish, className, ...restProps }) => {
+} = ({ onFinish, className, justify = 'start', layout = 'horizontal', ...restProps }) => {
   const transformRecordRef = React.useRef<Record<string, ((value: any) => any) | undefined>>({});
   const setFieldTransform: FormContextValue['setFieldTransform'] = (
     name,
@@ -39,9 +45,10 @@ const BizForm: React.FC<BizFormProps> & {
   };
 
   return (
-    <FormContext.Provider value={{ setFieldTransform }}>
+    <FormContext.Provider value={{ setFieldTransform, justify }}>
       <Form
         className={classnames(formPrefixCls, className)}
+        layout={layout}
         onFinish={(values) => {
           if (typeof onFinish !== 'function') {
             return;

@@ -7,7 +7,7 @@ function Demo() {
   return (
     <DemoForm
       initialValues={{
-        rate3: 3
+        rate3: 4
       }}
     >
       <BizFormItemRate name="rate1" label="评分" />

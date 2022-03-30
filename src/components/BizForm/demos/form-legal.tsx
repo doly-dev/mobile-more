@@ -23,7 +23,6 @@ function Demo() {
     <BizForm
       name="form-legal"
       className={styles.wrapper}
-      layout="horizontal"
       requiredMarkStyle="text-optional"
       hasFeedback={false}
       onFinish={(values) => {

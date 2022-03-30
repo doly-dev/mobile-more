@@ -10,7 +10,6 @@ function Demo() {
   return (
     <BizForm
       name="form-login1"
-      layout="horizontal"
       requiredMarkStyle="text-optional"
       onFinish={(values) => {
         console.log(values);

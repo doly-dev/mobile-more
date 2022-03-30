@@ -7,7 +7,7 @@ group:
 
 # BizForm - 表单
 
-基于 antd-mobile 的 Form 扩展了数据转换
+基于 antd-mobile 的 Form 扩展了数据转换、布局
 
 ## 代码演示
 
@@ -41,6 +41,16 @@ group:
 
 ## API
 
+```typescript
+import { BizForm, BizFormProps } from 'mobile-more';
+```
+
 同 antd-mobile 的 [Form] ，也支持 `BizForm.Item` `BizForm.Array` `BizForm.Subscribe` `BizForm.useForm` 。
+
+`layout` 默认为 `horizontal` 。
+
+| 参数    | 说明         | 类型                           | 默认值    |
+| ------- | ------------ | ------------------------------ | --------- |
+| justify | 水平对齐方式 | `'start' \| 'center' \| 'end'` | `'start'` |
 
 [form]: https://mobile.ant.design/zh/components/form#form

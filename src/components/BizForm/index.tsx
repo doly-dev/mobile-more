@@ -1,4 +1,4 @@
-import BizForm, { BizFormProps } from './Form';
+import BizForm, { BizFormProps, BizFormJustify, BizFormInstance, BizFormLayout } from './Form';
 import BizFormArray, { BizFormArrayProps } from './FormArray';
 import BizFormItem, { BizFormItemProps } from './FormItem';
 import BizFormItemCaptcha, { BizFormItemCaptchaProps } from './ItemCaptcha';
@@ -31,6 +31,9 @@ export {
 
 export type {
   BizFormProps,
+  BizFormJustify,
+  BizFormInstance,
+  BizFormLayout,
   BizFormArrayProps,
   BizFormItemProps,
   BizFormItemCaptchaProps,

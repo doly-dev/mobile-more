@@ -24,7 +24,9 @@ const Demo = () => {
         name="bankCardNo"
         placeholder="请输入银行卡号"
         type="bankCard"
-        extra={<BankCardOCR onChange={handleOCR} />}
+        inputProps={{
+          suffix: <BankCardOCR onChange={handleOCR} />
+        }}
         clearable
         required
       />

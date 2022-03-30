@@ -6,7 +6,7 @@ group:
 
 # BizFormItem - 表单项
 
-基于 antd-mobile 的 Form.Item 扩展了数据转换、校验
+基于 antd-mobile 的 Form.Item 扩展了数据转换、校验、布局
 
 ## 代码演示
 
@@ -22,10 +22,11 @@ import { BizFormItem, BizFormItemProps } from 'mobile-more';
 
 除了以下属性，其余同 antd-mobile 的 [Form.Item](https://mobile.ant.design/zh/components/form#formitem) 。
 
-| 参数        | 说明                                       | 类型                     | 默认值 |
-| ----------- | ------------------------------------------ | ------------------------ | ------ |
-| extendRules | 扩展校验规则。如果需要覆盖，请使用 `rules` | `FormItemProps['rules']` | -      |
-| transform   | 转换该字段值，表单提交时执行。             | `(value: any) => any`    | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| extendRules | 扩展校验规则。如果需要覆盖，请使用 `rules` | `FormItemProps['rules']` | - |
+| transform | 转换该字段值，表单提交时执行。 | `(value: any) => any` | - |
+| justify | 水平对齐方式 | `'start' \| 'center' \| 'end'` | `'start'` |
 
 ## 扩展组件
 

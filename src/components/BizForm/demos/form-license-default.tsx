@@ -68,7 +68,6 @@ function Demo() {
     <BizForm
       name="form-license-default"
       className={styles.wrapper}
-      layout="horizontal"
       form={form}
       requiredMarkStyle="text-optional"
       hasFeedback={false}

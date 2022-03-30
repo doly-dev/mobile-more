@@ -2,9 +2,12 @@ import * as React from 'react';
 import classnames from 'classnames';
 import { Slider } from 'antd-mobile';
 import { SliderProps } from 'antd-mobile/es/components/slider';
-import BizFormItem, { BizFormItemProps } from './FormItem';
-import { formItemAdjustPrefixCls } from './config';
-import getLabel from './utils/getLabel';
+import BizFormItem, { BizFormItemProps } from '../FormItem';
+import { formPrefixCls } from '../config';
+import getLabel from '../utils/getLabel';
+import './index.less';
+
+const prefixCls = `${formPrefixCls}-item-slider`;
 
 export interface BizFormItemSliderProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -33,7 +36,7 @@ const BizFormItemSlider: React.FC<BizFormItemSliderProps> = ({
 
   return (
     <BizFormItem
-      className={classnames(formItemAdjustPrefixCls, className)}
+      className={classnames(prefixCls, className)}
       required={required}
       rules={[
         {
