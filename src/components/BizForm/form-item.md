@@ -164,7 +164,7 @@ type Option = {
 | options | CheckList 选项数据 | `Option[]` | - |
 | fieldNames | 自定义 options 数据节点 `label` `value` `readOnly` `disabled` 字段名 | `{ label?: string; value?: string; readOnly?: string; disabled?: string; }` | - |
 | multiple | 多选模式 | `boolean` | `false` |
-| renderCurrentValue | 自定义渲染当前选中值 | `(value: any, option?: Option) => string \| undefined;` | - |
+| renderCurrentValue | 自定义渲染当前选中值 | `(value: string \| string[] \| undefined, items?: (Option \| null)[]) => string \| undefined;` | - |
 | separator | 默认渲染当前值的分隔符 | `string` | `' - '` |
 | checkListProps | 透传 CheckList 组件属性 | [CheckListProps](https://mobile.ant.design/zh/components/check-list#属性) | - |
 | searchBarProps | 透传 SearchBar 组件属性 | [SearchBarProps](https://mobile.ant.design/zh/components/search-bar#属性) | - |

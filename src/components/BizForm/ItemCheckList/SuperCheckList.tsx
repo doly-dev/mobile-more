@@ -5,11 +5,13 @@ import CheckListPopup, { CheckListPopupProps } from '../../CheckListPopup';
 
 export type { CheckListPopupProps };
 
+type Option = Required<CheckListPopupProps>['options'][0];
+
 export interface SuperCheckListProps extends Pick<InputProps, 'placeholder'>, CheckListPopupProps {
   separator?: string;
   renderCurrentValue?: (
-    value: string[] | undefined,
-    items: Required<CheckListPopupProps>['options']
+    value: string | string[] | undefined,
+    items: (Option | null)[]
   ) => string | undefined;
 }
 

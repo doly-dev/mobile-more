@@ -40,7 +40,6 @@ const ItemBranchBank: React.FC<ItemBranchBankProps> = ({ areaCode, ...restProps 
         },
         loading
       }}
-      transform={(value) => value[0]}
       {...restProps}
     />
   );

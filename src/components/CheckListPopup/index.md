@@ -44,9 +44,9 @@ type Option = {
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| value | 选中项 | `string[]` | - |
-| onChange | 选中项改变时触发 | `(value: string[]) => void` | - |
+| --- | --- | --- | --- | --- |
+| value | 选中项 | `string | string[]` | - |
+| onChange | 选中项改变时触发 | `(value: string | string[]) => void` | - |
 | changeClosable | 触发 onChange 后是否关闭弹层。<br/>仅在单选模式下且有值时生效。 | `boolean` | `true` |
 | renderLabel | 自定义列表项渲染 | `(option: Option) => ReactNode` | `[]` |
 | options | 可选项 | `Option[]` | `[]` |

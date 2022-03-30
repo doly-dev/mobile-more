@@ -11,9 +11,10 @@ function Demo() {
   return (
     <DemoForm
       initialValues={{
-        checkList2: ['5'],
-        checkList4: ['2'],
-        checkList5: ['3']
+        checkList2: '5',
+        checkList3: ['3', '5'],
+        checkList4: '2',
+        checkList5: '3'
       }}
     >
       <BizFormItemCheckList
