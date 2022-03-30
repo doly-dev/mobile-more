@@ -128,8 +128,8 @@ type Option = {
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- | --- |
-| options | 可选项 | `string[] | number[] | Option[]` | `[]` |
+| --- | --- | --- | --- |
+| options | 可选项 | `Option[]` | `[]` |
 | fieldNames | 自定义 `label` `value` `disabled` 字段名 | `{ label?: string; value?: string; disabled?: string }` | - |
 | block | 是否渲染为块级元素 | `boolean` | `false` |
 | icon | 自定义 `icon` 图标 | `(checked: boolean) => React.ReactNode` | - |
@@ -285,8 +285,8 @@ type Option = {
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- | --- |
-| options | 可选项 | `string[] | number[] | Option[]` | `[]` |
+| --- | --- | --- | --- |
+| options | 可选项 | `Option[]` | `[]` |
 | fieldNames | 自定义 `label` `value` `disabled` 字段名 | `{ label?: string; value?: string; disabled?: string }` | - |
 | block | 是否渲染为块级元素 | `boolean` | `false` |
 | icon | 自定义 `icon` 图标 | `(checked: boolean) => React.ReactNode` | - |

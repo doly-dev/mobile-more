@@ -27,9 +27,7 @@ const BankCardOCR: React.FC<BankCardOCRProps> = ({ onChange }) => {
         onChange={handleChange}
         ref={inputRef}
       />
-      <span className={styles.icon}>
-        <img src={IconScanCard} alt="" />
-      </span>
+      <img src={IconScanCard} alt="" />
     </div>
   );
 };
