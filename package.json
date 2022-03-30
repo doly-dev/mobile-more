@@ -57,7 +57,6 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.17.0",
-    "antd-mobile": "^5.9.1",
     "countdown-pro": "^1.0.2",
     "dayjs": "^1.11.0",
     "doly-icons": "^1.2.1",
@@ -103,6 +102,7 @@
     "yorkie": "^2.0.0"
   },
   "peerDependencies": {
+    "antd-mobile": "^5.9.1",
     "react": ">=16.12.0",
     "react-dom": ">=16.12.0"
   }
