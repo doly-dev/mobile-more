@@ -147,9 +147,10 @@ function CheckListPopup(props: CheckListPopupProps) {
     } else {
       const fmtValue = vals && vals.length > 0 ? vals[0] : undefined;
       setState(fmtValue);
-    }
-    if (changeClosable) {
-      changeVisible(false);
+
+      if (typeof fmtValue !== 'undefined' && changeClosable) {
+        changeVisible(false);
+      }
     }
   };
 
