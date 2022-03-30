@@ -11,6 +11,7 @@ import {
   BizFormItemPicker,
   BizFormItemRate,
   BizFormItemSlider,
+  BizFormItemStepper,
   BizFormItemTextArea,
   ImageUploader
 } from 'mobile-more';
@@ -65,6 +66,8 @@ function Demo() {
       <BizFormItemRate name="rate" label="评分" />
       <BizForm.Header>滑块输入条</BizForm.Header>
       <BizFormItemSlider name="slider" label="滑块" />
+      <BizForm.Header>步进器</BizForm.Header>
+      <BizFormItemStepper name="stepper" label="步进器" />
       <BizForm.Header>文本域</BizForm.Header>
       <BizFormItemTextArea label="详细地址" name="textArea" />
     </DemoForm>
