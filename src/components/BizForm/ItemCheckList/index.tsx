@@ -16,6 +16,8 @@ export interface BizFormItemCheckListProps
       | 'fieldNames'
       | 'loading'
       | 'renderCurrentValue'
+      | 'multiple'
+      | 'separator'
     > {
   readOnly?: boolean;
   checkListPopupProps?: Partial<CheckListPopupProps>;
@@ -35,6 +37,8 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = ({
   emptyProps,
   checkListPopupProps,
   renderCurrentValue,
+  multiple,
+  separator,
 
   // item props
   readOnly,
@@ -82,6 +86,8 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = ({
         searchBarProps={searchBarProps}
         emptyProps={emptyProps}
         placeholder={placeholder}
+        multiple={multiple}
+        separator={separator}
         {...checkListPopupProps}
       />
     </BizFormItem>

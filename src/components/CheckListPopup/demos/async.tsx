@@ -12,7 +12,7 @@ async function getOptions() {
 
 function Demo() {
   const { loading, data } = useAsync(getOptions);
-  const [value, setValue] = React.useState<string>(FruitOptions[0].value);
+  const [value, setValue] = React.useState<string[]>([FruitOptions[0].value]);
 
   return (
     <>

@@ -6,14 +6,16 @@ import CheckListPopup, { CheckListPopupProps } from '../../CheckListPopup';
 export type { CheckListPopupProps };
 
 export interface SuperCheckListProps extends Pick<InputProps, 'placeholder'>, CheckListPopupProps {
+  separator?: string;
   renderCurrentValue?: (
-    value: any,
-    option?: Required<CheckListPopupProps>['options'][0]
+    value: string[] | undefined,
+    items: Required<CheckListPopupProps>['options']
   ) => string | undefined;
 }
 
 const SuperCheckList: React.FC<SuperCheckListProps> = ({
   placeholder = '请选择',
+  separator = ', ',
 
   options = [],
   value,
@@ -30,13 +32,17 @@ const SuperCheckList: React.FC<SuperCheckListProps> = ({
     [fieldNames]
   );
 
-  const option = React.useMemo(() => {
-    return options.find((item) => item[valueKey] === value);
+  const items = React.useMemo(() => {
+    return options.filter((item) => value?.includes(item[valueKey]));
   }, [options, value, valueKey]);
+
   const valueStr =
     typeof renderCurrentValue === 'function'
-      ? renderCurrentValue(value, option)
-      : option?.[labelKey] || '';
+      ? renderCurrentValue(value, items)
+      : items
+          .filter((item) => !!item)
+          .map((item) => item[labelKey])
+          .join(separator);
 
   return (
     <>

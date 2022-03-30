@@ -87,6 +87,7 @@ function Demo() {
           placeholder="请选择商户类型"
           title="请选择商户类型"
           required
+          transform={(value) => value[0]}
         />
         <BizFormItemCascadePicker
           label="经营范围"

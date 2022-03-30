@@ -5,7 +5,7 @@ import { FruitOptions } from './constants';
 
 function Demo() {
   const [visible, setVisible] = React.useState(false);
-  const [value, setValue] = React.useState<string>();
+  const [value, setValue] = React.useState<string[]>();
 
   return (
     <>

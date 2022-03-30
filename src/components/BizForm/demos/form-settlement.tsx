@@ -75,6 +75,7 @@ function Demo() {
         options={banks}
         fieldNames={{ label: 'name', value: 'code' }}
         required
+        transform={(value) => value[0]}
       />
       <ItemAreaCode
         label="开户行所在地"

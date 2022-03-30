@@ -38,7 +38,7 @@ function Demo() {
       <BizFormItemCheckbox name="checkbox" label="复选框" options={FruiltOptions} />
       <BizForm.Header>勾选列表</BizForm.Header>
       <BizFormItemCheckList
-        label="商户类型"
+        label="勾选列表"
         title="请选择商户类型"
         name="checkList"
         options={MerchantTypeOptions}

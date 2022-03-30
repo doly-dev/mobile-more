@@ -11,37 +11,40 @@ function Demo() {
   return (
     <DemoForm
       initialValues={{
-        merchantType2: '5',
-        merchantType3: '2',
-        merchantType4: '3'
+        checkList2: ['5'],
+        checkList4: ['2'],
+        checkList5: ['3']
       }}
     >
       <BizFormItemCheckList
-        label="商户类型"
+        label="勾选列表"
         title="请选择商户类型"
-        name="merchantType1"
+        name="checkList1"
         options={MerchantTypeOptions}
       />
       <BizFormItemCheckList
         label="异步"
         title="请选择商户类型"
-        name="merchantType2"
+        name="checkList2"
         options={data}
         loading={loading}
       />
       <BizFormItemCheckList
+        label="多选"
+        title="请选择商户类型"
+        name="checkList3"
+        options={MerchantTypeOptions}
+        multiple
+        // separator=' - '
+      />
+      <BizFormItemCheckList
         label="只读"
-        name="merchantType3"
+        name="checkList4"
         options={MerchantTypeOptions}
         readOnly
         help="可以使用 readOnly 来处理点击异步请求或校验"
       />
-      <BizFormItemCheckList
-        label="禁用"
-        name="merchantType4"
-        options={MerchantTypeOptions}
-        disabled
-      />
+      <BizFormItemCheckList label="禁用" name="checkList5" options={MerchantTypeOptions} disabled />
     </DemoForm>
   );
 }

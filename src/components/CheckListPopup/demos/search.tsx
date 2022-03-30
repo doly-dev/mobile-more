@@ -4,7 +4,7 @@ import CheckListPopup from '../CheckListPopup';
 import { FruitOptions } from './constants';
 
 function Demo() {
-  const [value, setValue] = React.useState<string>();
+  const [value, setValue] = React.useState<string[]>();
 
   return (
     <>

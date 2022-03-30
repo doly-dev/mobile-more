@@ -90,6 +90,7 @@ function Demo() {
             checkListPopupProps={{ bodyStyle: { height: '50vh' } }}
             style={itemStyle}
             required
+            transform={(value) => value[0]}
           />
         )}
       </BizForm.Subscribe>

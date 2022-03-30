@@ -13,7 +13,7 @@ const prefixCls = `${prefixClass}-checklist-popup`;
 
 type Option = {
   label?: React.ReactNode;
-  value?: any;
+  value?: string;
   readOnly?: boolean;
   disabled?: boolean;
   [key: string]: any;
@@ -22,11 +22,11 @@ type Option = {
 export interface CheckListPopupProps
   extends PopupProps,
     Pick<CheckListProps, 'multiple' | 'defaultValue'> {
-  value?: any;
-  onChange?: (value: any) => void;
+  value?: string[];
+  onChange?: (value: string[]) => void;
   changeClosable?: boolean; // 修改值后是否关闭弹层
   renderLabel?: (option: Option) => React.ReactNode;
-  options: Option[];
+  options?: Option[];
   filterOption?: (searchValue: string, option: Option) => boolean;
   fieldNames?: { label?: string; value?: string; readOnly?: string; disabled?: string };
   showSearch?: boolean;
@@ -38,19 +38,7 @@ export interface CheckListPopupProps
   emptyProps?: EmptyProps;
 }
 
-function CheckListPopup(
-  props: Omit<CheckListPopupProps, 'value' | 'onChange'> & {
-    value?: string;
-    onChange?: (value: string) => void;
-  }
-): React.ReactElement<any, any> | null;
-function CheckListPopup(
-  props: Omit<CheckListPopupProps, 'value' | 'onChange'> & {
-    value?: string[];
-    onChange?: (value: string[]) => void;
-  }
-): React.ReactElement<any, any> | null;
-function CheckListPopup(props: CheckListPopupProps) {
+const CheckListPopup: React.FC<CheckListPopupProps> = (props) => {
   const {
     // common props
     loading = false,
@@ -100,6 +88,8 @@ function CheckListPopup(props: CheckListPopupProps) {
     valuePropName: 'searchValue',
     trigger: 'onSearch'
   });
+
+  const [state, setState] = useControllableValue<string[]>({ value, onChange });
   const {
     label: labelKey,
     value: valueKey,
@@ -133,26 +123,17 @@ function CheckListPopup(props: CheckListPopupProps) {
     [filterOption, labelKey, options, searchValue, valueKey]
   );
 
-  const [state, setState] = useControllableValue({ value, onChange });
-
   const handleSearchInput = (val: string) => {
     setSearchValue(val);
     searchBarProps?.onChange?.(val);
   };
 
   const handleChange = (vals: string[]) => {
-    if (multiple) {
-      setState(vals);
-    } else {
-      const fmtValue = vals && vals.length > 0 ? vals[0] : value || undefined;
-      setState(fmtValue);
-    }
-    if (changeClosable) {
+    setState(vals);
+    if (Array.isArray(vals) && vals.length > 0 && changeClosable) {
       changeVisible(false);
     }
   };
-
-  const realValue = state ? (Array.isArray(state) ? state : [state]) : [];
 
   return (
     <Popup
@@ -183,12 +164,7 @@ function CheckListPopup(props: CheckListPopupProps) {
       ) : opts.length <= 0 ? (
         <Empty description="暂无数据" {...emptyProps} />
       ) : (
-        <CheckList
-          multiple={multiple}
-          {...checkListProps}
-          value={realValue}
-          onChange={handleChange}
-        >
+        <CheckList multiple={multiple} {...checkListProps} value={state} onChange={handleChange}>
           {opts.map((item) => (
             <CheckList.Item
               value={item?.[valueKey]}
@@ -203,6 +179,6 @@ function CheckListPopup(props: CheckListPopupProps) {
       )}
     </Popup>
   );
-}
+};
 
 export default CheckListPopup;
