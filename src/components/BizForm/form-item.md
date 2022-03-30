@@ -239,6 +239,25 @@ type SuperPickerColumn = (string | SuperPickerColumnItem)[];
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
 | pickerProps | 透传 Picker 组件属性 | [PickerProps](https://mobile.ant.design/zh/components/picker#属性) | - |
 
+### Rate - 评分
+
+<code src='./demos/rate.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemRate, BizFormItemRateProps } from 'mobile-more';
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| allowClear | 是否允许再次点击后清除 | `boolean` | `true` |
+| allowHalf | 是否允许半选 | `boolean` | `false` |
+| character | 自定义字符 | `ReactNode` | `<StarFilled />` |
+| count | star 总数 | `number` | `5` |
+| readOnly | 只读，无法进行交互 | `boolean` | `false` |
+| rateProps | 透传 Rate 组件属性 | [RateProps](https://mobile.ant.design/zh/components/rate#属性) | - |
+
 ### TextArea - 文本域
 
 <code src='./demos/text-area.tsx' />

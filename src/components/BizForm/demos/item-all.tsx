@@ -8,6 +8,8 @@ import {
   BizFormItemDatePicker,
   BizFormItemImageUploader,
   BizFormItemInput,
+  BizFormItemPicker,
+  BizFormItemRate,
   BizFormItemTextArea,
   ImageUploader
 } from 'mobile-more';
@@ -15,6 +17,7 @@ import DemoForm from './components/DemoForm';
 import { MerchantTypeOptions } from './constants';
 import options from './constants-options';
 import mockUpload from './services/mockUpload';
+import basicColumns from './constants-columns';
 
 function Demo() {
   return (
@@ -55,6 +58,10 @@ function Demo() {
       <BizFormItemInput label="身份证号" name="input5" type="idCard" />
       <BizFormItemInput label="数字" name="input6" type="number" />
       <BizFormItemInput label="密码" name="input7" type="password" clearable />
+      <BizForm.Header>选择器</BizForm.Header>
+      <BizFormItemPicker name="picker" label="选择" columns={basicColumns} />
+      <BizForm.Header>评分</BizForm.Header>
+      <BizFormItemRate name="rate" label="评分" />
       <BizForm.Header>文本域</BizForm.Header>
       <BizFormItemTextArea label="详细地址" name="textArea" />
     </DemoForm>

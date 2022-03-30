@@ -9,6 +9,7 @@ import BizFormItemDatePicker, { BizFormItemDatePickerProps } from './ItemDatePic
 import BizFormItemImageUploader, { BizFormItemImageUploaderProps } from './ItemImageUploader';
 import BizFormItemInput, { BizFormItemInputProps } from './ItemInput';
 import BizFormItemPicker, { BizFormItemPickerProps } from './ItemPicker';
+import BizFormItemRate, { BizFormItemRateProps } from './ItemRate';
 import BizFormItemTextArea, { BizFormItemTextAreaProps } from './ItemTextArea';
 
 export {
@@ -22,6 +23,7 @@ export {
   BizFormItemImageUploader,
   BizFormItemInput,
   BizFormItemPicker,
+  BizFormItemRate,
   BizFormItemTextArea
 };
 
@@ -37,6 +39,7 @@ export type {
   BizFormItemImageUploaderProps,
   BizFormItemInputProps,
   BizFormItemPickerProps,
+  BizFormItemRateProps,
   BizFormItemTextAreaProps
 };
 
