@@ -35,18 +35,20 @@ const DemoForm: React.FC<BizFormProps> = (props) => {
 
   return (
     <>
-      <Space block style={{ '--gap': '24px', marginBottom: 24 }}>
-        <Selector
-          value={layout}
-          onChange={(value) => value && value.length > 0 && setLayout(value as [BizFormLayout])}
-          options={layoutOptions}
-        />
-        <Selector
-          value={justify}
-          onChange={(value) => value && value.length > 0 && setJustify(value as [BizFormJustify])}
-          options={justifyOptions}
-        />
-      </Space>
+      <div style={{ marginBottom: 16 }}>
+        <Space block wrap style={{ '--gap': '24px' }}>
+          <Selector
+            value={layout}
+            onChange={(value) => value && value.length > 0 && setLayout(value as [BizFormLayout])}
+            options={layoutOptions}
+          />
+          <Selector
+            value={justify}
+            onChange={(value) => value && value.length > 0 && setJustify(value as [BizFormJustify])}
+            options={justifyOptions}
+          />
+        </Space>
+      </div>
       <BizForm
         name={uniqueFormName}
         layout={layout[0]}

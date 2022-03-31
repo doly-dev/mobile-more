@@ -53,6 +53,15 @@ function Demo() {
         help="可以使用 readOnly 来处理点击异步请求或校验"
       />
       <BizFormItemCheckList label="禁用" name="checkList6" options={MerchantTypeOptions} disabled />
+      <BizFormItemCheckList
+        label="自定义"
+        title="请选择商户类型"
+        name="checkList7"
+        options={MerchantTypeOptions}
+        checkListPopupProps={{
+          style: { '--adm-color-primary': '#f54d4f' } as React.CSSProperties
+        }}
+      />
     </DemoForm>
   );
 }
