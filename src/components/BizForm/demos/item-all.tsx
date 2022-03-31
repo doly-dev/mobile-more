@@ -12,6 +12,7 @@ import {
   BizFormItemPicker,
   BizFormItemRadio,
   BizFormItemRate,
+  BizFormItemSelector,
   BizFormItemSlider,
   BizFormItemStepper,
   BizFormItemSwitch,
@@ -72,6 +73,8 @@ function Demo() {
       <BizFormItemRadio name="radio" label="单选框" options={FruiltOptions} />
       <BizForm.Header>评分</BizForm.Header>
       <BizFormItemRate name="rate" label="评分" />
+      <BizForm.Header>选项组</BizForm.Header>
+      <BizFormItemSelector name="selector" label="选项组" options={FruiltOptions} />
       <BizForm.Header>滑块输入条</BizForm.Header>
       <BizFormItemSlider name="slider" label="滑块" />
       <BizForm.Header>步进器</BizForm.Header>

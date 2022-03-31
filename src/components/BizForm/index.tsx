@@ -12,6 +12,7 @@ import BizFormItemInput, { BizFormItemInputProps } from './ItemInput';
 import BizFormItemPicker, { BizFormItemPickerProps } from './ItemPicker';
 import BizFormItemRadio, { BizFormItemRadioProps } from './ItemRadio';
 import BizFormItemRate, { BizFormItemRateProps } from './ItemRate';
+import BizFormItemSelector, { BizFormItemSelectorProps } from './ItemSelector';
 import BizFormItemSlider, { BizFormItemSliderProps } from './ItemSlider';
 import BizFormItemStepper, { BizFormItemStepperProps } from './ItemStepper';
 import BizFormItemSwitch, { BizFormItemSwitchProps } from './ItemSwitch';
@@ -31,6 +32,7 @@ export {
   BizFormItemPicker,
   BizFormItemRadio,
   BizFormItemRate,
+  BizFormItemSelector,
   BizFormItemSlider,
   BizFormItemStepper,
   BizFormItemSwitch,
@@ -55,6 +57,7 @@ export type {
   BizFormItemPickerProps,
   BizFormItemRadioProps,
   BizFormItemRateProps,
+  BizFormItemSelectorProps,
   BizFormItemSliderProps,
   BizFormItemStepperProps,
   BizFormItemSwitchProps,

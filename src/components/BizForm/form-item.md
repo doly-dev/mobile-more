@@ -139,6 +139,8 @@ type Option = {
 
 ### CheckList - 勾选列表
 
+**注意：未开启 multiple 时，将视为单选，值为 string**
+
 <code src='./demos/check-list.tsx' />
 
 #### API
@@ -154,8 +156,6 @@ type Option = {
   [key: string]: any;
 };
 ```
-
-**注意：未开启 multiple 时，将视为单选，值为 string**
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -317,6 +317,30 @@ import { BizFormItemRate, BizFormItemRateProps } from 'mobile-more';
 | count | star 总数 | `number` | `5` |
 | readOnly | 只读，无法进行交互 | `boolean` | `false` |
 | rateProps | 透传 Rate 组件属性 | [RateProps](https://mobile.ant.design/zh/components/rate#属性) | - |
+
+### Selector - 选择组
+
+**注意：未开启 multiple 时，将视为单选，值为 string**
+
+<code src='./demos/selector.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemSelector, BizFormItemSelectorProps } from 'mobile-more';
+
+type Option = Partial<SelectorOption<SelectorValue>> & Record<string, any>;
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| columns | 行展示数 | `number` | - |
+| options | 可选项 | `Option[]` | - |
+| mapKeys | 数据转换为 `label` `value` `descriotion` `disabled` 键 | `{ label?: string; value?: string; description?: string; disabled?: string; }` | - |
+| radioMode | 单选模式，不允许取消选择。仅在 `multiple=false` 时生效。 | `boolean` | `true` |
+| multiple | 多选 | `boolean` | `false` |
+| showCheckMark | 是否显示对勾角标 | `boolean` | `true` |
+| selectorProps | 透传 Selector 组件属性 | [SelectorProps](https://mobile.ant.design/zh/components/selector#属性) | - |
 
 ### Slider - 滑块输入条
 

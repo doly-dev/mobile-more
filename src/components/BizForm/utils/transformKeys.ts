@@ -17,12 +17,14 @@ function transformKeys(data: DateItem[], keys: KeysWithChildren = {}) {
     label: labelKey,
     value: valueKey,
     disabled: disabledKey,
+    description: descriptionKey,
     readOnly: readOnlyKey,
     children: childrenKey
   } = {
     label: 'label',
     value: 'value',
     disabled: 'disabled',
+    description: 'description',
     readOnly: 'readOnly',
     children: 'children',
     ...keys
@@ -43,6 +45,10 @@ function transformKeys(data: DateItem[], keys: KeysWithChildren = {}) {
 
       if (typeof item?.[disabledKey] !== 'undefined') {
         newItem.disabled = item[disabledKey];
+      }
+
+      if (typeof item?.[descriptionKey] !== 'undefined') {
+        newItem.description = item[descriptionKey];
       }
 
       if (typeof item?.[readOnlyKey] !== 'undefined') {
