@@ -76,6 +76,7 @@
     "@umijs/fabric": "^2.8.1",
     "@umijs/test": "^3.0.5",
     "add": "^2.0.6",
+    "antd-mobile": "^5.9.2",
     "babel-plugin-import": "^1.13.3",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
