@@ -20,6 +20,7 @@ export interface BizFormItemCheckListProps
       | 'radioMode'
       | 'separator'
     > {
+  options: SuperCheckListProps['options'];
   readOnly?: boolean;
   checkListPopupProps?: Partial<CheckListPopupProps>;
 }

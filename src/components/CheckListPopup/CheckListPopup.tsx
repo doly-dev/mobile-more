@@ -156,7 +156,10 @@ function CheckListPopup(props: CheckListPopupProps) {
     }
   };
 
-  const realValue = state ? (Array.isArray(state) ? state : [state]) : [];
+  const realValue = React.useMemo(
+    () => (typeof state !== 'undefined' && !Array.isArray(state) ? [state] : state),
+    [state]
+  );
 
   return (
     <Popup
@@ -190,7 +193,7 @@ function CheckListPopup(props: CheckListPopupProps) {
         <CheckList
           multiple={multiple}
           {...checkListProps}
-          value={realValue}
+          value={realValue || []}
           onChange={handleChange}
         >
           {opts.map((item) => (
