@@ -37,8 +37,14 @@ const BizFormItemImageUploader: React.FC<BizFormItemImageUploaderProps> = ({
       noStyle={realNoStyle}
       rules={[
         {
-          required,
-          message: `请上传${label}`
+          validator(rule, value) {
+            if (required) {
+              if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
+                return Promise.reject(`请上传${label}`);
+              }
+            }
+            return Promise.resolve();
+          }
         }
       ]}
       required={required}

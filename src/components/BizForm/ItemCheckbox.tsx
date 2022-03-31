@@ -59,8 +59,14 @@ const BizFormItemCheckbox: React.FC<BizFormItemCheckboxProps> = ({
       required={required}
       rules={[
         {
-          required,
-          message: `请选择${label}`
+          validator(rule, value) {
+            if (required) {
+              if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
+                return Promise.reject(`请选择${label}`);
+              }
+            }
+            return Promise.resolve();
+          }
         }
       ]}
       {...restProps}

@@ -50,8 +50,12 @@ const BizFormItemCascader: React.FC<BizFormItemCascaderProps> = ({
       arrow
       rules={[
         {
-          required,
-          message: `请选择${label}`
+          validator(rule, value) {
+            if (required && (!Array.isArray(value) || value.length <= 0)) {
+              return Promise.reject(`请选择${label}`);
+            }
+            return Promise.resolve();
+          }
         }
       ]}
       required={required}

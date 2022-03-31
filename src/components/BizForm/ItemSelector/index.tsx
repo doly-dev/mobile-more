@@ -38,10 +38,7 @@ const BizFormItemSelector: React.FC<BizFormItemSelectorProps> = ({
         {
           validator(rule, value) {
             if (required) {
-              if (
-                (multiple && (!Array.isArray(value) || value.length <= 0)) ||
-                (!multiple && typeof value === 'undefined')
-              ) {
+              if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
                 return Promise.reject(`请选择${label}`);
               }
             }
