@@ -65,6 +65,7 @@ const BizFormItemRadio: React.FC<BizFormItemRadioProps> = ({
         <Space
           direction={block ? 'vertical' : 'horizontal'}
           block={block}
+          wrap
           {...spaceProps}
           style={{ width: block ? '100%' : 'auto', ...spaceProps?.style }}
         >
