@@ -155,17 +155,20 @@ type Option = {
 };
 ```
 
+**注意：未开启 multiple 时，将视为单选，值为 string**
+
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | placeholder | 占位符，提示文本 | `string` | `'请选择'` |
 | readOnly | 只读。<br/>点击不弹出 CheckListPopup 。 | `boolean` | - |
 | title | CheckListPopup 标题 | `ReactNode` | - |
-| loading | 显示加载中 | `boolean` | - |
+| loading | 加载状态 | `boolean` | - |
 | options | CheckList 选项数据 | `Option[]` | - |
 | fieldNames | 自定义 options 数据节点 `label` `value` `readOnly` `disabled` 字段名 | `{ label?: string; value?: string; readOnly?: string; disabled?: string; }` | - |
-| multiple | 多选模式 | `boolean` | `false` |
+| radioMode | 单选模式，不允许取消选择。仅在 `multiple=false` 时生效。 | `boolean` | `true` |
+| multiple | 多选 | `boolean` | `false` |
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: string \| string[] \| undefined, items?: (Option \| null)[]) => string \| undefined;` | - |
-| separator | 默认渲染当前值的分隔符 | `string` | `' - '` |
+| separator | 默认渲染当前值的分隔符，仅在 `multiple=true` 时生效。 | `string` | `' - '` |
 | checkListProps | 透传 CheckList 组件属性 | [CheckListProps](https://mobile.ant.design/zh/components/check-list#属性) | - |
 | searchBarProps | 透传 SearchBar 组件属性 | [SearchBarProps](https://mobile.ant.design/zh/components/search-bar#属性) | - |
 | emptyProps | 透传 Empty 组件属性 | [SearchBarProps](https://mobile.ant.design/zh/components/empty#属性) | - |

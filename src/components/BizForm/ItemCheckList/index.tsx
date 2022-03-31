@@ -17,6 +17,7 @@ export interface BizFormItemCheckListProps
       | 'loading'
       | 'renderCurrentValue'
       | 'multiple'
+      | 'radioMode'
       | 'separator'
     > {
   readOnly?: boolean;
@@ -38,6 +39,7 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = ({
   checkListPopupProps,
   renderCurrentValue,
   multiple,
+  radioMode,
   separator,
 
   // item props
@@ -87,6 +89,7 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = ({
         emptyProps={emptyProps}
         placeholder={placeholder}
         multiple={multiple}
+        radioMode={radioMode}
         separator={separator}
         {...checkListPopupProps}
       />

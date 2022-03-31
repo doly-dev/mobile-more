@@ -43,10 +43,12 @@ type Option = {
 };
 ```
 
+**注意：未开启 multiple 时，将视为单选，值为 string**
+
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
-| value | 选中项 | `string | string[]` | - |
-| onChange | 选中项改变时触发 | `(value: string | string[]) => void` | - |
+| --- | --- | --- | --- |
+| value | 选中项 | `string \| string[]` | - |
+| onChange | 选中项改变时触发 | `(value: string \| string[]) => void` | - |
 | changeClosable | 触发 onChange 后是否关闭弹层。<br/>仅在单选模式下且有值时生效。 | `boolean` | `true` |
 | renderLabel | 自定义列表项渲染 | `(option: Option) => ReactNode` | `[]` |
 | options | 可选项 | `Option[]` | `[]` |
@@ -55,7 +57,9 @@ type Option = {
 | searchValue | 搜索值。如果有值表示为受控。 | `string` | - |
 | onSearch | 搜索内容变化时触发 | `(value: string) => void` | - |
 | filterOption | 根据搜索内容过滤可选项。默认根据 `value` 和 `label` 模糊匹配过滤。 | `(searchValue: string, option: Option) => boolean;` | - |
-| loading | 是否在加载中 | `boolean` | - |
+| radioMode | 单选模式，不允许取消选择。仅在 `multiple=false` 时生效。 | `boolean` | `true` |
+| multiple | 多选 | `boolean` | `false` |
+| loading | 加载 | `boolean` | - |
 | title | 标题 | `ReactNode` | - |
 | closable | 是否显示标题右侧关闭图标 | `boolean` | `true` |
 | trigger | 触发展示隐藏的元素 | `ReactElement` | - |

@@ -32,6 +32,7 @@ export interface CheckListPopupProps extends PopupProps, Pick<CheckListProps, 'm
   searchValue?: string;
   onSearch?: (value: string) => void;
   loading?: boolean;
+  radioMode?: boolean;
   checkListProps?: CheckListProps;
   searchBarProps?: Omit<SearchBarProps, 'value' | 'onSearch'>;
   emptyProps?: EmptyProps;
@@ -55,6 +56,7 @@ function CheckListPopup(props: CheckListPopupProps) {
   const {
     // common props
     loading = false,
+    radioMode = true,
     changeClosable: outChangeClosable,
 
     // searchbar props
@@ -145,7 +147,7 @@ function CheckListPopup(props: CheckListPopupProps) {
     if (multiple) {
       setState(vals);
     } else {
-      const fmtValue = vals && vals.length > 0 ? vals[0] : undefined;
+      const fmtValue = vals && vals.length > 0 ? vals[0] : radioMode ? state : undefined;
       setState(fmtValue);
 
       if (typeof fmtValue !== 'undefined' && changeClosable) {
