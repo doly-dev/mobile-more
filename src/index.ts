@@ -27,3 +27,6 @@ export * from './components/BizForm';
 
 export { default as CaptchaButton } from './components/CaptchaButton';
 export * from './components/CaptchaButton';
+
+export { default as Upload } from './components/Upload';
+export * from './components/Upload';

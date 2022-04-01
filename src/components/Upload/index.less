@@ -1,0 +1,22 @@
+@import '../../config/prefixClass.less';
+
+@prefixCls: ~'@{prefixClass}-upload';
+
+.@{prefixCls} {
+  display: inline-block;
+  max-width: 100%;
+
+  &-trigger {
+    display: inline-flex;
+    vertical-align: top;
+    cursor: pointer;
+  }
+
+  &-block {
+    display: block;
+  }
+
+  &-block &-trigger {
+    display: flex;
+  }
+}
