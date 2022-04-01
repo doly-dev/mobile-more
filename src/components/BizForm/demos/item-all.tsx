@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
   BizForm,
+  BizFormItemAreaCode,
   BizFormItemCaptcha,
   BizFormItemCascadePicker,
   BizFormItemCascader,
@@ -29,6 +30,8 @@ import FruiltOptions from './constants-options2';
 function Demo() {
   return (
     <DemoForm>
+      <BizForm.Header>地区码</BizForm.Header>
+      <BizFormItemAreaCode name="areaCode" label="地区码" options={options} />
       <BizForm.Header>验证码</BizForm.Header>
       <BizFormItemCaptcha name="captcha" label="验证码" />
       <BizForm.Header>级联选择器</BizForm.Header>
