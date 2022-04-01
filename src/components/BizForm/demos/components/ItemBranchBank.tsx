@@ -40,6 +40,9 @@ const ItemBranchBank: React.FC<ItemBranchBankProps> = ({ areaCode, ...restProps 
         },
         loading
       }}
+      renderCurrentValue={(value) => {
+        return (value as string) || '';
+      }}
       {...restProps}
     />
   );

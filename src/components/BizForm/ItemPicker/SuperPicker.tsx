@@ -53,7 +53,10 @@ const SuperPicker: React.FC<SuperPickerProps> = ({
         const valueStr =
           typeof renderCurrentValue === 'function'
             ? renderCurrentValue(value, items)
-            : items.map((item) => item?.label).join(separator);
+            : items
+                .filter((item) => !!item)
+                .map((item) => item?.label)
+                .join(separator);
         return <Input readOnly value={valueStr} placeholder={placeholder} />;
       }}
     </Picker>

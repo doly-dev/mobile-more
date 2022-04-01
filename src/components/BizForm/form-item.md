@@ -32,6 +32,31 @@ import { BizFormItem, BizFormItemProps } from 'mobile-more';
 
 下列组件是基于 BizFormItem 扩展，继承 BizFormItem 所有属性。
 
+### AreaCode - 地区码
+
+<code src='./demos/area-code.tsx' />
+
+#### API
+
+```typescript
+import { BizFormItemAreaCode, BizFormItemAreaCodeProps } from 'mobile-more';
+
+type Option = Partial<Omit<CascaderOption, 'children'>> & {
+  children?: Option[];
+} & Record<string, any>;
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| placeholder | 占位符，提示文本 | `string` | `'请选择'` |
+| readOnly | 只读。<br/>点击不弹出 Cascader 。 | `boolean` | - |
+| title | Cascader 标题 | `ReactNode` | - |
+| options | Cascader 树形的选项数据 | `Option[]` | - |
+| mapKeys | 数据转换为 `label` `value` `disabled` `children` 键 | `{ label?: string; value?: string; disabled?: string; children?: string; }` | - |
+| separator | 默认渲染当前值的分隔符 | `string` | `'/'` |
+| renderCurrentValue | 自定义渲染当前选中值 | `(value: CascaderValue[] \| undefined, items: (CascaderOption \| null)[]) => string \| undefined;` | - |
+| areaCodeProps | 透传 Cascader 组件属性 | [CascaderProps](https://mobile.ant.design/zh/components/cascader#属性) | - |
+
 ### Captcha - 验证码
 
 <code src='./demos/captcha.tsx' />

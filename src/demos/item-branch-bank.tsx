@@ -12,8 +12,8 @@ const Demo = () => {
       <ItemBranchBank
         label="开户支行名称1"
         name="bankBranch"
-        placeholder="请选择开户支行名称2"
-        title="请选择开户支行名称2"
+        placeholder="请选择开户支行名称1"
+        title="请选择开户支行名称1"
         areaCode="150221"
         required
         style={{ '--prefix-width': '7em' }}

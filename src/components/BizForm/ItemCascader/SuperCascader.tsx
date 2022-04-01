@@ -50,7 +50,10 @@ const SuperCascader: React.FC<SuperCascaderProps> = ({
         const valueStr =
           typeof renderCurrentValue === 'function'
             ? renderCurrentValue(value, items)
-            : items.map((item) => item?.label).join(separator);
+            : items
+                .filter((item) => !!item)
+                .map((item) => item?.label)
+                .join(separator);
         return <Input value={valueStr} placeholder={placeholder} readOnly />;
       }}
     </Cascader>

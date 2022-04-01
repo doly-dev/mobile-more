@@ -1,6 +1,7 @@
 import BizForm, { BizFormProps, BizFormJustify, BizFormInstance, BizFormLayout } from './Form';
 import BizFormArray, { BizFormArrayProps } from './FormArray';
 import BizFormItem, { BizFormItemProps } from './FormItem';
+import BizFormItemAreaCode, { BizFormItemAreaCodeProps } from './ItemAreaCode';
 import BizFormItemCaptcha, { BizFormItemCaptchaProps } from './ItemCaptcha';
 import BizFormItemCascadePicker, { BizFormItemCascadePickerProps } from './ItemCascadePicker';
 import BizFormItemCascader, { BizFormItemCascaderProps } from './ItemCascader';
@@ -21,6 +22,7 @@ import BizFormItemTextArea, { BizFormItemTextAreaProps } from './ItemTextArea';
 export {
   BizFormArray,
   BizFormItem,
+  BizFormItemAreaCode,
   BizFormItemCaptcha,
   BizFormItemCascadePicker,
   BizFormItemCascader,
@@ -46,6 +48,7 @@ export type {
   BizFormLayout,
   BizFormArrayProps,
   BizFormItemProps,
+  BizFormItemAreaCodeProps,
   BizFormItemCaptchaProps,
   BizFormItemCascadePickerProps,
   BizFormItemCascaderProps,

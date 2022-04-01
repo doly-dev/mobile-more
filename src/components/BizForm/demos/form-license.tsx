@@ -1,18 +1,19 @@
 import * as React from 'react';
 import { safeDate } from 'util-helpers';
+import { getPCA } from 'lcn';
 import dayjs from 'dayjs';
 import { useAsync } from 'rc-hooks';
 import { Button, Toast } from 'antd-mobile';
 import {
   BizForm,
   BizFormItemInput,
+  BizFormItemAreaCode,
   BizFormItemImageUploader,
   BizFormItemCheckList,
   BizFormItemCascadePicker,
   BizFormItemDatePicker,
   BizFormItemTextArea
 } from 'mobile-more';
-import ItemAreaCode from './components/ItemAreaCode';
 import ItemSpecialDatePicker from './components/ItemSpecialDatePicker';
 import getMcc from './services/getMcc';
 import getMerchantType from './services/getMerchantType';
@@ -20,6 +21,8 @@ import mockUpload from './services/mockUpload';
 import styles from './demo.less';
 
 const DefaultFormat = 'YYYY-MM-DD';
+
+const pca = getPCA({ fieldNames: { code: 'value', name: 'label' }, inland: true });
 
 // 最大/最小可选日期
 export const MinDate = safeDate(dayjs().subtract(20, 'year').format(DefaultFormat));
@@ -113,11 +116,12 @@ function Demo() {
           datePickerProps={{ max: MaxDate, min: MinDate }}
           required
         />
-        <ItemAreaCode
+        <BizFormItemAreaCode
           label="经营场所"
           name={['businessLicenseInfo', 'areaCode']}
           placeholder="请选择经营场所"
           title="请选择经营场所"
+          options={pca}
           required
         />
         <BizFormItemTextArea

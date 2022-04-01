@@ -7,7 +7,7 @@ function omit<T extends object, K extends keyof T>(obj: T, ...propertyNames: K[]
     propertyNames.forEach((propNames) => {
       if (
         (Array.isArray(propNames) && !propNames.find((item) => item === key)) ||
-        propNames === key
+        propNames !== key
       ) {
         newObj[key] = obj[key];
       }

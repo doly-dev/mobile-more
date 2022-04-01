@@ -5,7 +5,7 @@ import { PickerValue, PickerValueExtend } from 'antd-mobile/es/components/picker
 import { InputProps } from 'antd-mobile/es/components/input';
 import transformKeys from '../utils/transformKeys';
 
-export type { CascadePickerProps };
+export type { CascadePickerProps, PickerValue, PickerValueExtend };
 
 type Option = Partial<Omit<CascadePickerOption, 'children'>> & { children?: Option[] } & Record<
     string,
@@ -46,7 +46,10 @@ const SuperCascadePicker: React.FC<SuperCascadePickerProps> = ({
         const valueStr =
           typeof renderCurrentValue === 'function'
             ? renderCurrentValue(value, items)
-            : items.map((item) => item?.label).join(separator);
+            : items
+                .filter((item) => !!item)
+                .map((item) => item?.label)
+                .join(separator);
         return <Input value={valueStr} placeholder={placeholder} readOnly />;
       }}
     </CascadePicker>

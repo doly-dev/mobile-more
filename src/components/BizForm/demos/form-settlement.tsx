@@ -1,12 +1,20 @@
 import * as React from 'react';
+import { getPCA } from 'lcn';
 import { useAsync } from 'rc-hooks';
 import { Button, Toast } from 'antd-mobile';
-import { BizForm, BizFormItemInput, BizFormItemCheckList, Upload } from 'mobile-more';
+import {
+  BizForm,
+  BizFormItemInput,
+  BizFormItemCheckList,
+  BizFormItemAreaCode,
+  Upload
+} from 'mobile-more';
 import IconScanCard from './images/icon-scan-card@3x.png';
 import getBanks from './services/getBanks';
 import ocr from './services/ocr';
-import ItemAreaCode from './components/ItemAreaCode';
 import ItemBranchBank from './components/ItemBranchBank';
+
+const pca = getPCA({ fieldNames: { code: 'value', name: 'label' }, inland: true });
 
 function Demo() {
   const [form] = BizForm.useForm();
@@ -82,12 +90,12 @@ function Demo() {
         fieldNames={{ label: 'name', value: 'code' }}
         required
       />
-      <ItemAreaCode
+      <BizFormItemAreaCode
         label="开户行所在地"
         name={['settlementInfo', 'areaCode']}
         placeholder="请选择开户行所在地"
         title="请选择开户行所在地"
-        showArea={false}
+        options={pca}
         required
       />
       <BizForm.Subscribe to={[['settlementInfo', 'areaCode']]}>
