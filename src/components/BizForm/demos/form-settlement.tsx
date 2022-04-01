@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useAsync } from 'rc-hooks';
 import { Button, Toast } from 'antd-mobile';
-import { BizForm, BizFormItemInput, BizFormItemCheckList } from 'mobile-more';
-import BankCardOCR from './components/BankCardOCR';
+import { BizForm, BizFormItemInput, BizFormItemCheckList, Upload } from 'mobile-more';
+import IconScanCard from './images/icon-scan-card@3x.png';
 import getBanks from './services/getBanks';
 import ocr from './services/ocr';
 import ItemAreaCode from './components/ItemAreaCode';
@@ -17,14 +17,16 @@ function Demo() {
   });
 
   const handleOCR = React.useCallback(
-    (file: File) => {
-      ocr(file).then((res) => {
-        form.setFieldsValue({
-          settlementInfo: {
-            bankCardNo: res.data
-          }
+    (files: FileList | null) => {
+      if (files) {
+        ocr(files[0]).then((res) => {
+          form.setFieldsValue({
+            settlementInfo: {
+              bankCardNo: res.data
+            }
+          });
         });
-      });
+      }
     },
     [form]
   );
@@ -62,7 +64,11 @@ function Demo() {
         placeholder="请输入银行账号"
         type="bankCard"
         inputProps={{
-          suffix: <BankCardOCR onChange={handleOCR} />
+          suffix: (
+            <Upload onChange={handleOCR}>
+              <img src={IconScanCard} alt="" width="24" height="24" />
+            </Upload>
+          )
         }}
         clearable
         required

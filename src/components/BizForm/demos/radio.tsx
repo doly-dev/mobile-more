@@ -11,7 +11,7 @@ function Demo() {
         radio4: 'apple'
       }}
     >
-      <BizFormItemRadio name="radio1" label="复选框" options={FruiltOptions} />
+      <BizFormItemRadio name="radio1" label="单选框" options={FruiltOptions} />
       <BizFormItemRadio name="radio2" label="块级展示" options={FruiltOptions} block />
       <BizFormItemRadio
         name="radio3"
