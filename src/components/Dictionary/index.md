@@ -32,7 +32,7 @@ group:
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | value | 值 | `any` | - |
-| valueEnum | 值枚举数据 | `{ label?: ReactNode; value?: any; props?: Record<string,any>; [key:string]: any; }` | - |
+| valueEnum | 枚举数据 | `{ label?: ReactNode; value?: any; props?: Record<string,any>; [key:string]: any; }[]` | - |
 | defaultLabel | 没有匹配到值时默认展示内容 | `ReactNode` | `'-'` |
 | fieldNames | 自定义字段名 | `{ label?: string; value?: string; props?: string; }` | - |
 | match | 自定义 value 匹配方法 | `(itemValue: ValueType, currentValue: ValueType) => boolean;` | - |
