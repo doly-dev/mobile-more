@@ -70,7 +70,7 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
   );
 
   const handleDelete = React.useCallback(
-    (item) => {
+    (item: ImageUploadItem) => {
       if (typeof onDelete === 'function') {
         return onDelete(item);
       }

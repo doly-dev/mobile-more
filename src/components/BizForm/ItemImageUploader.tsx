@@ -10,6 +10,7 @@ export interface BizFormItemImageUploaderProps
       'upload' | 'comfirmDelete' | 'maxCount' | 'maxSize' | 'type' | 'multiple'
     > {
   imageUploaderProps?: Partial<ImageUploaderProps>;
+  children?: React.ReactNode;
 }
 
 const BizFormItemImageUploader: React.FC<BizFormItemImageUploaderProps> = ({

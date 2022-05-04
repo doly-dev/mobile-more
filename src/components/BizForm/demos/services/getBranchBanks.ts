@@ -7,7 +7,7 @@ export default async function getBranchBanks({ areaCode = '', keyword = '' } = {
   const res = Mockjs.mock({
     'data|5-15': [
       {
-        name: `${keyword}@cword(5,7)`,
+        name: `${areaCode}${keyword}@cword(5,7)`,
         code: '@word(3,5)'
       }
     ]

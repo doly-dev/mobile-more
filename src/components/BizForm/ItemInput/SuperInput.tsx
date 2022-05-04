@@ -85,7 +85,7 @@ const SuperInput = React.forwardRef<InputRef, SuperInputProps>(
     }, [type, disabledWhiteSpace]);
 
     const normalize = React.useCallback(
-      (val) => {
+      (val: string) => {
         let newValue = val;
         if (type === 'mobile') {
           newValue = normalizeMobile(val);
