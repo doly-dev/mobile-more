@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getPCA, getPC } from 'lcn';
-import BizFormItemAreaCode from '../ItemAreaCode';
+import { BizFormItemAreaCode } from 'mobile-more';
 import DemoForm from './components/DemoForm';
 import options from './constants-options';
 

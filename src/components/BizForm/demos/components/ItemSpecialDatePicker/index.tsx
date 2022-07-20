@@ -52,11 +52,11 @@ const ItemSpecialDatePicker: React.FC<ItemSpecialDatePickerProps> = ({
       ]}
       required={required}
       {...restProps}
-      onClick={(e: React.MouseEvent) => {
+      onClick={(e, widgetRef) => {
         if (!disabled && !readOnly) {
           setVisible(true);
         }
-        restProps?.onClick?.(e);
+        restProps?.onClick?.(e, widgetRef);
       }}
     >
       <SpecialDatePicker

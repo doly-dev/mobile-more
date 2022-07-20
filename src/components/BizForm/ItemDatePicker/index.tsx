@@ -48,11 +48,11 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = ({
     [format, precision]
   );
   const handleClick = React.useCallback(
-    (e: React.MouseEvent) => {
+    (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
       if (!readOnly && !disabled) {
         setVisible(true);
       }
-      onClick?.(e);
+      onClick?.(e, widgetRef);
     },
     [disabled, onClick, readOnly]
   );

@@ -56,11 +56,11 @@ const BizFormItemAreaCode: React.FC<BizFormItemAreaCodeProps> & {
   const [visible, setVisible] = React.useState(false);
 
   const handleClick = React.useCallback(
-    (e: React.MouseEvent) => {
+    (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
       if (!disabled && !readOnly) {
         setVisible(true);
       }
-      onClick?.(e);
+      onClick?.(e, widgetRef);
     },
     [disabled, onClick, readOnly]
   );
