@@ -9,7 +9,7 @@ import './FormItem.less';
 
 export interface BizFormItemProps<ValueType = any> extends FormItemProps {
   extendRules?: FormItemProps['rules'];
-  transform?: (value: ValueType) => any;
+  transform?: (value: ValueType, currentLevelValues?: any) => any;
   justify?: FormContextValue['justify'];
 }
 

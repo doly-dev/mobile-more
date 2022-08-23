@@ -27,7 +27,9 @@ const BizForm: React.FC<BizFormProps> & {
   useForm: typeof Form.useForm;
   useWatch: typeof Form.useWatch;
 } = ({ onFinish, className, justify = 'start', layout = 'horizontal', ...restProps }) => {
-  const transformRecordRef = React.useRef<Record<string, ((value: any) => any) | undefined>>({});
+  const transformRecordRef = React.useRef<
+    Record<string, ((value: any, currentLevelValues?: any) => any) | undefined>
+  >({});
   const setFieldTransform: FormContextValue['setFieldTransform'] = (
     name,
     transform,

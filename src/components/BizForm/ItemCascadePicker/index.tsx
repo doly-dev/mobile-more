@@ -1,6 +1,8 @@
 import * as React from 'react';
+import uniqueId from 'lodash/uniqueId';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import getLabel from '../utils/getLabel';
+import { InvalidFormValue } from '../utils/transform';
 import SuperCascadePicker, { SuperCascadePickerProps } from './SuperCascadePicker';
 
 export interface BizFormItemCascadePickerProps
@@ -11,6 +13,7 @@ export interface BizFormItemCascadePickerProps
     > {
   readOnly?: boolean;
   cascadePickerProps?: Partial<SuperCascadePickerProps>;
+  names?: string[];
 }
 
 const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
@@ -24,16 +27,23 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
   renderCurrentValue,
   separator,
   cascadePickerProps,
+  names,
 
   // item props
+  name,
   readOnly,
   disabled,
   onClick,
   required,
+  transform: outTransform,
   ...restProps
 }) => {
   const label = getLabel(restProps);
   const [visible, setVisible] = React.useState(false);
+  const currentName = React.useMemo(
+    () => name || (Array.isArray(names) && names.length > 0 ? uniqueId('cascaderPicker') : name),
+    [name, names]
+  );
 
   const handleClick = React.useCallback(
     (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
@@ -44,10 +54,28 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
     },
     [disabled, onClick, readOnly]
   );
+  const transform = React.useCallback(
+    (value: string[], currentLevelValues: any) => {
+      if (typeof outTransform === 'function') {
+        return outTransform(value);
+      }
+
+      if (Array.isArray(names) && names.length > 0) {
+        names.forEach((item, index) => {
+          currentLevelValues[item] =
+            Array.isArray(value) && value.length > 0 ? value[index] : undefined;
+        });
+        return InvalidFormValue;
+      }
+      return value;
+    },
+    [names, outTransform]
+  );
 
   return (
     <BizFormItem
       arrow
+      name={currentName}
       rules={[
         {
           validator(rule, value) {
@@ -61,6 +89,7 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
       required={required}
       disabled={disabled}
       onClick={handleClick}
+      transform={transform}
       {...restProps}
       trigger="onConfirm"
       validateTrigger="onConfirm"

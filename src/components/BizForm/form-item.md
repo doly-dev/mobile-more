@@ -35,6 +35,8 @@ import { BizFormItem, BizFormItemProps } from 'mobile-more';
 ### AreaCode - 地区码
 
 > 基于 `CascadePicker` ，输入和输出只包含最后一级数据，适用于只需要输入地区码的场景（不需要省市码）。
+>
+> 该组件不支持 transform 配置项。
 
 <code src='./demos/area-code.tsx' />
 
@@ -108,6 +110,7 @@ type Option = Partial<Omit<CascadePickerOption, 'children'>> & {
 | title | CascadePicker 标题 | `ReactNode` | - |
 | options | CascadePicker 树形的选项数据 | `Option[]` | - |
 | mapKeys | 数据转换为 `label` `value` `children` 键 | `{ label?: string; value?: string; children?: string; }` | - |
+| names | 级联选项字段名解构，设置该字段后，`name` 将失效。 | `string[]` | - |
 | separator | 默认渲染当前值的分隔符 | `string` | `'/'` |
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
 | cascadePickerProps | 透传 CascadePicker 组件属性 | [CascadePickerProps](https://mobile.ant.design/zh/components/picker#cascadepicker) | - |
@@ -133,6 +136,7 @@ type Option = Partial<Omit<CascaderOption, 'children'>> & {
 | title | Cascader 标题 | `ReactNode` | - |
 | options | Cascader 树形的选项数据 | `Option[]` | - |
 | mapKeys | 数据转换为 `label` `value` `disabled` `children` 键 | `{ label?: string; value?: string; disabled?: string; children?: string; }` | - |
+| names | 级联选项字段名解构，设置该字段后，`name` 将失效。 | `string[]` | - |
 | separator | 默认渲染当前值的分隔符 | `string` | `'/'` |
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: CascaderValue[] \| undefined, items: (CascaderOption \| null)[]) => string \| undefined;` | - |
 | cascaderProps | 透传 Cascader 组件属性 | [CascaderProps](https://mobile.ant.design/zh/components/cascader#属性) | - |
@@ -295,6 +299,7 @@ type SuperPickerColumn = (string | SuperPickerColumnItem)[];
 | title | Picker 标题 | `ReactNode` | - |
 | columns | Picker 二维数组选项数据 | `SuperPickerColumn[] \| ((value?: PickerValue[]) => SuperPickerColumn[])` | - |
 | mapKeys | 数据转换为 `label` `value` 键 | `{ label?: string; value?: string; }` | - |
+| names | 级联选项字段名解构，设置该字段后，`name` 将失效。 | `string[]` | - |
 | separator | 默认渲染当前值的分隔符 | `string` | `' - '` |
 | renderCurrentValue | 自定义渲染当前选中值 | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => string \| undefined;` | - |
 | pickerProps | 透传 Picker 组件属性 | [PickerProps](https://mobile.ant.design/zh/components/picker#属性) | - |

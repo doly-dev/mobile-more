@@ -23,6 +23,12 @@ function Demo() {
       <BizFormItemCascader name="cascadePicker2" label="只读" options={options} readOnly />
       <BizFormItemCascader name="cascadePicker3" label="禁用" options={options} disabled />
       <BizFormItemCascader
+        names={['province', 'city']}
+        label="字段解构"
+        options={options}
+        help="设置 names 将自动解构到对应字段名中"
+      />
+      <BizFormItemCascader
         name="mcc"
         label="自定义"
         options={data}

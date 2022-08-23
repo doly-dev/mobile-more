@@ -5,7 +5,7 @@ export type FormContextValue = {
   justify: 'start' | 'center' | 'end';
   setFieldTransform: (
     name: FormItemProps['name'],
-    transform: (value: any) => any,
+    transform: (value: any, currentLevelValues?: any) => any,
     parentListNames?: FormArrayProps['name'][]
   ) => void;
 };

@@ -1,6 +1,8 @@
 import * as React from 'react';
+import uniqueId from 'lodash/uniqueId';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import getLabel from '../utils/getLabel';
+import { InvalidFormValue } from '../utils/transform';
 import SuperPicker, { SuperPickerProps } from './SuperPicker';
 
 export interface BizFormItemPickerProps
@@ -11,6 +13,7 @@ export interface BizFormItemPickerProps
     > {
   readOnly?: boolean;
   pickerProps?: Partial<SuperPickerProps>;
+  names?: string[];
 }
 
 const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
@@ -21,15 +24,23 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
   columns = [],
   title,
   pickerProps,
+  names,
 
+  // item props
+  name,
   readOnly,
   required,
   disabled,
   onClick,
+  transform: outTransform,
   ...restProps
 }) => {
   const label = getLabel(restProps);
   const [visible, setVisible] = React.useState(false);
+  const currentName = React.useMemo(
+    () => name || (Array.isArray(names) && names.length > 0 ? uniqueId('cascaderPicker') : name),
+    [name, names]
+  );
 
   const handleClick = React.useCallback(
     (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
@@ -40,10 +51,28 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
     },
     [disabled, onClick, readOnly]
   );
+  const transform = React.useCallback(
+    (value: string[], currentLevelValues: any) => {
+      if (typeof outTransform === 'function') {
+        return outTransform(value);
+      }
+
+      if (Array.isArray(names) && names.length > 0) {
+        names.forEach((item, index) => {
+          currentLevelValues[item] =
+            Array.isArray(value) && value.length > 0 ? value[index] : undefined;
+        });
+        return InvalidFormValue;
+      }
+      return value;
+    },
+    [names, outTransform]
+  );
 
   return (
     <BizFormItem
       arrow
+      name={currentName}
       rules={[
         {
           validator(rule, value) {
@@ -59,6 +88,7 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
       required={required}
       disabled={disabled}
       onClick={handleClick}
+      transform={transform}
       {...restProps}
       trigger="onConfirm"
       validateTrigger="onConfirm"

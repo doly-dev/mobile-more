@@ -42,6 +42,7 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
       visibilityToggle = true,
       iconRender,
       required,
+      transform: outTransform,
       ...restProps
     },
     ref
@@ -88,12 +89,15 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
 
     const transform = React.useCallback(
       (value: string) => {
+        if (typeof outTransform === 'function') {
+          return outTransform(value);
+        }
         if ((mergeType === 'bankCard' || mergeType === 'mobile') && value) {
           return value.replace(/\D/g, '');
         }
         return value;
       },
-      [mergeType]
+      [mergeType, outTransform]
     );
     const type = React.useMemo(() => {
       if (mergeType === 'password') {

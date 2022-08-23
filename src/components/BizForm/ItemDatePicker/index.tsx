@@ -27,6 +27,7 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = ({
   title,
 
   required,
+  transform: outTransform,
   ...restProps
 }) => {
   const label = getLabel(restProps);
@@ -38,6 +39,9 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = ({
   );
   const transform = React.useCallback(
     (value: Date) => {
+      if (typeof outTransform === 'function') {
+        return outTransform(value);
+      }
       if (precision !== 'week' && precision !== 'week-day' && format && value) {
         return typeof format === 'function'
           ? format(value, precision)
@@ -45,7 +49,7 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = ({
       }
       return value;
     },
-    [format, precision]
+    [format, outTransform, precision]
   );
   const handleClick = React.useCallback(
     (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
