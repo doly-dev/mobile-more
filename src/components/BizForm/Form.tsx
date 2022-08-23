@@ -25,6 +25,7 @@ const BizForm: React.FC<BizFormProps> & {
   Subscribe: typeof Form.Subscribe;
   Header: typeof Form.Header;
   useForm: typeof Form.useForm;
+  useWatch: typeof Form.useWatch;
 } = ({ onFinish, className, justify = 'start', layout = 'horizontal', ...restProps }) => {
   const transformRecordRef = React.useRef<Record<string, ((value: any) => any) | undefined>>({});
   const setFieldTransform: FormContextValue['setFieldTransform'] = (
@@ -70,5 +71,6 @@ BizForm.Array = FormArray;
 BizForm.Subscribe = Form.Subscribe;
 BizForm.Header = Form.Header;
 BizForm.useForm = Form.useForm;
+BizForm.useWatch = Form.useWatch;
 
 export default BizForm;
