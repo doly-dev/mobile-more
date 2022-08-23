@@ -34,6 +34,8 @@ import { BizFormItem, BizFormItemProps } from 'mobile-more';
 
 ### AreaCode - 地区码
 
+> 基于 `CascadePicker` ，输入和输出只包含最后一级数据，适用于只需要输入地区码的场景（不需要省市码）。
+
 <code src='./demos/area-code.tsx' />
 
 #### API
