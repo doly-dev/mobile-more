@@ -95,11 +95,11 @@ function CheckListPopup(props: CheckListPopupProps) {
     }
     return !multiple;
   }, [multiple, outChangeClosable]);
-  const [visible, changeVisible] = useControllableValue<boolean>(props, {
+  const [visible, changeVisible] = useControllableValue<boolean>(props as any, {
     valuePropName: 'visible',
     trigger: 'onVisibleChange'
   });
-  const [searchValue, setSearchValue] = useControllableValue<string>(props, {
+  const [searchValue, setSearchValue] = useControllableValue<string>(props as any, {
     valuePropName: 'searchValue',
     trigger: 'onSearch'
   });
