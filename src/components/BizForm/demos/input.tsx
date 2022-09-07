@@ -8,21 +8,21 @@ function Demo() {
   const handleChange = (files: FileList | null) => {
     console.log(files);
     form.setFieldsValue({
-      bankCard2: '6222021001136398267'
+      input5: '6222021001136398267'
     });
   };
 
   return (
-    <DemoForm>
-      <BizFormItemInput label="文本" name="text" />
-      <BizFormItemInput label="禁止空字符" name="noWhiteSpace" disabledWhiteSpace />
+    <DemoForm form={form}>
+      <BizFormItemInput label="文本" name="input1" />
+      <BizFormItemInput label="禁止空字符" name="input2" disabledWhiteSpace />
       <BizForm.Header>自定义类型</BizForm.Header>
-      <BizFormItemInput label="手机号码" name="mobile" type="mobile" />
-      <BizFormItemInput label="银行卡号" name="bankCard" type="bankCard" />
+      <BizFormItemInput label="手机号码" name="input3" type="mobile" />
+      <BizFormItemInput label="银行卡号" name="input4" type="bankCard" />
       <BizFormItemInput
         label="银行卡号2"
-        name="bankCard2"
-        type="bankCard2"
+        name="input5"
+        type="bankCard"
         inputProps={{
           suffix: (
             <Upload onChange={handleChange}>
@@ -31,9 +31,9 @@ function Demo() {
           )
         }}
       />
-      <BizFormItemInput label="身份证号" name="idCard" type="idCard" />
-      <BizFormItemInput label="数字" name="number" type="number" />
-      <BizFormItemInput label="密码" name="password" type="password" clearable />
+      <BizFormItemInput label="身份证号" name="input6" type="idCard" />
+      <BizFormItemInput label="数字" name="input7" type="number" />
+      <BizFormItemInput label="密码" name="input8" type="password" clearable />
     </DemoForm>
   );
 }
