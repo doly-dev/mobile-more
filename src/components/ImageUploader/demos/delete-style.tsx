@@ -17,18 +17,17 @@ function Demo() {
     const url = URL.createObjectURL(file);
     cacheURL.push(url);
     return {
-      url: URL.createObjectURL(file)
+      url
     };
   };
 
   React.useEffect(() => {
     return () => {
-      const url = cacheURL.shift();
-      while (url) {
-        URL.revokeObjectURL(url);
-      }
+      cacheURL.forEach((itemUrl) => {
+        URL.revokeObjectURL(itemUrl);
+      });
+      cacheURL.length = 0;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -7,13 +7,26 @@ function Demo() {
   const [idcardFront, setIdcardFront] = React.useState<ImageUploadItem[]>();
   const [idcardBack, setIdcardBack] = React.useState<ImageUploadItem[]>();
 
+  const cacheURL: string[] = []; // 组件卸载时 revokeObjectURL
+
   const upload = async (file: File) => {
     console.log(file);
     await waitTime();
+    const url = URL.createObjectURL(file);
+    cacheURL.push(url);
     return {
-      url: URL.createObjectURL(file)
+      url
     };
   };
+
+  React.useEffect(() => {
+    return () => {
+      cacheURL.forEach((itemUrl) => {
+        URL.revokeObjectURL(itemUrl);
+      });
+      cacheURL.length = 0;
+    };
+  }, []);
 
   return (
     <Grid columns={2} gap={15}>

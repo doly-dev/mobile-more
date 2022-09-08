@@ -5,13 +5,26 @@ import { waitTime } from 'util-helpers';
 function Demo() {
   const [fileList, setFileList] = React.useState<ImageUploadItem[]>();
 
+  const cacheURL: string[] = []; // 组件卸载时 revokeObjectURL
+
   const upload = async (file: File) => {
     console.log(file);
     await waitTime();
+    const url = URL.createObjectURL(file);
+    cacheURL.push(url);
     return {
-      url: URL.createObjectURL(file)
+      url
     };
   };
+
+  React.useEffect(() => {
+    return () => {
+      cacheURL.forEach((itemUrl) => {
+        URL.revokeObjectURL(itemUrl);
+      });
+      cacheURL.length = 0;
+    };
+  }, []);
 
   return (
     <ImageUploader
