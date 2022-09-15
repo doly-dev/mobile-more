@@ -17,7 +17,7 @@ function Demo() {
     },
     {
       target: () => containerRef.current,
-      isNoMore: (res) => !!(res?.list && res.list.length >= res?.total)
+      isNoMore: (result) => !!result && result.list.length >= result.total
     }
   );
 
