@@ -13,7 +13,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://doly-dev.github.io/mobile-more/latest/vendors.aa81bf5e.chunk.css"
+      href="https://doly-dev.github.io/mobile-more/latest/vendors.16133438.chunk.css"
     />
     <link
       rel="stylesheet"
@@ -40,12 +40,15 @@
     </script>
     <script>
       !(function () {
-        var e = localStorage.getItem("dumi:prefers-color"),
-          t = window.matchMedia("(prefers-color-scheme: dark)").matches,
-          r = ["light", "dark", "auto"];
+        var e =
+            navigator.cookieEnabled && void 0 !== window.localStorage
+              ? localStorage.getItem("dumi:prefers-color")
+              : "auto",
+          o = window.matchMedia("(prefers-color-scheme: dark)").matches,
+          t = ["light", "dark", "auto"];
         document.documentElement.setAttribute(
           "data-prefers-color",
-          e === r[2] ? (t ? r[1] : r[0]) : r.indexOf(e) > -1 ? e : r[0]
+          e === t[2] ? (o ? t[1] : t[0]) : t.indexOf(e) > -1 ? e : t[0]
         );
       })();
     </script>
@@ -53,7 +56,7 @@
   <body>
     <div id="root"></div>
 
-    <script src="https://doly-dev.github.io/mobile-more/latest/vendors.c75cdc2b.async.js"></script>
-    <script src="https://doly-dev.github.io/mobile-more/latest/umi.46074f8c.js"></script>
+    <script src="https://doly-dev.github.io/mobile-more/latest/vendors.edc56e01.async.js"></script>
+    <script src="https://doly-dev.github.io/mobile-more/latest/umi.f938bb85.js"></script>
   </body>
 </html>
