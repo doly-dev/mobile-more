@@ -1,6 +1,8 @@
 import { defineConfig } from 'dumi';
 import pkg from './package.json';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const MajorVersionNumber = Number(pkg.version.split('.')[0]);
 const versionSiteRoot = `refs/heads/v${MajorVersionNumber}`;
 
@@ -9,8 +11,7 @@ const preVersionSiteRoot = `refs/heads/v${preMajorVersionNumber}`;
 
 const version = process.env.BUIDL_DOC_VERSION ? versionSiteRoot : 'latest';
 
-const serverRootDirect =
-  process.env.NODE_ENV === 'production' ? 'https://doly-dev.github.io/mobile-more/' : '/';
+const serverRootDirect = !isDev ? 'https://doly-dev.github.io/mobile-more/' : '/';
 const logo = 'https://www.caijinfeng.com/assets/images/logo-doly@3x.png';
 const favicon = 'https://www.caijinfeng.com/assets/images/doly-touch-icon_48x48.png';
 
@@ -18,7 +19,7 @@ const publicPath = serverRootDirect + version + '/';
 
 const prodConfig: any = {};
 
-if (process.env.NODE_ENV === 'production') {
+if (!isDev) {
   prodConfig.headScripts = [
     {
       src: 'https://www.googletagmanager.com/gtag/js?id=G-Z3NN7XXV9E'
@@ -69,6 +70,17 @@ export default defineConfig({
     type: 'hash'
   },
   hash: true,
+
+  // esbuild: isDev,
+  nodeModulesTransform: {
+    type: isDev ? 'none' : 'all'
+  },
+  targets: {
+    ie: 11
+  },
+  polyfill: {
+    imports: ['element-remove', 'core-js']
+  },
   navs: [
     {
       title: '指南',
