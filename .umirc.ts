@@ -12,8 +12,8 @@ const preVersionSiteRoot = `refs/heads/v${preMajorVersionNumber}`;
 const version = process.env.BUIDL_DOC_VERSION ? versionSiteRoot : 'latest';
 
 const serverRootDirect = !isDev ? 'https://doly-dev.github.io/mobile-more/' : '/';
-const logo = 'https://www.caijinfeng.com/assets/images/logo-doly@3x.png';
-const favicon = 'https://www.caijinfeng.com/assets/images/doly-touch-icon_48x48.png';
+const logo = 'https://doly-dev.github.io/logo.png';
+const favicon = 'https://doly-dev.github.io/favicon.ico';
 
 const publicPath = serverRootDirect + version + '/';
 
