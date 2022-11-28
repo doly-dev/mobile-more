@@ -107,16 +107,6 @@ export default defineConfig({
       path: 'https://github.com/doly-dev/mobile-more/releases'
     }
   ],
-  extraBabelPlugins: [
-    [
-      'babel-plugin-import',
-      {
-        libraryName: 'antd',
-        libraryDirectory: 'es',
-        style: true
-      }
-    ]
-  ],
   ...prodConfig
   // more config: https://d.umijs.org/config
 });
