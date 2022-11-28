@@ -7,6 +7,7 @@ import {
 } from 'antd-mobile';
 import classnames from 'classnames';
 import * as React from 'react';
+import { XCircleFill } from 'doly-icons';
 import { prefixClass } from '../../config/prefixClass';
 import checkFileType from './checkFileType';
 import './index.less';
@@ -111,6 +112,7 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
         beforeUpload={handleBeforeUpload}
         onDelete={handleDelete}
         maxCount={maxCount}
+        deleteIcon={deleteStyle === 'circle' ? <XCircleFill /> : undefined}
         {...restProps}
       >
         {children || bgview}
