@@ -1,10 +1,9 @@
-import * as React from 'react';
+import { Popup as BasePopup, PopupProps as BasePopupProps } from 'antd-mobile';
 import classnames from 'classnames';
 import { useControllableValue } from 'rc-hooks';
-import { Popup as BasePopup } from 'antd-mobile';
-import { PopupProps as BasePopupProps } from 'antd-mobile/es/components/popup';
-import ToolHead from '../ToolHead';
+import * as React from 'react';
 import { prefixClass } from '../../config/prefixClass';
+import ToolHead from '../ToolHead';
 import './index.less';
 
 const prefixCls = `${prefixClass}-popup`;

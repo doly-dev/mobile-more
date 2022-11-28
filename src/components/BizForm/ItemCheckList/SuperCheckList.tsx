@@ -1,6 +1,5 @@
+import { Input, InputProps } from 'antd-mobile';
 import * as React from 'react';
-import { Input } from 'antd-mobile';
-import { InputProps } from 'antd-mobile/es/components/input';
 import CheckListPopup, { CheckListPopupProps } from '../../CheckListPopup';
 
 export type { CheckListPopupProps };

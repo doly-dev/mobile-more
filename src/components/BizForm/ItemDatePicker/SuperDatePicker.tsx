@@ -1,10 +1,9 @@
-import * as React from 'react';
-import { DatePicker, Input } from 'antd-mobile';
-import { DatePickerProps } from 'antd-mobile/es/components/date-picker';
-import { safeDate } from 'util-helpers';
+import { DatePicker, DatePickerProps, Input } from 'antd-mobile';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import isoWeek from 'dayjs/plugin/isoWeek';
+import * as React from 'react';
+import { safeDate } from 'util-helpers';
 import { weekdayToZh } from './weekdayToZh';
 
 dayjs.extend(advancedFormat);

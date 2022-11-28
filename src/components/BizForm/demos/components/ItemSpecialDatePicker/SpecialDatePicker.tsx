@@ -1,9 +1,8 @@
-import * as React from 'react';
+import { Checkbox, DatePicker, DatePickerProps, Input } from 'antd-mobile';
 import dayjs from 'dayjs';
-import { safeDate } from 'util-helpers';
 import { ChevronRight } from 'doly-icons';
-import { Input, DatePicker, Checkbox } from 'antd-mobile';
-import { DatePickerProps } from 'antd-mobile/es/components/date-picker';
+import * as React from 'react';
+import { safeDate } from 'util-helpers';
 import styles from './SpecialDatePicker.module.less';
 
 const DefaultFormat = 'YYYY-MM-DD';

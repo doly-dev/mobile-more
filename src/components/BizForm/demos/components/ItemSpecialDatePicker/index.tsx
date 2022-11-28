@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { DatePickerProps } from 'antd-mobile';
 import dayjs from 'dayjs';
-import { DatePickerProps } from 'antd-mobile/es/components/date-picker';
 import { BizFormItem, BizFormItemProps } from 'mobile-more';
+import * as React from 'react';
 import SpecialDatePicker, { SpecialDatePickerProps } from './SpecialDatePicker';
 
 interface ItemSpecialDatePickerProps

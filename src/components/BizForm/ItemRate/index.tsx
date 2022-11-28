@@ -1,10 +1,9 @@
-import * as React from 'react';
+import { Rate, RateProps } from 'antd-mobile';
 import classnames from 'classnames';
-import { Rate } from 'antd-mobile';
-import { RateProps } from 'antd-mobile/es/components/rate';
+import * as React from 'react';
+import { formPrefixCls } from '../config';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import getLabel from '../utils/getLabel';
-import { formPrefixCls } from '../config';
 import './index.less';
 
 const prefixCls = `${formPrefixCls}-item-rate`;

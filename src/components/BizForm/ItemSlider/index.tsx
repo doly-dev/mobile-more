@@ -1,9 +1,8 @@
-import * as React from 'react';
+import { Slider, SliderProps } from 'antd-mobile';
 import classnames from 'classnames';
-import { Slider } from 'antd-mobile';
-import { SliderProps } from 'antd-mobile/es/components/slider';
-import BizFormItem, { BizFormItemProps } from '../FormItem';
+import * as React from 'react';
 import { formPrefixCls } from '../config';
+import BizFormItem, { BizFormItemProps } from '../FormItem';
 import getLabel from '../utils/getLabel';
 import './index.less';
 

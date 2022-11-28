@@ -1,9 +1,8 @@
-import * as React from 'react';
+import { Switch, SwitchProps } from 'antd-mobile';
 import classnames from 'classnames';
-import { Switch } from 'antd-mobile';
-import { SwitchProps } from 'antd-mobile/es/components/switch';
-import BizFormItem, { BizFormItemProps } from '../FormItem';
+import * as React from 'react';
 import { formPrefixCls } from '../config';
+import BizFormItem, { BizFormItemProps } from '../FormItem';
 import getLabel from '../utils/getLabel';
 import './index.less';
 

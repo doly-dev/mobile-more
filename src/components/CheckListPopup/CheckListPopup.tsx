@@ -1,12 +1,17 @@
-import * as React from 'react';
+import {
+  CheckList,
+  CheckListProps,
+  Empty,
+  EmptyProps,
+  SearchBar,
+  SearchBarProps,
+  SpinLoading
+} from 'antd-mobile';
 import classnames from 'classnames';
-import { CheckList, SearchBar, SpinLoading, Empty } from 'antd-mobile';
-import { CheckListProps } from 'antd-mobile/es/components/check-list';
-import { SearchBarProps } from 'antd-mobile/es/components/search-bar';
-import { EmptyProps } from 'antd-mobile/es/components/empty';
 import { useControllableValue } from 'rc-hooks';
-import Popup, { PopupProps } from '../Popup';
+import * as React from 'react';
 import { prefixClass } from '../../config/prefixClass';
+import Popup, { PopupProps } from '../Popup';
 import './index.less';
 
 const prefixCls = `${prefixClass}-checklist-popup`;

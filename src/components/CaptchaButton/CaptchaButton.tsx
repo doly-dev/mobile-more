@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import type { ButtonProps, ButtonRef } from 'antd-mobile/es/components/button';
-import { Button } from 'antd-mobile';
+import { Button, ButtonProps } from 'antd-mobile';
 import CountDown from 'countdown-pro';
+import React, { useEffect, useMemo, useState } from 'react';
+import type { ButtonRef } from '../../antd-mobile.interface';
 
 export type { ButtonRef };
 

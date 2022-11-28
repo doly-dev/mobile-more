@@ -1,13 +1,17 @@
-import * as React from 'react';
+import {
+  Dialog,
+  ImageUploader as ImageUploaderBase,
+  ImageUploaderProps as ImageUploaderBaseProps,
+  ImageUploadItem,
+  Toast
+} from 'antd-mobile';
 import classnames from 'classnames';
-import { ImageUploader as ImageUploaderBase, Toast, Dialog } from 'antd-mobile';
-import type { ImageUploaderProps as ImageUploaderBaseProps } from 'antd-mobile/es/components/image-uploader';
-import type { ImageUploadItem } from 'antd-mobile/es/components/image-uploader';
+import * as React from 'react';
+import { prefixClass } from '../../config/prefixClass';
+import checkFileType from './checkFileType';
+import './index.less';
 import UploadBackground, { UploadBackgroundProps } from './UploadBackground';
 import UploadCustom, { UploadCustomProps } from './UploadCustom';
-import checkFileType from './checkFileType';
-import { prefixClass } from '../../config/prefixClass';
-import './index.less';
 
 const prefixCls = `${prefixClass}-image-uploader`;
 

@@ -1,5 +1,6 @@
+import { FormItemProps } from 'antd-mobile';
 import { createContext } from 'react';
-import type { FormItemProps, FormArrayProps } from 'antd-mobile/es/components/form';
+import type { FormArrayProps } from '../../antd-mobile.interface';
 
 export type FormContextValue = {
   justify: 'start' | 'center' | 'end';

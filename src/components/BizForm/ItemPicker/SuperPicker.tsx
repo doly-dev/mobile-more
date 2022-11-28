@@ -1,13 +1,11 @@
+import { Input, InputProps, Picker, PickerProps } from 'antd-mobile';
 import * as React from 'react';
-import { Input, Picker } from 'antd-mobile';
-import { InputProps } from 'antd-mobile/es/components/input';
 import {
-  PickerProps,
   PickerColumn,
   PickerColumnItem,
   PickerValue,
   PickerValueExtend
-} from 'antd-mobile/es/components/picker';
+} from '../../../antd-mobile.interface';
 import transformKeys from '../utils/transformKeys';
 
 type SuperPickerColumnItem = Partial<PickerColumnItem> & Record<string, any>;

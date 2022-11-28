@@ -1,11 +1,11 @@
+import { CascadePicker, CascadePickerProps, Input, InputProps } from 'antd-mobile';
 import * as React from 'react';
-import { CascadePicker, Input } from 'antd-mobile';
-import { CascadePickerProps, CascadePickerOption } from 'antd-mobile/es/components/cascade-picker';
-import { PickerValue, PickerValueExtend } from 'antd-mobile/es/components/picker';
-import { InputProps } from 'antd-mobile/es/components/input';
+import { PickerValue, PickerValueExtend } from '../../../antd-mobile.interface';
 import transformKeys from '../utils/transformKeys';
 
 export type { CascadePickerProps, PickerValue, PickerValueExtend };
+
+type CascadePickerOption = CascadePickerProps['options'][0];
 
 type Option = Partial<Omit<CascadePickerOption, 'children'>> & { children?: Option[] } & Record<
     string,

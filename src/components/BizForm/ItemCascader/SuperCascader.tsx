@@ -1,15 +1,11 @@
+import { Cascader, CascaderProps, Input, InputProps } from 'antd-mobile';
 import * as React from 'react';
-import { Cascader, Input } from 'antd-mobile';
-import {
-  CascaderProps,
-  CascaderOption,
-  CascaderValue,
-  CascaderValueExtend
-} from 'antd-mobile/es/components/cascader';
-import { InputProps } from 'antd-mobile/es/components/input';
 import transformKeys from '../utils/transformKeys';
 
 export type { CascaderProps };
+
+type CascaderOption = CascaderProps['options'][0];
+type CascaderValueExtend = Parameters<NonNullable<CascaderProps['onSelect']>>[1];
 
 type Option = Partial<Omit<CascaderOption, 'children'>> & { children?: Option[] } & Record<
     string,
@@ -21,7 +17,7 @@ export interface SuperCascaderProps
     Omit<CascaderProps, 'options'> {
   options: Option[];
   renderCurrentValue?: (
-    value: CascaderValue[] | undefined,
+    value: CascaderProps['value'],
     items: CascaderValueExtend['items']
   ) => string | undefined;
   mapKeys?: { label?: string; value?: string; disabled?: string; children?: string };

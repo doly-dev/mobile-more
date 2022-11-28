@@ -1,17 +1,11 @@
+import { Checkbox, CheckboxGroupProps, CheckboxProps, Space, SpaceProps } from 'antd-mobile';
 import * as React from 'react';
-import { Checkbox, Space } from 'antd-mobile';
-import {
-  CheckboxProps,
-  CheckboxValue,
-  CheckboxGroupProps
-} from 'antd-mobile/es/components/checkbox';
-import { SpaceProps } from 'antd-mobile/es/components/space';
 import BizFormItem, { BizFormItemProps } from './FormItem';
 import getLabel from './utils/getLabel';
 
 type Option = {
   label?: React.ReactNode;
-  value?: CheckboxValue;
+  value?: CheckboxProps['value'];
   disabled?: boolean;
   [key: string]: any;
 };

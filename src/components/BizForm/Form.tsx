@@ -1,22 +1,17 @@
-import * as React from 'react';
+import { Form, FormProps } from 'antd-mobile';
 import classnames from 'classnames';
-import { Form } from 'antd-mobile';
-import type { FormProps, FormLayout, FormInstance } from 'antd-mobile/es/components/form';
 import namePathSet from 'rc-util/es/utils/set';
-import getNamePaths from './utils/getNamePaths';
-import { transformFormValues } from './utils/transform';
-import FormContext, { FormContextValue } from './FormContext';
-import FormArray from './FormArray';
-import FormItem from './FormItem';
+import * as React from 'react';
 import { formPrefixCls } from './config';
 import './Form.less';
-
-export type BizFormLayout = FormLayout;
-export type BizFormInstance = FormInstance;
-export type BizFormJustify = FormContextValue['justify'];
+import FormArray from './FormArray';
+import FormContext, { FormContextValue } from './FormContext';
+import FormItem from './FormItem';
+import getNamePaths from './utils/getNamePaths';
+import { transformFormValues } from './utils/transform';
 
 export type BizFormProps = FormProps & {
-  justify?: BizFormJustify;
+  justify?: FormContextValue['justify'];
 };
 
 const BizForm: React.FC<BizFormProps> & {

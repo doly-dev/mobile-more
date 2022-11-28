@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Button, Selector, Space } from 'antd-mobile';
-import { BizForm, BizFormProps, BizFormLayout, BizFormJustify } from 'mobile-more';
+import { BizForm, BizFormProps } from 'mobile-more';
+import * as React from 'react';
 
 const layoutOptions = [
   {
@@ -30,8 +30,8 @@ const justifyOptions = [
 
 const DemoForm: React.FC<BizFormProps> = (props) => {
   const uniqueFormName = React.useMemo(() => `form-${Math.random()}`, []);
-  const [justify, setJustify] = React.useState<[BizFormJustify]>(['start']);
-  const [layout, setLayout] = React.useState<[BizFormLayout]>(['horizontal']);
+  const [justify, setJustify] = React.useState<[NonNullable<BizFormProps['justify']>]>(['start']);
+  const [layout, setLayout] = React.useState<[NonNullable<BizFormProps['layout']>]>(['horizontal']);
 
   return (
     <>
@@ -39,12 +39,12 @@ const DemoForm: React.FC<BizFormProps> = (props) => {
         <Space block wrap style={{ '--gap': '24px' }}>
           <Selector
             value={layout}
-            onChange={(value) => value && value.length > 0 && setLayout(value as [BizFormLayout])}
+            onChange={(value) => value && value.length > 0 && setLayout(value as typeof layout)}
             options={layoutOptions}
           />
           <Selector
             value={justify}
-            onChange={(value) => value && value.length > 0 && setJustify(value as [BizFormJustify])}
+            onChange={(value) => value && value.length > 0 && setJustify(value as typeof justify)}
             options={justifyOptions}
           />
         </Space>

@@ -1,13 +1,11 @@
+import { Radio, RadioGroupProps, RadioProps, Space, SpaceProps } from 'antd-mobile';
 import * as React from 'react';
-import { Radio, Space } from 'antd-mobile';
-import { RadioProps, RadioValue, RadioGroupProps } from 'antd-mobile/es/components/radio';
-import { SpaceProps } from 'antd-mobile/es/components/space';
 import BizFormItem, { BizFormItemProps } from './FormItem';
 import getLabel from './utils/getLabel';
 
 type Option = {
   label?: React.ReactNode;
-  value?: RadioValue;
+  value?: RadioProps['value'];
   disabled?: boolean;
   [key: string]: any;
 };

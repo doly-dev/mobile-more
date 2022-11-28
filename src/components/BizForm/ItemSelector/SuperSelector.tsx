@@ -1,18 +1,18 @@
-import * as React from 'react';
+import { Selector, SelectorProps } from 'antd-mobile';
 import { useControllableValue } from 'rc-hooks';
-import { Selector } from 'antd-mobile';
-import { SelectorProps, SelectorOption } from 'antd-mobile/es/components/selector';
+import * as React from 'react';
 import transformKeys from '../utils/transformKeys';
 
 type SelectorValue = string | number;
+type SelectorOption<V = SelectorValue> = SelectorProps<V>['options'][0];
 
-type Option = Partial<SelectorOption<SelectorValue>> & Record<string, any>;
+type Option<V = SelectorValue> = Partial<SelectorOption<V>> & Record<string, any>;
 
 export interface SuperSelectorProps<V = SelectorValue>
   extends Omit<SelectorProps<V>, 'options' | 'value'> {
   value?: any;
   onChange?: (value: any, extend: any) => void;
-  options?: Option[] | undefined;
+  options?: Option<V>[] | undefined;
   radioMode?: boolean;
   mapKeys?: { label?: string; value?: string; description?: string; disabled?: string };
 }
@@ -47,7 +47,7 @@ function SuperSelector<V extends SelectorValue = SelectorValue>(props: SuperSele
     if (mapKeys) {
       return transformKeys(outOptions, mapKeys);
     }
-    return outOptions as unknown as SelectorOption<SelectorValue>[];
+    return outOptions as unknown as SelectorOption<V>[];
   }, [mapKeys, outOptions]);
 
   const handleChange: SelectorProps<V>['onChange'] = (v, { items }) => {

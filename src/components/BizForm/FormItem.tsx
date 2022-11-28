@@ -1,10 +1,9 @@
-import * as React from 'react';
+import { Form, FormItemProps } from 'antd-mobile';
 import classnames from 'classnames';
-import { Form } from 'antd-mobile';
-import { FormItemProps } from 'antd-mobile/es/components/form';
-import FormContext, { FormContextValue } from './FormContext';
-import FormArrayContext from './FormArrayContext';
+import * as React from 'react';
 import { formItemPrefixCls } from './config';
+import FormArrayContext from './FormArrayContext';
+import FormContext, { FormContextValue } from './FormContext';
 import './FormItem.less';
 
 export interface BizFormItemProps<ValueType = any> extends FormItemProps {

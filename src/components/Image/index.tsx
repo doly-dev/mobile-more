@@ -1,7 +1,6 @@
-import * as React from 'react';
+import { Image as ImageBase, ImageProps as ImageBaseProps, ImageViewer } from 'antd-mobile';
 import classnames from 'classnames';
-import { Image as ImageBase, ImageViewer } from 'antd-mobile';
-import { ImageProps as ImageBaseProps } from 'antd-mobile/es/components/image';
+import * as React from 'react';
 import { prefixClass } from '../../config/prefixClass';
 import './index.less';
 

@@ -1,6 +1,5 @@
+import { TextArea, TextAreaProps } from 'antd-mobile';
 import * as React from 'react';
-import { TextArea } from 'antd-mobile';
-import { TextAreaProps } from 'antd-mobile/es/components/text-area';
 import BizFormItem, { BizFormItemProps } from './FormItem';
 import getLabel from './utils/getLabel';
 

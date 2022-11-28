@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Form } from 'antd-mobile';
-import { FormArrayProps } from 'antd-mobile/es/components/form';
+import * as React from 'react';
+import { FormArrayProps } from '../../antd-mobile.interface';
 import FormArrayContext from './FormArrayContext';
 
 export type BizFormArrayProps = FormArrayProps;

@@ -1,16 +1,16 @@
+import { Input, InputProps } from 'antd-mobile';
+import { useControllableValue } from 'rc-hooks';
 import * as React from 'react';
 import { calculateCursorPosition } from 'util-helpers';
-import { useControllableValue } from 'rc-hooks';
-import { Input } from 'antd-mobile';
-import { InputProps, InputRef } from 'antd-mobile/es/components/input';
+import { InputRef } from '../../../antd-mobile.interface';
+import { prefixClass } from '../../../config/prefixClass';
 import {
-  normalizeIdCard,
   normalizeBankCard,
+  normalizeIdCard,
   normalizeMobile,
   normalizeNotWhiteSpace,
   normalizeNumber
 } from '../utils/normalize';
-import { prefixClass } from '../../../config/prefixClass';
 import './SuperInput.less';
 
 const prefixCls = `${prefixClass}-input`;

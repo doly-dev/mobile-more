@@ -1,9 +1,8 @@
-import * as React from 'react';
+import { Stepper, StepperProps } from 'antd-mobile';
 import classnames from 'classnames';
-import { Stepper } from 'antd-mobile';
-import { StepperProps } from 'antd-mobile/es/components/stepper';
-import BizFormItem, { BizFormItemProps } from '../FormItem';
+import * as React from 'react';
 import { formPrefixCls } from '../config';
+import BizFormItem, { BizFormItemProps } from '../FormItem';
 import getLabel from '../utils/getLabel';
 import './index.less';
 

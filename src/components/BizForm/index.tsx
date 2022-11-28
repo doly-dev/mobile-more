@@ -1,4 +1,4 @@
-import BizForm, { BizFormProps, BizFormJustify, BizFormInstance, BizFormLayout } from './Form';
+import BizForm, { BizFormProps } from './Form';
 import BizFormArray, { BizFormArrayProps } from './FormArray';
 import BizFormItem, { BizFormItemProps } from './FormItem';
 import BizFormItemAreaCode, { BizFormItemAreaCodeProps } from './ItemAreaCode';
@@ -40,12 +40,8 @@ export {
   BizFormItemSwitch,
   BizFormItemTextArea
 };
-
 export type {
   BizFormProps,
-  BizFormJustify,
-  BizFormInstance,
-  BizFormLayout,
   BizFormArrayProps,
   BizFormItemProps,
   BizFormItemAreaCodeProps,
