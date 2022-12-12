@@ -7,19 +7,20 @@ function Demo() {
   const [idcardFront, setIdcardFront] = React.useState<ImageUploadItem[]>();
   const [idcardBack, setIdcardBack] = React.useState<ImageUploadItem[]>();
 
-  const cacheURL: string[] = []; // 组件卸载时 revokeObjectURL
+  const cacheURLRef = React.useRef<string[]>([]); // 组件卸载时 revokeObjectURL
 
   const upload = async (file: File) => {
     console.log(file);
     await waitTime();
     const url = URL.createObjectURL(file);
-    cacheURL.push(url);
+    cacheURLRef.current.push(url);
     return {
       url
     };
   };
 
   React.useEffect(() => {
+    const cacheURL = cacheURLRef.current;
     return () => {
       cacheURL.forEach((itemUrl) => {
         URL.revokeObjectURL(itemUrl);
