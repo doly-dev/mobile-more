@@ -18,6 +18,11 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react', '@typescript-eslint', 'react-hooks'],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   rules: {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/triple-slash-reference': 0,
