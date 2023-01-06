@@ -47,7 +47,7 @@ ReactDon.render(
   - [Dictionary](/components/dictionary) - 数据字典
   - [Image](/components/image) - 图片，支持预览
 - 其他
-  - [CaptchaButton](/components/cascade-button) - 验证码按钮
+  - [CaptchaButton](/components/captcha-button) - 验证码按钮
   - [CheckListPopup](/components/check-list-popup) - 勾选列表弹层
   - [ImageUploader](/components/image-uploader) - 图片上传
   - [Popup](/components/popup) - 弹出层
