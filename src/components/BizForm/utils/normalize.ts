@@ -4,29 +4,33 @@ import { formatBankCard, formatMobile, normalizeString } from 'util-helpers';
 
 // 标准化输入非空白符
 export const normalizeNotWhiteSpace = (value: string) => {
-  return normalizeString(value).replace(/\s/g, '');
+  // 如果替换全部空字符，输入中文时有bug
+  // return normalizeString(value).replace(/\s/g, '');
+  return normalizeString(value).trim();
 };
 
 // 标准化输入银行卡号
-// symbol是为了处理脱敏✳️
-export const normalizeBankCard = (value: string, symbol = '') => {
+export const normalizeBankCard = (value: string, format = true) => {
   const valueStr = normalizeString(value);
-  const reg = symbol ? new RegExp(`[^\\d\\${symbol}]`, 'g') : /[^\d]/g;
-  return formatBankCard(valueStr.replace(reg, ''));
+  const reg = /[^\d]/g;
+  const ret = valueStr.replace(reg, '');
+  return format ? formatBankCard(ret) : ret;
 };
 
 // 标准化输入身份证号
-export const normalizeIdCard = (value: string, symbol = '') => {
+export const normalizeIdCard = (value: string, format = true) => {
   const valueStr = normalizeString(value);
-  const reg = symbol ? new RegExp(`[^\\dx\\${symbol}]`, 'gi') : /[^\dx]/gi;
-  return valueStr.replace(reg, '').substring(0, 18).toUpperCase();
+  const reg = /[^\dx]/gi;
+  const ret = valueStr.replace(reg, '').substring(0, 18);
+  return format ? ret.toUpperCase() : ret;
 };
 
 // 标准化输入手机号码
-export const normalizeMobile = (value: string, symbol = '') => {
+export const normalizeMobile = (value: string, format = true) => {
   const valueStr = normalizeString(value);
-  const reg = symbol ? new RegExp(`[^\\d\\${symbol}]`, 'g') : /[^\d]/g;
-  return formatMobile(valueStr.replace(reg, ''));
+  const reg = /[^\d]/g;
+  const ret = valueStr.replace(reg, '');
+  return format ? formatMobile(ret) : ret;
 };
 
 // 规整化数字输入

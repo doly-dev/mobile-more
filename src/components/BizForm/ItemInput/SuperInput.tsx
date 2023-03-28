@@ -23,6 +23,7 @@ export interface SuperInputProps extends Omit<InputProps, 'type'> {
   precision?: number;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  format?: boolean;
 }
 
 const SuperInput = React.forwardRef<InputRef, SuperInputProps>(
@@ -37,20 +38,36 @@ const SuperInput = React.forwardRef<InputRef, SuperInputProps>(
       min = Number.MIN_SAFE_INTEGER,
       precision,
       inputMode,
+      format = true,
+      maxLength,
       ...restProps
     },
     ref
   ) => {
     const internalRef = React.useRef<InputRef>(null);
     const [state, setState] = useControllableValue<string>(restProps);
+    const maxLen = React.useMemo(() => {
+      if (typeof maxLength !== 'undefined') {
+        return maxLength;
+      }
+      if (!format) {
+        if (type === 'mobile') {
+          return 11;
+        } else if (type === 'idCard') {
+          return 18;
+        }
+      }
+      return undefined;
+    }, [format, maxLength, type]);
     const needAdjustPos = React.useMemo(
       () =>
-        type === 'mobile' ||
-        type === 'bankCard' ||
-        type === 'idCard' ||
-        type === 'number' ||
-        disabledWhiteSpace,
-      [disabledWhiteSpace, type]
+        format &&
+        (type === 'mobile' ||
+          type === 'bankCard' ||
+          type === 'idCard' ||
+          type === 'number' ||
+          disabledWhiteSpace),
+      [disabledWhiteSpace, format, type]
     );
     const realType = React.useMemo(() => {
       if (type === 'mobile' || type === 'bankCard' || type === 'idCard' || type === 'number') {
@@ -88,11 +105,11 @@ const SuperInput = React.forwardRef<InputRef, SuperInputProps>(
       (val: string) => {
         let newValue = val;
         if (type === 'mobile') {
-          newValue = normalizeMobile(val);
+          newValue = normalizeMobile(val, format);
         } else if (type === 'bankCard') {
-          newValue = normalizeBankCard(val);
+          newValue = normalizeBankCard(val, format);
         } else if (type === 'idCard') {
-          newValue = normalizeIdCard(val);
+          newValue = normalizeIdCard(val, format);
         } else if (type === 'number') {
           newValue = normalizeNumber(val);
         } else if (disabledWhiteSpace) {
@@ -100,7 +117,7 @@ const SuperInput = React.forwardRef<InputRef, SuperInputProps>(
         }
         return newValue;
       },
-      [disabledWhiteSpace, type]
+      [disabledWhiteSpace, format, type]
     );
 
     const handleChange = React.useCallback(
@@ -200,6 +217,7 @@ const SuperInput = React.forwardRef<InputRef, SuperInputProps>(
           value={state}
           onChange={handleChange}
           onBlur={handelBlur}
+          maxLength={maxLen}
         />
         {suffix && <div className={`${prefixCls}-suffix`}>{suffix}</div>}
       </div>

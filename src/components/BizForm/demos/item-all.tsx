@@ -64,7 +64,7 @@ function Demo() {
       </BizFormItemImageUploader>
       <BizForm.Header>输入框</BizForm.Header>
       <BizFormItemInput label="文本" name="input1" />
-      <BizFormItemInput label="禁止空字符" name="input2" disabledWhiteSpace />
+      <BizFormItemInput label="去除头尾空格" name="input2" disabledWhiteSpace />
       <BizFormItemInput label="手机号码" name="input3" type="mobile" />
       <BizFormItemInput label="银行卡号" name="input4" type="bankCard" />
       <BizFormItemInput label="身份证号" name="input5" type="idCard" />

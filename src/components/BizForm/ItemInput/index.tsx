@@ -19,6 +19,7 @@ export interface BizFormItemInputProps
       | 'min'
       | 'precision'
       | 'disabledWhiteSpace'
+      | 'format'
     > {
   inputProps?: SuperInputProps;
 
@@ -43,6 +44,7 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
       iconRender,
       required,
       transform: outTransform,
+      format = true,
       ...restProps
     },
     ref
@@ -92,12 +94,12 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
         if (typeof outTransform === 'function') {
           return outTransform(value);
         }
-        if ((mergeType === 'bankCard' || mergeType === 'mobile') && value) {
+        if (format && (mergeType === 'bankCard' || mergeType === 'mobile') && value) {
           return value.replace(/\D/g, '');
         }
         return value;
       },
-      [mergeType, outTransform]
+      [format, mergeType, outTransform]
     );
     const type = React.useMemo(() => {
       if (mergeType === 'password') {
@@ -153,6 +155,7 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
           min={min}
           suffix={passwordVisibilityIcon}
           {...inputProps}
+          format={format}
           ref={inputRef}
           type={type}
         />

@@ -269,9 +269,10 @@ import { BizFormItemInput, BizFormItemInputProps } from 'mobile-more';
 | --- | --- | --- | --- |
 | placeholder | 占位符，提示文本 | `string` | `'请输入'` |
 | type | 类型，在原生基础上做了扩展。 | `HTMLInputTypeAttribute \| 'mobile' \| 'bankCard' \| 'idCard'` | `'text'` |
+| format | 是否格式化。仅在设置为 `type=mobile \| bankCard \| idCard` 时生效。<br/>手机号码和银行卡号格式化，身份证号`x`大写。 | `boolean` | `true` |
 | clearable | 是否启用清除图标，点击清除图标后会清空输入框 | `boolean` | `false` |
 | maxLength | 最大字符数 | `number` | - |
-| disabledWhiteSpace | 禁止空字符 | `boolean` | `false` |
+| disabledWhiteSpace | 去除头尾空格 | `boolean` | `false` |
 | max | 最大值，仅在 `type` 为 `number` 时生效。 | `number` | `Number.MAX_SAFE_INTEGER` |
 | min | 最小值，仅在 `type` 为 `number` 时生效。 | `number` | `Number.MIN_SAFE_INTEGER` |
 | precision | 数值精度，仅在 `type` 为 `number` 时生效。 | `number` | - |

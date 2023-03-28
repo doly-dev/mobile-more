@@ -15,7 +15,7 @@ function Demo() {
   return (
     <DemoForm form={form}>
       <BizFormItemInput label="文本" name="input1" />
-      <BizFormItemInput label="禁止空字符" name="input2" disabledWhiteSpace />
+      <BizFormItemInput label="去除头尾空格" name="input2" disabledWhiteSpace />
       <BizForm.Header>自定义类型</BizForm.Header>
       <BizFormItemInput label="手机号码" name="input3" type="mobile" />
       <BizFormItemInput label="银行卡号" name="input4" type="bankCard" />
@@ -32,8 +32,11 @@ function Demo() {
         }}
       />
       <BizFormItemInput label="身份证号" name="input6" type="idCard" />
-      <BizFormItemInput label="数字" name="input7" type="number" />
-      <BizFormItemInput label="密码" name="input8" type="password" clearable />
+      <BizFormItemInput label="手机无格式" name="input7" type="mobile" format={false} />
+      <BizFormItemInput label="银行卡无格式" name="input8" type="bankCard" format={false} />
+      <BizFormItemInput label="身份证无格式" name="input9" type="idCard" format={false} />
+      <BizFormItemInput label="数字" name="input10" type="number" />
+      <BizFormItemInput label="密码" name="input11" type="password" clearable />
     </DemoForm>
   );
 }
