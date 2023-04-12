@@ -3,7 +3,7 @@ group:
   title: 数据录入
 ---
 
-# 证件终止日期
+# 证件有效期
 
 身份证或营业执照证件终止日期，包含`长期`或`永久`。不同业务对该值的需求也不一样。
 
@@ -12,6 +12,10 @@ group:
 ### 基础用法
 
 <code src='../../src/demos/item-special-date-picker.tsx' />
+
+### 推荐
+
+<code src='../../src/demos/item-special-date-picker-recommend.tsx' />
 
 ## API
 
