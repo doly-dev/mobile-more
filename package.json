@@ -8,7 +8,7 @@
     "ui",
     "react"
   ],
-  "version": "0.8.10",
+  "version": "0.8.11",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
