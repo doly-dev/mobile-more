@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { uniqueId } from 'lodash';
+import { uniqueId } from 'ut2';
 import { prefixClass } from '../../config/prefixClass';
 import './index.less';
 

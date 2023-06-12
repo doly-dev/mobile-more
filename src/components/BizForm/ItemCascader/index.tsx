@@ -1,5 +1,5 @@
 import * as React from 'react';
-import uniqueId from 'lodash/uniqueId';
+import { uniqueId } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import getLabel from '../utils/getLabel';
 import SuperCascader, { SuperCascaderProps } from './SuperCascader';
