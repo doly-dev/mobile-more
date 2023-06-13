@@ -12,6 +12,7 @@ const itemStyle = {
 
 function Demo() {
   const [form] = BizForm.useForm();
+  const account = BizForm.useWatch(['account'], form);
   const {
     run,
     data = [],
@@ -21,14 +22,14 @@ function Demo() {
     autoRun: false
   });
 
-  const handleClickOperator = React.useCallback(() => {
-    if (!form.getFieldValue(['account'])) {
+  const handleClickOperator = () => {
+    if (!account) {
       return Toast.show({ content: '请输入账号' });
     }
     if (data.length <= 0) {
       run();
     }
-  }, [data.length, form, run]);
+  };
 
   return (
     <BizForm
@@ -74,25 +75,21 @@ function Demo() {
         style={itemStyle}
         required
       />
-      <BizForm.Subscribe to={['account']}>
-        {({ account }) => (
-          <BizFormItemCheckList
-            label={<PersonFill />}
-            messageVariables={{ label: '操作员' }}
-            name="user"
-            placeholder="请选择操作员"
-            title="请选择操作员"
-            options={data}
-            fieldNames={{ label: 'name', value: 'code' }}
-            loading={loading}
-            readOnly={!account}
-            onClick={handleClickOperator}
-            checkListPopupProps={{ bodyStyle: { height: '50vh' } }}
-            style={itemStyle}
-            required
-          />
-        )}
-      </BizForm.Subscribe>
+      <BizFormItemCheckList
+        label={<PersonFill />}
+        messageVariables={{ label: '操作员' }}
+        name="user"
+        placeholder="请选择操作员"
+        title="请选择操作员"
+        options={data}
+        fieldNames={{ label: 'name', value: 'code' }}
+        loading={loading}
+        readOnly={!account}
+        onClick={handleClickOperator}
+        checkListPopupProps={{ bodyStyle: { height: '50vh' } }}
+        style={itemStyle}
+        required
+      />
       <BizFormItemInput
         label={<ShieldLockFill />}
         messageVariables={{ label: '密码' }}

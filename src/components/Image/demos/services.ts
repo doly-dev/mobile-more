@@ -1,7 +1,7 @@
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 
 export async function filedownload({ fssid }: { fssid: string }) {
-  await waitTime(3000);
+  await sleep(3000);
   return {
     code: '0000',
     message: '成功',

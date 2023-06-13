@@ -61,7 +61,7 @@
     "doly-icons": "^1.4.1",
     "rc-hooks": "^3.0.1",
     "rc-util": "^5.33.0",
-    "ut2": "^1.0.1",
+    "ut2": "^1.0.2",
     "util-helpers": "^4.18.0"
   },
   "devDependencies": {

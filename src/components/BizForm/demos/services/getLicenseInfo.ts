@@ -1,8 +1,8 @@
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 import LicenseBase64 from './licese-base64';
 
 export default async function getLicenseInfo() {
-  await waitTime();
+  await sleep();
 
   return {
     data: {

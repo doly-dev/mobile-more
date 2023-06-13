@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { isMobile, waitTime } from 'util-helpers';
+import { isMobile } from 'util-helpers';
+import { sleep } from 'ut2';
 import { Toast } from 'antd-mobile';
 import { BizForm, BizFormItemInput, BizFormItemCaptcha } from 'mobile-more';
 import DemoForm from './components/DemoForm';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function sendCaptcha(mobile: string) {
-  await waitTime(2000);
+  await sleep(2000);
   return;
 }
 

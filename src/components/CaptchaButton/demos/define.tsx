@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 import { CaptchaButton } from 'mobile-more';
 
 // 接口请求
 async function getValidateCode() {
-  await waitTime();
+  await sleep();
   return;
 }
 

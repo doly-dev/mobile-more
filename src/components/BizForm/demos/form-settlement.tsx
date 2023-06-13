@@ -18,26 +18,24 @@ const pca = getPCA({ fieldNames: { code: 'value', name: 'label' }, inland: true 
 
 function Demo() {
   const [form] = BizForm.useForm();
+  const areaCode = BizForm.useWatch(['settlementInfo', 'areaCode'], form);
   const { data: banks = [] } = useAsync(() => getBanks().then((res) => res.data), {
     persisted: true,
     cacheKey: 'banks',
     cacheTime: 60 * 60 * 1000
   });
 
-  const handleOCR = React.useCallback(
-    (files: FileList | null) => {
-      if (files) {
-        ocr(files[0]).then((res) => {
-          form.setFieldsValue({
-            settlementInfo: {
-              bankCardNo: res.data
-            }
-          });
+  const handleOCR = (files: FileList | null) => {
+    if (files) {
+      ocr(files[0]).then((res) => {
+        form.setFieldsValue({
+          settlementInfo: {
+            bankCardNo: res.data
+          }
         });
-      }
-    },
-    [form]
-  );
+      });
+    }
+  };
 
   return (
     <BizForm
@@ -98,26 +96,20 @@ function Demo() {
         options={pca}
         required
       />
-      <BizForm.Subscribe to={[['settlementInfo', 'areaCode']]}>
-        {({ settlementInfo: { areaCode } }) => {
-          return (
-            <ItemBranchBank
-              label="开户支行名称"
-              name={['settlementInfo', 'bankBranch']}
-              placeholder="请选择开户支行名称"
-              title="请选择开户支行名称"
-              areaCode={areaCode?.[1]}
-              readOnly={!areaCode?.[1]}
-              onClick={() => {
-                if (!areaCode?.[1]) {
-                  Toast.show({ content: '请先选择开户行所在地' });
-                }
-              }}
-              required
-            />
-          );
+      <ItemBranchBank
+        label="开户支行名称"
+        name={['settlementInfo', 'bankBranch']}
+        placeholder="请选择开户支行名称"
+        title="请选择开户支行名称"
+        areaCode={areaCode?.[1]}
+        readOnly={!areaCode?.[1]}
+        onClick={() => {
+          if (!areaCode?.[1]) {
+            Toast.show({ content: '请先选择开户行所在地' });
+          }
         }}
-      </BizForm.Subscribe>
+        required
+      />
       <BizFormItemInput
         label="银行预留手机号"
         name={['settlementInfo', 'bankMobilePhone']}

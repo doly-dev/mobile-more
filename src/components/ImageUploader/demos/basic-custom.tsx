@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { ImageUploader } from 'mobile-more';
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 
 function Demo() {
   const cacheURLRef = React.useRef<string[]>([]); // 组件卸载时 revokeObjectURL
 
   const upload = async (file: File) => {
     console.log(file);
-    await waitTime();
+    await sleep();
     const url = URL.createObjectURL(file);
     cacheURLRef.current.push(url);
     return {

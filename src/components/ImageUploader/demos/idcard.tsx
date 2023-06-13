@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid } from 'antd-mobile';
 import { ImageUploader, ImageUploadItem } from 'mobile-more';
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 
 function Demo() {
   const [idcardFront, setIdcardFront] = React.useState<ImageUploadItem[]>();
@@ -11,7 +11,7 @@ function Demo() {
 
   const upload = async (file: File) => {
     console.log(file);
-    await waitTime();
+    await sleep();
     const url = URL.createObjectURL(file);
     cacheURLRef.current.push(url);
     return {

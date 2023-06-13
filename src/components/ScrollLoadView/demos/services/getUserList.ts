@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Mock from 'mockjs';
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 
 type DataItem = {
   id: string;
@@ -18,7 +18,7 @@ type Result = {
 };
 
 export default async function getUserList({ current = 1, pageSize = 5 }) {
-  await waitTime();
+  await sleep();
   return Mock.mock({
     [`data|${pageSize}`]: [
       {

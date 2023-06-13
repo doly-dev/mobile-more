@@ -1,8 +1,8 @@
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 import Mockjs from 'mockjs';
 
 export default async function getBranchBanks({ areaCode = '', keyword = '' } = {}) {
-  await waitTime();
+  await sleep();
 
   const res = Mockjs.mock({
     'data|5-15': [

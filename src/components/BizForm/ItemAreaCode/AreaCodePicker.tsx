@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { omit } from 'ut2';
 import SuperCascadePicker, {
   SuperCascadePickerProps,
   CascadePickerProps
 } from '../ItemCascadePicker/SuperCascadePicker';
 import transformKeys from '../utils/transformKeys';
 import parseAreaCode from './parseAreaCode';
-import omit from '../../../utils/omit';
 
 export type AreaCodePickerProps = SuperCascadePickerProps;
 

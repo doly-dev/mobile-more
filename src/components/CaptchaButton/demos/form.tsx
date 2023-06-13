@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Button, Toast } from 'antd-mobile';
 import { BizForm, BizFormItemInput, CaptchaButton } from 'mobile-more';
-import { isMobile, waitTime } from 'util-helpers';
+import { isMobile } from 'util-helpers';
+import { sleep } from 'ut2';
 
 async function sendCaptcha(mobile: string) {
   console.log(mobile);
-  await waitTime();
+  await sleep();
   return;
 }
 

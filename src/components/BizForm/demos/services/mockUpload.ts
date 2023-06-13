@@ -1,8 +1,8 @@
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 
 const upload = async (file: File) => {
   console.log(file);
-  await waitTime();
+  await sleep();
   return {
     url: URL.createObjectURL(file),
     fssId: Math.random().toString(16).substring(2)

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Button } from 'antd-mobile';
 import { useAsync } from 'rc-hooks';
-import { waitTime } from 'util-helpers';
+import { sleep } from 'ut2';
 import { CheckListPopup } from 'mobile-more';
 import { FruitOptions } from './constants';
 
 async function getOptions() {
-  await waitTime(5000);
+  await sleep(5000);
   return FruitOptions;
 }
 
