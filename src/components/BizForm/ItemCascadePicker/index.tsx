@@ -41,7 +41,9 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
   const label = getLabel(restProps);
   const [visible, setVisible] = React.useState(false);
   const currentName = React.useMemo(
-    () => name || (Array.isArray(names) && names.length > 0 ? uniqueId('cascaderPicker') : name),
+    () =>
+      name ||
+      (Array.isArray(names) && names.length > 0 ? uniqueId('__mm_itemCascaderPicker_') : name),
     [name, names]
   );
 

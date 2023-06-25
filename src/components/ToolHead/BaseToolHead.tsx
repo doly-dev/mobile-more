@@ -20,7 +20,7 @@ const BaseToolHead = React.forwardRef<HTMLDivElement, BaseToolHeadProps>(
         return childs.map((item) => (
           <div
             className={`${prefixCls}-button`}
-            key={(React.isValidElement(item) && item?.key) || uniqueId()}
+            key={(React.isValidElement(item) && item?.key) || uniqueId('__mm_baseToolHead_')}
           >
             {item}
           </div>

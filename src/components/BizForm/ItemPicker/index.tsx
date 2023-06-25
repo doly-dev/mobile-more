@@ -38,7 +38,7 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
   const label = getLabel(restProps);
   const [visible, setVisible] = React.useState(false);
   const currentName = React.useMemo(
-    () => name || (Array.isArray(names) && names.length > 0 ? uniqueId('cascaderPicker') : name),
+    () => name || (Array.isArray(names) && names.length > 0 ? uniqueId('__mm_itemPicker_') : name),
     [name, names]
   );
 
