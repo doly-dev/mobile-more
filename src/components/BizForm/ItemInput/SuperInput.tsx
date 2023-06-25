@@ -70,7 +70,10 @@ const SuperInput = React.forwardRef<InputRef, SuperInputProps>(
       [disabledWhiteSpace, format, type]
     );
     const realType = React.useMemo(() => {
-      if (type === 'mobile' || type === 'bankCard' || type === 'idCard' || type === 'number') {
+      if (type === 'mobile') {
+        return 'tel';
+      }
+      if (type === 'bankCard' || type === 'idCard' || type === 'number') {
         return 'text';
       }
       return type;

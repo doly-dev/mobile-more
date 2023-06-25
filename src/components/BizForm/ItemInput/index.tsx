@@ -44,7 +44,7 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
       iconRender,
       required,
       transform: outTransform,
-      format = true,
+      format = false,
       ...restProps
     },
     ref
