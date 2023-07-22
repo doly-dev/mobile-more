@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Mock from 'mockjs';
+import { Mockjs } from 'mockjs-extend';
 import { sleep } from 'ut2';
 
 type DataItem = {
@@ -19,7 +19,7 @@ type Result = {
 
 export default async function getUserList({ current = 1, pageSize = 5 }) {
   await sleep();
-  return Mock.mock({
+  return Mockjs.mock({
     [`data|${pageSize}`]: [
       {
         id: '@guid',

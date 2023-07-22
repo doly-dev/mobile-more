@@ -1,5 +1,5 @@
 import { sleep } from 'ut2';
-import Mockjs from 'mockjs';
+import { Mockjs } from 'mockjs-extend';
 
 export default async function getBranchBanks({ areaCode = '', keyword = '' } = {}) {
   await sleep();
