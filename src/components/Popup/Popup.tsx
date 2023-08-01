@@ -74,11 +74,7 @@ const Popup: React.FC<PopupProps> = (props) => {
       <BasePopup
         visible={visible}
         onMaskClick={handleMaskClick}
-        bodyStyle={{
-          display: 'flex',
-          flexDirection: 'column',
-          ...bodyStyle
-        }}
+        bodyStyle={bodyStyle}
         {...restProps}
       >
         {typeof header !== 'undefined' ? (
