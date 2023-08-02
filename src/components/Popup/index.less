@@ -3,8 +3,17 @@
 @prefixCls: ~'@{prefixClass}-popup';
 
 .@{prefixCls} {
+  .adm-popup-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .momo-tool-head {
+    flex-shrink: 0;
+  }
+
   &-content {
-    height: 100%;
+    flex: 1;
     overflow-x: hidden;
     overflow-y: scroll;
   }

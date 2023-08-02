@@ -39,8 +39,8 @@ const Popup: React.FC<PopupProps> = (props) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     onVisibleChange,
     children,
-    bodyStyle,
     trigger,
+    className,
     ...restProps
   } = props;
   const [visible, changeVisible] = useControllableValue<boolean>(props, {
@@ -74,7 +74,7 @@ const Popup: React.FC<PopupProps> = (props) => {
       <BasePopup
         visible={visible}
         onMaskClick={handleMaskClick}
-        bodyStyle={bodyStyle}
+        className={classnames(prefixCls, className)}
         {...restProps}
       >
         {typeof header !== 'undefined' ? (
