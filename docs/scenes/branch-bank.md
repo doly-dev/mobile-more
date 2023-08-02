@@ -17,6 +17,10 @@ group:
 
 <code src='../../src/demos/item-branch-bank.tsx' />
 
+### 自动完成
+
+<code src='../../src/demos/item-branch-bank2.tsx' iframe="467" />
+
 ## API
 
 ### ItemBranchBank
