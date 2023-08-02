@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button } from 'antd-mobile';
-import CheckListPopup from '../CheckListPopup';
+import { CheckListPopup } from 'mobile-more';
 import { FruitOptions } from './constants';
 
 function Demo() {
