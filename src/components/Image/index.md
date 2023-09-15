@@ -45,3 +45,4 @@ group:
 | name       | 名称                   | `ReactNode`         | -       |
 | preview    | 点击是否预览           | `boolean`           | `false` |
 | previewUrl | 点击预览图片，默认 src | `string`            | -       |
+| nameWrap   | 名称是否支持换行       | `boolean`           | `false` |

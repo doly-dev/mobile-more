@@ -3,15 +3,19 @@
 @prefixCls: ~'@{prefixClass}-scrollLoadView';
 
 .@{prefixCls} {
+  --color-danger: var(--adm-color-danger);
+  --color-weak: gray;
+  --font-size: 13px;
+
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px 0;
-  color: gray;
-  font-size: 13px;
+  color: var(--color-weak);
+  font-size: var(--font-size);
   cursor: default;
 
   &-error {
-    color: red;
+    color: var(--color-danger);
   }
 }

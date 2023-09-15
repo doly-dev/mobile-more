@@ -3,6 +3,10 @@
 @prefixCls: ~'@{prefixClass}-image';
 
 .@{prefixCls} {
+  --color: var(--adm-color-secondary);
+  --color-border: #d2d2d2;
+  --font-size: 12px;
+
   .adm-image {
     box-sizing: border-box;
   }
@@ -10,7 +14,7 @@
   &-border-dashed,
   &-border-solid {
     padding: 5px;
-    border-color: #d2d2d2;
+    border-color: var(--color-border);
     border-width: 1px;
     border-radius: 5px;
   }
@@ -26,10 +30,15 @@
   &-name {
     margin: 3px auto;
     overflow: hidden;
-    color: #7d7d80;
-    font-size: 12px;
+    color: var(--color);
+    font-size: var(--font-size);
     white-space: nowrap;
     text-align: center;
     text-overflow: ellipsis;
+
+    &-wrap {
+      overflow: visible;
+      white-space: normal;
+    }
   }
 }

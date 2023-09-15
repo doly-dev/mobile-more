@@ -5,6 +5,9 @@
 @prefixClsUploadCustom: ~'@{prefixClass}-upload-custom';
 
 .@{prefixCls} {
+  --delete-icon-color: #f64f53;
+  --delete-icon-size: 16px;
+
   &-block {
     .adm-image-uploader {
       height: var(--cell-size);
@@ -24,16 +27,15 @@
     }
 
     .adm-image-uploader-cell-delete {
-      top: -8px;
-      right: -8px;
       z-index: 2;
-      width: 16px;
-      height: 16px;
-      color: #f64f53;
-      font-size: 16px;
+      width: var(--delete-icon-size);
+      height: var(--delete-icon-size);
+      color: var(--delete-icon-color);
+      font-size: var(--delete-icon-size);
       line-height: 0;
       background: none;
       border-radius: 0;
+      transform: translate3d(50%, -50%, 0);
     }
   }
 
@@ -68,6 +70,8 @@
 }
 
 .@{prefixClsUploadBackground} {
+  --color-border: #dbdbdb;
+
   position: relative;
   width: 100%;
   height: 100%;
@@ -95,7 +99,7 @@
     position: absolute;
     width: 7px;
     height: 7px;
-    border-color: #dbdbdb;
+    border-color: var(--color-border);
     border-style: solid;
     border-width: 2px 0 0 2px;
   }

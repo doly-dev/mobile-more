@@ -29,6 +29,20 @@ function Demo() {
         <Image src={src2} width={64} height={64} fit="cover" border="dashed" name="开户凭证" />
         <Image src={src2} width={64} height={64} fit="cover" border="solid" name="开户凭证" />
       </Space>
+      <br />
+      <br />
+      <h3>名称换行</h3>
+      <div>
+        <Image
+          src={src2}
+          width={64}
+          height={64}
+          fit="cover"
+          nameWrap
+          name="名称超长名称超长名称超长名称超长"
+          rootStyle={{ display: 'inline-block' }}
+        />
+      </div>
     </>
   );
 }

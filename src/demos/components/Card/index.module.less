@@ -2,6 +2,10 @@
   --title-font-size: 15px;
   --subtitle-font-size: 13px;
   --extra-font-size: 13px;
+  --title-badge-color: #f54d4f;
+  --color-weak: var(--adm-color-weak);
+  --color-text: var(--adm-color-text);
+  --color-text-secondary: var(--color-weak);
 
   background-color: #fff;
 
@@ -15,7 +19,7 @@
       width: 5px;
       height: 12px;
       margin-right: 10px;
-      background-color: var(--color-primary);
+      background-color: var(--title-badge-color);
       border-radius: 2.5px;
       content: '';
     }
@@ -24,14 +28,14 @@
       display: flex;
       flex: 1;
       align-items: center;
-      color: #333;
+      color: var(--color-text);
       font-weight: 500;
       font-size: var(--title-font-size);
       line-height: 22px;
     }
 
     .subTitle {
-      color: rgba(0, 0, 0, 0.3);
+      color: var(--color-text-secondary);
       font-size: var(--subtitle-font-size);
     }
 
@@ -44,7 +48,7 @@
   .tip {
     margin-bottom: 16px;
     padding: 0 20px 0 30px;
-    color: #969799;
+    color: var(--color-weak);
     font-size: 13px;
   }
 

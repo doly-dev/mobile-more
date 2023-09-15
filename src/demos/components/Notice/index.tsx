@@ -4,28 +4,9 @@ import { ChevronRight } from 'doly-icons';
 import IconNotice from './IconNotice';
 import styles from './index.module.less';
 
-const ColorConfig = {
-  default: {
-    background: '#FEFCEC',
-    color: '#ff7000'
-  },
-  warning: {
-    background: '#FEFCEC',
-    color: '#ff7000'
-  },
-  info: {
-    background: '#d0e4ff',
-    color: '#1677ff'
-  },
-  error: {
-    background: '#FEECEC',
-    color: '#f00'
-  }
-};
-
 export interface NoticeProps extends React.HTMLAttributes<HTMLDivElement> {
   text?: React.ReactNode;
-  color?: 'warning' | 'info' | 'error';
+  status?: 'default' | 'warning' | 'info' | 'error';
   showChangeText?: boolean;
   changeText?: string;
   onClickChangeText?: () => void;
@@ -33,9 +14,8 @@ export interface NoticeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Notice: React.FC<NoticeProps> = ({
   className,
-  style,
+  status = 'default',
   text,
-  color = 'warning',
   showChangeText = true,
   changeText = '立即修改',
   onClickChangeText,
@@ -46,15 +26,11 @@ const Notice: React.FC<NoticeProps> = ({
   }
 
   return (
-    <div
-      className={classnames(styles.wrapper, className)}
-      style={{ ...ColorConfig[color], ...style }}
-      {...restProps}
-    >
+    <div className={classnames(styles.wrapper, styles[status], className)} {...restProps}>
       <div className={styles.icon}>
         <IconNotice />
       </div>
-      <div className={styles.text} style={color === 'info' ? { color: '#333' } : {}}>
+      <div className={styles.text}>
         {text}{' '}
         {showChangeText && (
           <a onClick={onClickChangeText}>

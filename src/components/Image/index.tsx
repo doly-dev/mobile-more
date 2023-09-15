@@ -11,17 +11,23 @@ export interface ImageProps extends ImageBaseProps {
   name?: React.ReactNode;
   preview?: boolean;
   previewUrl?: string;
+  nameWrap?: boolean;
+  rootClassName?: string;
+  rootStyle?: React.CSSProperties;
 }
 
 const Image: React.FC<ImageProps> = ({
   border,
   name,
   className,
+  rootClassName,
+  rootStyle,
   width,
   src,
   preview,
   previewUrl,
   onClick,
+  nameWrap = false,
   ...restProps
 }) => {
   const handleClick = React.useCallback(
@@ -38,7 +44,7 @@ const Image: React.FC<ImageProps> = ({
   );
 
   return (
-    <div className={prefixCls}>
+    <div className={classnames(prefixCls, rootClassName)} style={rootStyle}>
       <ImageBase
         className={classnames(className, {
           [`${prefixCls}-border-dashed`]: border === 'dashed',
@@ -50,7 +56,10 @@ const Image: React.FC<ImageProps> = ({
         {...restProps}
       />
       {name && (
-        <div className={`${prefixCls}-name`} style={{ width }}>
+        <div
+          className={classnames(`${prefixCls}-name`, { [`${prefixCls}-name-wrap`]: nameWrap })}
+          style={{ width }}
+        >
           {name}
         </div>
       )}

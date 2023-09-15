@@ -1,19 +1,46 @@
 .wrapper {
+  --color-text: var(--adm-color-text);
+  --color: #ff7000;
+  --color-background: #fefcec;
+  --color-warning: #ff7000;
+  --color-warning-background: var(--color-background);
+  --color-info: #1677ff;
+  --color-info-background: #d0e4ff;
+  --color-error: #f00;
+  --color-error-background: #feecec;
+
   display: flex;
+  align-items: center;
   padding: 8px 16px;
   font-size: 12px;
+
+  &.default {
+    color: var(--color);
+    background: var(--color-background);
+  }
+
+  &.warning {
+    color: var(--color-warning);
+    background: var(--color-warning-background);
+  }
+
+  &.info {
+    color: var(--color-info);
+    background: var(--color-info-background);
+
+    .text {
+      color: var(--color-text);
+    }
+  }
+
+  &.error {
+    color: var(--color-error);
+    background: var(--color-error-background);
+  }
 
   .icon {
     margin-right: 7px;
     font-size: 16px;
     line-height: 18px;
-  }
-
-  a {
-    color: #1677ff;
-
-    &:active {
-      opacity: 0.8;
-    }
   }
 }

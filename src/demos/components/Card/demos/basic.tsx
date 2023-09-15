@@ -3,7 +3,7 @@ import Card from '..';
 
 function Demo() {
   return (
-    <div style={{ '--color-primary': '#f54d4f' } as React.CSSProperties}>
+    <>
       <Card title="标题">内容</Card>
       <br />
       <Card
@@ -28,7 +28,7 @@ function Demo() {
       >
         小尺寸
       </Card>
-    </div>
+    </>
   );
 }
 
