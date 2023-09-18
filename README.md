@@ -14,16 +14,18 @@
 
 ## 使用
 
-### npm 或 yarn 安装
+### 安装
 
 ```shell
 npm install mobile-more
 ```
 
-<br />
-
 ```shell
 yarn add mobile-more
+```
+
+```shell
+pnpm add mobile-more
 ```
 
 ### 示例

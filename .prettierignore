@@ -5,9 +5,10 @@ LICENSE
 package.json
 package-lock.json
 
-*.lock
+yarn.lock
 yarn-error.log
 *debug.log
+pnpm-lock.yaml
 
 .umi
 .umi-production

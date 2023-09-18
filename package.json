@@ -22,7 +22,8 @@
     "lint-fix:js": "npm run lint:js -- --fix",
     "lint:style": "stylelint src/**/*.less",
     "lint-fix:style": "npm run lint:stylelint -- --fix",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -40,10 +41,6 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "npx --no -- commitlint --edit \"$1\""
-  },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
       "prettier --write"
@@ -56,6 +53,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.22.11",
+    "classnames": "^2.3.2",
     "countdown-pro": "^2.0.1",
     "dayjs": "^1.11.9",
     "doly-icons": "^1.5.0",
@@ -67,6 +65,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
+    "@types/react": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@umijs/fabric": "^3.0.0",
@@ -79,6 +78,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "father-build": "^1.22.5",
+    "husky": "^8.0.0",
     "lcn": "^5.0.5",
     "lint-staged": "^13.3.0",
     "mockjs-extend": "^1.1.8",
@@ -93,8 +93,7 @@
     "stylelint-config-standard": "^29.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
     "stylelint-no-unsupported-browser-features": "^6.1.0",
-    "typescript": "^5.2.2",
-    "yorkie": "^2.0.0"
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "antd-mobile": "^5.32.1",

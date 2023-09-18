@@ -148,7 +148,7 @@ function CheckListPopup(props: CheckListPopupProps) {
     searchBarProps?.onChange?.(val);
   };
 
-  const handleChange = (vals: string[]) => {
+  const handleChange = (vals: any[]) => {
     if (multiple) {
       setState(vals);
     } else {

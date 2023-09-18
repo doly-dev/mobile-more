@@ -11,7 +11,7 @@ const preVersionSiteRoot = `refs/heads/v${preMajorVersionNumber}`;
 
 const version = process.env.BUIDL_DOC_VERSION ? versionSiteRoot : 'latest';
 
-const serverRootDirect = !isDev ? 'https://doly-dev.github.io/mobile-more/' : '/';
+const serverRootDirect = !isDev ? `https://doly-dev.github.io/${pkg.name}/` : '/';
 const logo = 'https://doly-dev.github.io/logo.png';
 const favicon = 'https://doly-dev.github.io/favicon.png';
 
@@ -60,7 +60,7 @@ gtag('config', 'G-Z3NN7XXV9E');
 }
 
 export default defineConfig({
-  title: 'mobile-more',
+  title: pkg.name,
   publicPath,
   logo,
   favicon,
@@ -96,15 +96,15 @@ export default defineConfig({
     },
     // {
     //   title: `v${preMajorVersionNumber}.x`,
-    //   path: `https://doly-dev.github.io/mobile-more/${preVersionSiteRoot}/index.html`
+    //   path: `https://doly-dev.github.io/${pkg.name}/${preVersionSiteRoot}/index.html`
     // },
     {
       title: 'GitHub',
-      path: 'https://github.com/doly-dev/mobile-more'
+      path: `https://github.com/doly-dev/${pkg.name}`
     },
     {
       title: '更新日志',
-      path: 'https://github.com/doly-dev/mobile-more/releases'
+      path: `https://github.com/doly-dev/${pkg.name}/releases`
     }
   ],
   ...prodConfig
