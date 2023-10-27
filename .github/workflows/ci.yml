@@ -35,20 +35,18 @@ jobs:
         run: pnpm run docs:build
       - name: Deploy latest docs
         if: ${{github.ref == 'refs/heads/main'}}
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.ACCESS_TOKEN_WORKFLOW }}
-          branch: gh-pages
-          folder: docs-dist
-          target-folder: latest
+          github_token: ${{ secrets.ACCESS_TOKEN_WORKFLOW }}
+          publish_dir: docs-dist
+          destination_dir: latest
       - name: Build version docs
         if: ${{github.ref != 'refs/heads/main'}}
         run: pnpm docs-version:build
       - name: Deploy version docs
         if: ${{github.ref != 'refs/heads/main'}}
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.ACCESS_TOKEN_WORKFLOW }}
-          branch: gh-pages
-          folder: docs-dist
-          target-folder: ${{github.ref}}
+          github_token: ${{ secrets.ACCESS_TOKEN_WORKFLOW }}
+          publish_dir: docs-dist
+          destination_dir: ${{github.ref}}
