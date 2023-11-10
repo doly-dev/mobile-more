@@ -3,19 +3,19 @@
 @prefixCls: ~'@{prefixClass}-scrollLoadView';
 
 .@{prefixCls} {
-  --color-danger: var(--adm-color-danger);
-  --color-weak: gray;
-  --font-size: 13px;
+  --error-color: var(~'--@{prefixCls}-error-color', var(--adm-color-danger));
+  --color: var(~'--@{prefixCls}-color', gray);
+  --font-size: var(~'--@{prefixCls}-font-size', 13px);
 
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px 0;
-  color: var(--color-weak);
+  color: var(--color);
   font-size: var(--font-size);
   cursor: default;
 
   &-error {
-    color: var(--color-danger);
+    color: var(--error-color);
   }
 }

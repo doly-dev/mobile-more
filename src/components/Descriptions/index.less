@@ -3,17 +3,17 @@
 @prefixCls: ~'@{prefixClass}-descriptions';
 
 .@{prefixCls} {
-  --font-size: 14px;
-  --color: #333;
-  --title-color: var(--color);
-  --padding-inner: 6px;
-  --justify-content: flex-start;
-  --flex-direction: row;
-  --label-color: var(--color);
-  --label-width: auto;
-  --label-text-align: left;
-  --content-color: var(--color);
-  --content-text-align: left;
+  --font-size: var(~'--@{prefixCls}-font-size', 14px);
+  --color: var(~'--@{prefixCls}-color', #333);
+  --title-color: var(~'--@{prefixCls}-title-color', var(--color));
+  --padding-inner: var(~'--@{prefixCls}-padding-inner', 6px);
+  --justify-content: var(~'--@{prefixCls}-justify-content', flex-start);
+  --flex-direction: var(~'--@{prefixCls}-flex-direction', row);
+  --label-color: var(~'--@{prefixCls}-label-color', var(--color));
+  --label-width: var(~'--@{prefixCls}-label-width', auto);
+  --label-text-align: var(~'--@{prefixCls}-label-text-align', left);
+  --content-color: var(~'--@{prefixCls}-content-color', var(--color));
+  --content-text-align: var(~'--@{prefixCls}-content-text-align', left);
 
   &-title {
     margin-bottom: var(--padding-inner);

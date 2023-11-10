@@ -3,9 +3,9 @@
 @prefixCls: ~'@{prefixClass}-image';
 
 .@{prefixCls} {
-  --color: var(--adm-color-secondary);
-  --color-border: #d2d2d2;
-  --font-size: 12px;
+  --color: var(~'--@{prefixCls}-color', var(--adm-color-secondary));
+  --border-color: var(~'--@{prefixCls}-border-color', #d2d2d2);
+  --font-size: var(~'--@{prefixCls}-font-size', 12px);
 
   .adm-image {
     box-sizing: border-box;
@@ -14,7 +14,7 @@
   &-border-dashed,
   &-border-solid {
     padding: 5px;
-    border-color: var(--color-border);
+    border-color: var(--border-color);
     border-width: 1px;
     border-radius: 5px;
   }

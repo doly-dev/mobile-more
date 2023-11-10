@@ -1,12 +1,12 @@
 @import '../../config/prefixClass.less';
 
 @prefixCls: ~'@{prefixClass}-image-uploader';
-@prefixClsUploadBackground: ~'@{prefixClass}-upload-background';
-@prefixClsUploadCustom: ~'@{prefixClass}-upload-custom';
+@prefixClsUploadBackground: ~'@{prefixCls}-background';
+@prefixClsUploadCustom: ~'@{prefixCls}-custom';
 
 .@{prefixCls} {
-  --delete-icon-color: #f64f53;
-  --delete-icon-size: 16px;
+  --delete-icon-color: var(~'--@{prefixCls}-delete-icon-color', #f64f53);
+  --delete-icon-size: var(~'--@{prefixCls}-delete-icon-size', 16px);
 
   &-block {
     .adm-image-uploader {
@@ -70,7 +70,7 @@
 }
 
 .@{prefixClsUploadBackground} {
-  --color-border: #dbdbdb;
+  --border-color: #dbdbdb;
 
   position: relative;
   width: 100%;
@@ -99,7 +99,7 @@
     position: absolute;
     width: 7px;
     height: 7px;
-    border-color: var(--color-border);
+    border-color: var(--border-color);
     border-style: solid;
     border-width: 2px 0 0 2px;
   }

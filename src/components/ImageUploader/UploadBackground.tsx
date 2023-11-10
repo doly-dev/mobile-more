@@ -11,7 +11,7 @@ import IconLicense from '../../assets/images/icon-license@2x.png';
 import { prefixClass } from '../../config/prefixClass';
 import './index.less';
 
-const prefixCls = `${prefixClass}-upload-background`;
+const prefixCls = `${prefixClass}-image-uploader-background`;
 
 // 内置图标配置
 const InternalIconConfig = {

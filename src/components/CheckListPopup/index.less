@@ -3,7 +3,7 @@
 @prefixCls: ~'@{prefixClass}-checklist-popup';
 
 .@{prefixCls} {
-  --list-font-size: 15px;
+  --list-font-size: var(~'--@{prefixCls}-list-font-size', 15px);
 
   &-loading {
     display: flex;
