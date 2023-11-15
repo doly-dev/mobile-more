@@ -2,26 +2,26 @@ import { DatePickerProps } from 'antd-mobile';
 import dayjs from 'dayjs';
 import { BizFormItem, BizFormItemProps } from 'mobile-more';
 import * as React from 'react';
-import SpecialDatePicker, { SpecialDatePickerProps } from './SpecialDatePicker';
+import SpecialDatePicker, { SpecialDatePickerProps } from './WrapperDatePicker';
 
-interface ItemSpecialDatePickerProps
+interface ItemDatePickerWithInfinityProps
   extends Omit<BizFormItemProps, 'children'>,
-    Pick<SpecialDatePickerProps, 'specialValue' | 'specialLabel' | 'title'> {
+    Pick<SpecialDatePickerProps, 'infinityValue' | 'infinityLabel' | 'title'> {
   format?: string;
   readOnly?: boolean;
   placeholder?: string;
   datePickerProps?: DatePickerProps;
 }
 
-const ItemSpecialDatePicker: React.FC<ItemSpecialDatePickerProps> = ({
+const ItemDatePickerWithInfinity: React.FC<ItemDatePickerWithInfinityProps> = ({
   datePickerProps,
   format = 'YYYY-MM-DD',
   readOnly,
   disabled,
   placeholder,
   title,
-  specialValue,
-  specialLabel,
+  infinityValue,
+  infinityLabel,
   required,
   ...restProps
 }) => {
@@ -63,8 +63,8 @@ const ItemSpecialDatePicker: React.FC<ItemSpecialDatePickerProps> = ({
         visible={visible}
         onClose={() => setVisible(false)}
         placeholder={placeholder}
-        specialLabel={specialLabel}
-        specialValue={specialValue}
+        infinityLabel={infinityLabel}
+        infinityValue={infinityValue}
         readOnly={disabled || readOnly}
         format={format}
         title={title}
@@ -74,4 +74,4 @@ const ItemSpecialDatePicker: React.FC<ItemSpecialDatePickerProps> = ({
   );
 };
 
-export default ItemSpecialDatePicker;
+export default ItemDatePickerWithInfinity;

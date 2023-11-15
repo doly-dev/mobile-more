@@ -3,11 +3,11 @@ import dayjs from 'dayjs';
 import { ChevronRight } from 'doly-icons';
 import * as React from 'react';
 import { safeDate } from 'util-helpers';
-import styles from './SpecialDatePicker.module.less';
+import styles from './WrapperDatePicker.module.less';
 
 const DefaultFormat = 'YYYY-MM-DD';
 
-const formatDate = (date?: Date | null, format = DefaultFormat) => {
+const formatDate = (date?: string | Date | null, format = DefaultFormat) => {
   if (date) {
     return dayjs(date).format(format);
   }
@@ -30,8 +30,8 @@ const labelRenderer = (type: string, data: number) => {
 export interface SpecialDatePickerProps extends DatePickerProps {
   format?: string;
   readOnly?: boolean;
-  specialValue?: Date;
-  specialLabel?: React.ReactNode;
+  infinityValue?: string | Date;
+  infinityLabel?: React.ReactNode;
   placeholder?: string;
 }
 
@@ -40,16 +40,16 @@ const SpecialDatePicker: React.FC<SpecialDatePickerProps> = ({
   format = DefaultFormat,
   readOnly = false,
   placeholder = '请选择',
-  specialValue = safeDate('9999-12-31'),
-  specialLabel = '长期',
+  infinityValue = safeDate('9999-12-31'),
+  infinityLabel = '长期',
   onConfirm,
   onClose,
   ...restProps
 }) => {
   const fmtValue = value ? formatDate(value, format) : value;
-  const isSpecial = React.useMemo(
-    () => fmtValue === formatDate(specialValue, format),
-    [fmtValue, format, specialValue]
+  const isInfinity = React.useMemo(
+    () => fmtValue === formatDate(infinityValue, format),
+    [fmtValue, format, infinityValue]
   );
 
   const handleChange = React.useCallback(
@@ -58,28 +58,26 @@ const SpecialDatePicker: React.FC<SpecialDatePickerProps> = ({
       if (!readOnly) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        onConfirm?.(checked ? specialValue : undefined);
+        onConfirm?.(checked ? infinityValue : undefined);
       }
     },
-    [onClose, onConfirm, readOnly, specialValue]
+    [onClose, onConfirm, readOnly, infinityValue]
   );
-
-  // console.log(specialLabel, value, isSpecial);
 
   return (
     <div className={styles.specialDatePicker}>
-      {!isSpecial && (
+      {!isInfinity && (
         <div className={styles.datePicker}>
           <DatePicker
-            value={value}
+            value={typeof value === 'string' ? safeDate(value) : value}
             onConfirm={onConfirm}
             onClose={onClose}
             renderLabel={labelRenderer}
             {...restProps}
           >
-            {(value) => {
-              const fmtValue = value ? formatDate(value, format) : value;
-              return <Input value={fmtValue || undefined} placeholder={placeholder} readOnly />;
+            {(val) => {
+              const fmtVal = val ? formatDate(val, format) : val;
+              return <Input value={fmtVal || undefined} placeholder={placeholder} readOnly />;
             }}
           </DatePicker>
           <ChevronRight />
@@ -87,13 +85,13 @@ const SpecialDatePicker: React.FC<SpecialDatePickerProps> = ({
       )}
       <div
         className={styles.checkbox}
-        style={isSpecial ? { flex: 1 } : {}}
+        style={isInfinity ? { flex: 1 } : {}}
         onClick={(e) => {
           !readOnly && e.stopPropagation();
         }}
       >
-        <Checkbox checked={isSpecial} onChange={handleChange}>
-          {specialLabel}
+        <Checkbox checked={isInfinity} onChange={handleChange}>
+          {infinityLabel}
         </Checkbox>
       </div>
     </div>

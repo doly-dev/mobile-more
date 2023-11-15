@@ -8,7 +8,7 @@ import {
   BizFormItemImageUploader,
   BizFormItemDatePicker
 } from 'mobile-more';
-import ItemSpecialDatePicker from './components/ItemSpecialDatePicker';
+import ItemDatePickerWithInfinity from './components/ItemDatePickerWithInfinity';
 import mockUpload from './services/mockUpload';
 import styles from './demo.less';
 
@@ -86,7 +86,7 @@ function Demo() {
           datePickerProps={{ max: MaxDate, min: MinDate }}
           required
         />
-        <ItemSpecialDatePicker
+        <ItemDatePickerWithInfinity
           label="证件终止日期"
           name={['legalInfo', 'endDate']}
           placeholder="请选择证件终止日期"

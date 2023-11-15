@@ -14,7 +14,7 @@ import {
   BizFormItemDatePicker,
   BizFormItemTextArea
 } from 'mobile-more';
-import ItemSpecialDatePicker from './components/ItemSpecialDatePicker';
+import ItemDatePickerWithInfinity from './components/ItemDatePickerWithInfinity';
 import getMcc from './services/getMcc';
 import getMerchantType from './services/getMerchantType';
 import mockUpload from './services/mockUpload';
@@ -108,7 +108,7 @@ function Demo() {
           datePickerProps={{ max: MaxDate, min: MinDate }}
           required
         />
-        <ItemSpecialDatePicker
+        <ItemDatePickerWithInfinity
           label="证件终止日期"
           name={['businessLicenseInfo', 'endDate']}
           placeholder="请选择证件终止日期"
