@@ -15,7 +15,7 @@ export interface SuperCheckListProps extends Pick<InputProps, 'placeholder'>, Ch
 }
 
 const SuperCheckList: React.FC<SuperCheckListProps> = ({
-  placeholder = '请选择',
+  placeholder,
   separator = ', ',
 
   options = [],

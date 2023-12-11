@@ -196,7 +196,7 @@ const SuperInput = React.forwardRef<InputRef, SuperInputProps>(
         ...internalRef.current!,
         focus: triggerFocus
       }),
-      [internalRef, triggerFocus]
+      [triggerFocus]
     );
 
     React.useEffect(() => {

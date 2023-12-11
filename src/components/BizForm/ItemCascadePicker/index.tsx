@@ -3,6 +3,7 @@ import { uniqueId } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import { InvalidFormValue } from '../utils/transform';
 import SuperCascadePicker, { SuperCascadePickerProps } from './SuperCascadePicker';
+import { useConfig } from '../../BizConfigProvider';
 
 export interface BizFormItemCascadePickerProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -15,28 +16,30 @@ export interface BizFormItemCascadePickerProps
   names?: string[];
 }
 
-const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
-  // input props
-  placeholder = '请选择',
+const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = (props) => {
+  const { locale } = useConfig();
+  const {
+    // input props
+    placeholder = locale.form.common.selectPlaceholder,
 
-  // cascadePicker props
-  title,
-  options,
-  mapKeys,
-  renderCurrentValue,
-  separator,
-  cascadePickerProps,
-  names,
+    // cascadePicker props
+    title,
+    options,
+    mapKeys,
+    renderCurrentValue,
+    separator,
+    cascadePickerProps,
+    names,
 
-  // item props
-  name,
-  readOnly,
-  disabled,
-  onClick,
-  required,
-  transform: outTransform,
-  ...restProps
-}) => {
+    // item props
+    name,
+    readOnly,
+    disabled,
+    onClick,
+    required,
+    transform: outTransform,
+    ...restProps
+  } = props;
   const [visible, setVisible] = React.useState(false);
   const currentName = React.useMemo(
     () =>
@@ -80,7 +83,7 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
         {
           validator(rule, value) {
             if (required && (!Array.isArray(value) || value.length <= 0)) {
-              return Promise.reject('请选择${label}');
+              return Promise.reject(locale.form.common.selectRequired);
             }
             return Promise.resolve();
           }

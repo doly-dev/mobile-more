@@ -1,11 +1,8 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
-import SuperDatePicker, {
-  defaultFormat,
-  SuperDatePickerProps,
-  DatePickerProps
-} from './SuperDatePicker';
+import SuperDatePicker, { SuperDatePickerProps, DatePickerProps } from './SuperDatePicker';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
+import { useConfig } from '../../BizConfigProvider';
 
 export interface BizFormItemDatePickerProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -14,22 +11,47 @@ export interface BizFormItemDatePickerProps
   datePickerProps?: DatePickerProps;
 }
 
-const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = ({
-  precision = 'day',
-  format: outFormat,
-  renderLabel,
-  readOnly = false,
-  placeholder,
-  datePickerProps,
-  disabled,
-  onClick,
-  title,
+const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = (props) => {
+  const { locale } = useConfig();
+  const {
+    precision = 'day',
+    format: outFormat,
+    renderLabel,
+    readOnly = false,
+    placeholder = locale.form.common.selectPlaceholder,
+    datePickerProps,
+    disabled,
+    onClick,
+    title,
 
-  required,
-  transform: outTransform,
-  ...restProps
-}) => {
+    required,
+    transform: outTransform,
+    ...restProps
+  } = props;
   const [visible, setVisible] = React.useState(false);
+
+  const defaultFormat = React.useMemo(
+    () => ({
+      year: 'YYYY',
+      month: 'YYYY-MM',
+      day: 'YYYY-MM-DD',
+      hour: 'YYYY-MM-DD HH',
+      minute: 'YYYY-MM-DD HH:mm',
+      second: 'YYYY-MM-DD HH:mm:ss',
+      week: (date: Date) => {
+        const d = dayjs(date);
+        return d.format('YYYY-W') + locale.form.date.unit.week;
+      },
+      'week-day': (date: Date) => {
+        const d = dayjs(date);
+        const fmtStr = d.format('YYYY-W') + locale.form.date.unit.week;
+        let day = d.day();
+        day = day === 0 ? 7 : day;
+        return `${fmtStr} ${locale.form.date.weekday(day)}`;
+      }
+    }),
+    []
+  );
 
   const format = React.useMemo(
     () => outFormat || defaultFormat[precision] || defaultFormat.day,
@@ -67,7 +89,7 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = ({
       rules={[
         {
           required,
-          message: '请选择${label}'
+          message: locale.form.common.selectRequired
         }
       ]}
       onClick={handleClick}

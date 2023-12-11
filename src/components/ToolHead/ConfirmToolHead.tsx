@@ -2,6 +2,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 import BaseToolHead, { BaseToolHeadProps } from './BaseToolHead';
 import { prefixClass } from '../../config/prefixClass';
+import { useConfig } from '../BizConfigProvider';
 
 const prefixCls = `${prefixClass}-tool-head-confirm`;
 
@@ -14,15 +15,17 @@ export interface ConfirmToolHeadProps
   onCancel?: () => void;
 }
 
-const ConfirmToolHead: React.FC<ConfirmToolHeadProps> = ({
-  title,
-  cancelText = '取消',
-  confirmText = '确认',
-  onConfirm,
-  onCancel,
-  className,
-  ...restProps
-}) => {
+const ConfirmToolHead: React.FC<ConfirmToolHeadProps> = (props) => {
+  const { locale } = useConfig();
+  const {
+    title,
+    cancelText = locale.form.common.cancel,
+    confirmText = locale.form.common.ok,
+    onConfirm,
+    onCancel,
+    className,
+    ...restProps
+  } = props;
   return (
     <BaseToolHead
       className={classnames(prefixCls, className)}

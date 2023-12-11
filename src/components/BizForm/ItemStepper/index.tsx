@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { formPrefixCls } from '../config';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
+import { useConfig } from '../../BizConfigProvider';
 import './index.less';
 
 const prefixCls = `${formPrefixCls}-item-stepper`;
@@ -25,6 +26,7 @@ const BizFormItemStepper: React.FC<BizFormItemStepperProps> = ({
   required,
   ...restProps
 }) => {
+  const { locale } = useConfig();
   return (
     <BizFormItem
       className={classnames(prefixCls, className)}
@@ -32,7 +34,7 @@ const BizFormItemStepper: React.FC<BizFormItemStepperProps> = ({
       rules={[
         {
           required,
-          message: '请输入${label}'
+          message: locale.form.common.inputRequired
         }
       ]}
       {...restProps}

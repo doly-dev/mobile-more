@@ -3,6 +3,7 @@ import { uniqueId } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import { InvalidFormValue } from '../utils/transform';
 import SuperPicker, { SuperPickerProps } from './SuperPicker';
+import { useConfig } from '../../BizConfigProvider';
 
 export interface BizFormItemPickerProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -15,25 +16,27 @@ export interface BizFormItemPickerProps
   names?: string[];
 }
 
-const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
-  placeholder,
-  mapKeys,
-  renderCurrentValue,
-  separator,
-  columns = [],
-  title,
-  pickerProps,
-  names,
+const BizFormItemPicker: React.FC<BizFormItemPickerProps> = (props) => {
+  const { locale } = useConfig();
+  const {
+    placeholder = locale.form.common.selectPlaceholder,
+    mapKeys,
+    renderCurrentValue,
+    separator,
+    columns = [],
+    title,
+    pickerProps,
+    names,
 
-  // item props
-  name,
-  readOnly,
-  required,
-  disabled,
-  onClick,
-  transform: outTransform,
-  ...restProps
-}) => {
+    // item props
+    name,
+    readOnly,
+    required,
+    disabled,
+    onClick,
+    transform: outTransform,
+    ...restProps
+  } = props;
   const [visible, setVisible] = React.useState(false);
   const currentName = React.useMemo(
     () => name || (Array.isArray(names) && names.length > 0 ? uniqueId('__mm_itemPicker_') : name),
@@ -76,7 +79,7 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = ({
           validator(rule, value) {
             if (required) {
               if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
-                return Promise.reject('请选择${label}');
+                return Promise.reject(locale.form.common.selectRequired);
               }
             }
             return Promise.resolve();

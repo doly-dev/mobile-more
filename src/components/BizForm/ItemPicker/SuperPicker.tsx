@@ -25,7 +25,7 @@ export interface SuperPickerProps
 }
 
 const SuperPicker: React.FC<SuperPickerProps> = ({
-  placeholder = '请选择',
+  placeholder,
   renderCurrentValue,
   mapKeys,
   columns: outColumns = [],

@@ -12,6 +12,7 @@ import { useControllableValue } from 'rc-hooks';
 import * as React from 'react';
 import { prefixClass } from '../../config/prefixClass';
 import Popup, { PopupProps } from '../Popup';
+import { useConfig } from '../BizConfigProvider';
 import './index.less';
 
 const prefixCls = `${prefixClass}-checklist-popup`;
@@ -58,6 +59,7 @@ function CheckListPopup(
   }
 ): React.ReactElement<any, any> | null;
 function CheckListPopup(props: CheckListPopupProps) {
+  const { locale } = useConfig();
   const {
     // common props
     loading = false,
@@ -176,7 +178,7 @@ function CheckListPopup(props: CheckListPopupProps) {
         showSearch && (
           <div style={{ padding: 16 }}>
             <SearchBar
-              placeholder="请输入"
+              placeholder={locale.form.common.inputPlaceholder}
               {...searchBarProps}
               value={searchValue}
               onChange={handleSearchInput}
@@ -193,7 +195,7 @@ function CheckListPopup(props: CheckListPopupProps) {
           <SpinLoading color="primary" />
         </div>
       ) : opts.length <= 0 ? (
-        <Empty description="暂无数据" {...emptyProps} />
+        <Empty description={locale.form.common.nodata} {...emptyProps} />
       ) : (
         <CheckList
           multiple={multiple}

@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import SuperSelector, { SuperSelectorProps } from './SuperSelector';
 import { formPrefixCls } from '../config';
+import { useConfig } from '../../BizConfigProvider';
 import './index.less';
 
 const prefixCls = `${formPrefixCls}-item-selector`;
@@ -27,6 +28,7 @@ const BizFormItemSelector: React.FC<BizFormItemSelectorProps> = ({
   required,
   ...restProps
 }) => {
+  const { locale } = useConfig();
   return (
     <BizFormItem
       className={classnames(prefixCls, className)}
@@ -36,7 +38,7 @@ const BizFormItemSelector: React.FC<BizFormItemSelectorProps> = ({
           validator(rule, value) {
             if (required) {
               if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
-                return Promise.reject('请选择${label}');
+                return Promise.reject(locale.form.common.selectRequired);
               }
             }
             return Promise.resolve();

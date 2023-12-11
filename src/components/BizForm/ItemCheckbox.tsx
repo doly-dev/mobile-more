@@ -1,6 +1,7 @@
 import { Checkbox, CheckboxGroupProps, CheckboxProps, Space, SpaceProps } from 'antd-mobile';
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from './FormItem';
+import { useConfig } from '../BizConfigProvider';
 
 type Option = {
   label?: React.ReactNode;
@@ -32,6 +33,7 @@ const BizFormItemCheckbox: React.FC<BizFormItemCheckboxProps> = ({
   required,
   ...restProps
 }) => {
+  const { locale } = useConfig();
   const {
     label: labelKey,
     value: valueKey,
@@ -54,7 +56,7 @@ const BizFormItemCheckbox: React.FC<BizFormItemCheckboxProps> = ({
           validator(rule, value) {
             if (required) {
               if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
-                return Promise.reject('请选择${label}');
+                return Promise.reject(locale.form.common.selectRequired);
               }
             }
             return Promise.resolve();

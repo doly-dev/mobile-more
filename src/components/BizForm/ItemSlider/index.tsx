@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { formPrefixCls } from '../config';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
+import { useConfig } from '../../BizConfigProvider';
 import './index.less';
 
 const prefixCls = `${formPrefixCls}-item-slider`;
@@ -30,6 +31,7 @@ const BizFormItemSlider: React.FC<BizFormItemSliderProps> = ({
   required,
   ...restProps
 }) => {
+  const { locale } = useConfig();
   return (
     <BizFormItem
       className={classnames(prefixCls, className)}
@@ -37,7 +39,7 @@ const BizFormItemSlider: React.FC<BizFormItemSliderProps> = ({
       rules={[
         {
           required,
-          message: '请选择${label}'
+          message: locale.form.common.selectRequired
         }
       ]}
       {...restProps}

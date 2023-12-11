@@ -25,7 +25,7 @@ export interface SuperCascaderProps
 }
 
 const SuperCascader: React.FC<SuperCascaderProps> = ({
-  placeholder = '请选择',
+  placeholder,
   value,
   options: outOptions = [],
   mapKeys,

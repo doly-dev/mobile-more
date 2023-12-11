@@ -2,6 +2,7 @@ import * as React from 'react';
 import { DotLoading } from 'antd-mobile';
 import classnames from 'classnames';
 import { prefixClass } from '../../config/prefixClass';
+import { useConfig } from '../BizConfigProvider';
 import './index.less';
 
 const prefixCls = `${prefixClass}-scrollLoadView`;
@@ -21,13 +22,6 @@ export interface ScrollLoadViewProps extends React.HTMLAttributes<HTMLDivElement
   showLoadingIcon?: boolean;
 }
 
-const InternalText = {
-  default: '滚动底部加载更多',
-  loading: '加载中',
-  done: '全部加载完成',
-  error: '加载失败'
-};
-
 const ScrollLoadView: React.FC<ScrollLoadViewProps> = ({
   loading = false,
   error = false,
@@ -37,12 +31,13 @@ const ScrollLoadView: React.FC<ScrollLoadViewProps> = ({
   className,
   ...restProps
 }) => {
+  const { locale } = useConfig();
   const textObj = React.useMemo(
     () => ({
-      ...InternalText,
+      ...locale.scrollLoadView,
       ...text
     }),
-    [text]
+    [text, locale.scrollLoadView]
   );
 
   const { view, status } = React.useMemo(() => {

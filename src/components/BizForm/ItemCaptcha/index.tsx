@@ -82,7 +82,6 @@ const BizFormItemCaptcha: React.FC<BizFormItemCaptchaProps> = ({
             resetText={resetText}
             second={second}
             loading={loading}
-            loadingText="获取中"
             fill="none"
             color="primary"
             {...captchaButtonProps}

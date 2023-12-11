@@ -59,17 +59,22 @@ function SuperSelector<V extends SelectorValue = SelectorValue>(props: SuperSele
     }
   };
 
-  const realValue = React.useMemo(
-    () => (typeof state !== 'undefined' && !Array.isArray(state) ? [state] : state),
-    [state]
-  );
+  const realValue = React.useMemo(() => {
+    if (Array.isArray(state)) {
+      return state;
+    }
+    if (typeof state !== 'undefined') {
+      return [state];
+    }
+    return [];
+  }, [state]);
 
   return (
     <Selector<any>
       options={options}
       multiple={multiple}
       {...restProps}
-      value={realValue || []}
+      value={realValue}
       onChange={handleChange}
     />
   );

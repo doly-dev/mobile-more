@@ -1,6 +1,7 @@
 import { TextArea, TextAreaProps } from 'antd-mobile';
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from './FormItem';
+import { useConfig } from '../BizConfigProvider';
 
 export interface BizFormItemTextAreaProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -8,24 +9,26 @@ export interface BizFormItemTextAreaProps
   textAreaProps?: TextAreaProps;
 }
 
-const BizFormItemTextArea: React.FC<BizFormItemTextAreaProps> = ({
-  placeholder = '请输入',
-  autoSize,
-  rows,
-  maxLength,
-  showCount,
-  textAreaProps,
+const BizFormItemTextArea: React.FC<BizFormItemTextAreaProps> = (props) => {
+  const { locale } = useConfig();
+  const {
+    placeholder = locale.form.common.inputPlaceholder,
+    autoSize,
+    rows,
+    maxLength,
+    showCount,
+    textAreaProps,
 
-  required,
-  ...restProps
-}) => {
+    required,
+    ...restProps
+  } = props;
   return (
     <BizFormItem
       required={required}
       rules={[
         {
           required,
-          message: '请输入${label}'
+          message: locale.form.common.inputRequired
         }
       ]}
       {...restProps}

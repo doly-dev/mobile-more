@@ -30,3 +30,10 @@ export * from './components/CaptchaButton';
 
 export { default as Upload } from './components/Upload';
 export * from './components/Upload';
+
+export { default as BizConfigProvider } from './components/BizConfigProvider';
+export type {
+  BizConfigProviderProps,
+  Locale as BizLocale,
+  DeepPartial
+} from './components/BizConfigProvider';

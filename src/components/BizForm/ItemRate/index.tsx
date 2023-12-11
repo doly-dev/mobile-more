@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { formPrefixCls } from '../config';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
+import { useConfig } from '../../BizConfigProvider';
 import './index.less';
 
 const prefixCls = `${formPrefixCls}-item-rate`;
@@ -25,13 +26,14 @@ const BizFormItemRate: React.FC<BizFormItemRateProps> = ({
   className,
   ...restProps
 }) => {
+  const { locale } = useConfig();
   return (
     <BizFormItem
       required={required}
       rules={[
         {
           required,
-          message: '请选择${label}'
+          message: locale.form.common.selectRequired
         }
       ]}
       clickable={false}

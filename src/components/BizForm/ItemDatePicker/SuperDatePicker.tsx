@@ -4,52 +4,12 @@ import advancedFormat from 'dayjs/plugin/advancedFormat';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import * as React from 'react';
 import { safeDate } from 'util-helpers';
-import { weekdayToZh } from './weekdayToZh';
+import { useConfig } from '../../BizConfigProvider';
 
 dayjs.extend(advancedFormat);
 dayjs.extend(isoWeek);
 
 export type { DatePickerProps };
-
-export const defaultFormat = {
-  year: 'YYYY',
-  month: 'YYYY-MM',
-  day: 'YYYY-MM-DD',
-  hour: 'YYYY-MM-DD HH',
-  minute: 'YYYY-MM-DD HH:mm',
-  second: 'YYYY-MM-DD HH:mm:ss',
-  week: 'YYYY-W周',
-  'week-day': (date: Date) => {
-    const d = dayjs(date);
-    const fmtStr = d.format('YYYY-W周');
-    let day = d.day();
-    day = day === 0 ? 7 : day;
-    return `${fmtStr} ${weekdayToZh(day)}`;
-  }
-};
-
-const defaultLabelRenderer = (type: string, data: number) => {
-  switch (type) {
-    case 'year':
-      return data + '年';
-    case 'month':
-      return data + '月';
-    case 'week':
-      return data + '周';
-    case 'week-day':
-      return weekdayToZh(data);
-    case 'day':
-      return data + '日';
-    case 'hour':
-      return data + '时';
-    case 'minute':
-      return data + '分';
-    case 'second':
-      return data + '秒';
-    default:
-      return data;
-  }
-};
 
 export interface SuperDatePickerProps extends Omit<DatePickerProps, 'value'> {
   value?: DatePickerProps['value'] | string;
@@ -58,17 +18,37 @@ export interface SuperDatePickerProps extends Omit<DatePickerProps, 'value'> {
 }
 
 const SuperDatePicker: React.FC<SuperDatePickerProps> = ({
-  precision = 'day',
-  format: outFormatter,
-  placeholder = '请选择',
+  precision,
+  format,
+  placeholder,
   value: outValue,
   renderLabel,
   ...restProps
 }) => {
-  const format = React.useMemo(
-    () => outFormatter || defaultFormat[precision] || defaultFormat.day,
-    [outFormatter, precision]
-  );
+  const { locale } = useConfig();
+  const defaultLabelRenderer = (type: string, data: number) => {
+    switch (type) {
+      case 'year':
+        return data + locale.form.date.unit.year;
+      case 'month':
+        return data + locale.form.date.unit.month;
+      case 'week':
+        return data + locale.form.date.unit.week;
+      case 'week-day':
+        return locale.form.date.weekday(data);
+      case 'day':
+        return data + locale.form.date.unit.day;
+      case 'hour':
+        return data + locale.form.date.unit.hour;
+      case 'minute':
+        return data + locale.form.date.unit.minute;
+      case 'second':
+        return data + locale.form.date.unit.second;
+      default:
+        return data;
+    }
+  };
+
   const internalValue = React.useMemo(
     () => (typeof outValue === 'string' ? safeDate(outValue) : outValue),
     [outValue]

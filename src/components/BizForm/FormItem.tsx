@@ -37,6 +37,7 @@ const BizFormItem: React.FC<BizFormItemProps> = ({
   return (
     <Form.Item
       name={name}
+      validateFirst
       rules={[...rules, ...extendRules]}
       className={classnames(formItemPrefixCls, `${formItemPrefixCls}-${realJustify}`, className)}
       {...restProps}

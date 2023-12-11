@@ -13,6 +13,7 @@ import checkFileType from './checkFileType';
 import './index.less';
 import UploadBackground, { UploadBackgroundProps } from './UploadBackground';
 import UploadCustom, { UploadCustomProps } from './UploadCustom';
+import { useConfig } from '../BizConfigProvider';
 
 const prefixCls = `${prefixClass}-image-uploader`;
 
@@ -47,6 +48,7 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
   actionRef,
   ...restProps
 }) => {
+  const { locale } = useConfig();
   const wrapperRef = React.useRef<HTMLDivElement>(null);
 
   const maxCount = React.useMemo(() => (type ? 1 : outMaxCount), [outMaxCount, type]);
@@ -58,14 +60,14 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
     (file: File, files: File[]) => {
       // 校验文件大小
       if (file.size > maxSize * 1024 * 1024) {
-        Toast.show(`请选择小于 ${maxSize}M 的图片`);
+        Toast.show(locale.form.upload.fileSizeMessage.replace(/%s/g, maxSize + ''));
         return null;
       }
 
       // 校验文件类型
       const isSupportFileType = checkFileType(file, accept);
       if (!isSupportFileType) {
-        Toast.show(`只支持上传 ${accept} 文件`);
+        Toast.show(locale.form.upload.fileTypeMessage.replace(/%s/g, accept));
         return null;
       }
 
@@ -82,7 +84,7 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
 
       return comfirmDelete
         ? Dialog.confirm({
-            content: '是否确认删除'
+            content: locale.form.upload.deleteTiptext
           })
         : true;
     },

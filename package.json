@@ -52,20 +52,20 @@
   "author": "caijf <369756941@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.23.2",
+    "@babel/runtime": "^7.23.5",
     "classnames": "^2.3.2",
     "countdown-pro": "^2.0.1",
     "dayjs": "^1.11.10",
     "doly-icons": "^1.5.2",
-    "rc-hooks": "^3.0.6",
-    "rc-util": "^5.38.0",
-    "ut2": "^1.5.5",
+    "rc-hooks": "^3.0.7",
+    "rc-util": "^5.38.1",
+    "ut2": "^1.5.6",
     "util-helpers": "^4.20.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
-    "@types/react": "^18.2.31",
+    "@types/react": "^18.2.43",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@umijs/fabric": "^3.0.0",
@@ -93,7 +93,7 @@
     "stylelint-config-standard": "^29.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
     "stylelint-no-unsupported-browser-features": "^6.1.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "antd-mobile": "^5.32.1",

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import SuperCheckList, { SuperCheckListProps, CheckListPopupProps } from './SuperCheckList';
+import { useConfig } from '../../BizConfigProvider';
 
 export interface BizFormItemCheckListProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -24,31 +25,33 @@ export interface BizFormItemCheckListProps
   checkListPopupProps?: Partial<CheckListPopupProps>;
 }
 
-const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = ({
-  // input props
-  placeholder,
+const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = (props) => {
+  const { locale } = useConfig();
+  const {
+    // input props
+    placeholder = locale.form.common.selectPlaceholder,
 
-  // checklistpopup props
-  title,
-  loading,
-  options,
-  fieldNames,
-  checkListProps,
-  searchBarProps,
-  emptyProps,
-  checkListPopupProps,
-  renderCurrentValue,
-  multiple,
-  radioMode,
-  separator,
+    // checklistpopup props
+    title,
+    loading,
+    options,
+    fieldNames,
+    checkListProps,
+    searchBarProps,
+    emptyProps,
+    checkListPopupProps,
+    renderCurrentValue,
+    multiple,
+    radioMode,
+    separator,
 
-  // item props
-  readOnly,
-  disabled,
-  onClick,
-  required,
-  ...restProps
-}) => {
+    // item props
+    readOnly,
+    disabled,
+    onClick,
+    required,
+    ...restProps
+  } = props;
   const [visible, setVisible] = React.useState(false);
 
   const handleClick = React.useCallback(
@@ -72,7 +75,7 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = ({
           validator(rule, value) {
             if (required) {
               if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
-                return Promise.reject('请选择${label}');
+                return Promise.reject(locale.form.common.selectRequired);
               }
             }
             return Promise.resolve();

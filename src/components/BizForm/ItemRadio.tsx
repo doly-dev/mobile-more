@@ -1,6 +1,7 @@
 import { Radio, RadioGroupProps, RadioProps, Space, SpaceProps } from 'antd-mobile';
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from './FormItem';
+import { useConfig } from '../BizConfigProvider';
 
 type Option = {
   label?: React.ReactNode;
@@ -32,6 +33,7 @@ const BizFormItemRadio: React.FC<BizFormItemRadioProps> = ({
   required,
   ...restProps
 }) => {
+  const { locale } = useConfig();
   const {
     label: labelKey,
     value: valueKey,
@@ -52,7 +54,7 @@ const BizFormItemRadio: React.FC<BizFormItemRadioProps> = ({
       rules={[
         {
           required,
-          message: '请选择${label}'
+          message: locale.form.common.selectRequired
         }
       ]}
       {...restProps}

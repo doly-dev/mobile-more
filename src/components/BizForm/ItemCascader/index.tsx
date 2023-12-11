@@ -3,6 +3,7 @@ import { uniqueId } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import SuperCascader, { SuperCascaderProps } from './SuperCascader';
 import { InvalidFormValue } from '../utils/transform';
+import { useConfig } from '../../BizConfigProvider';
 
 export interface BizFormItemCascaderProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -15,28 +16,30 @@ export interface BizFormItemCascaderProps
   names?: string[];
 }
 
-const BizFormItemCascader: React.FC<BizFormItemCascaderProps> = ({
-  // input props
-  placeholder = '请选择',
+const BizFormItemCascader: React.FC<BizFormItemCascaderProps> = (props) => {
+  const { locale } = useConfig();
+  const {
+    // input props
+    placeholder = locale.form.common.selectPlaceholder,
 
-  // cascader props
-  title,
-  options,
-  mapKeys,
-  renderCurrentValue,
-  separator,
-  cascaderProps,
-  names,
+    // cascader props
+    title,
+    options,
+    mapKeys,
+    renderCurrentValue,
+    separator,
+    cascaderProps,
+    names,
 
-  // item props
-  name,
-  readOnly,
-  disabled,
-  onClick,
-  required,
-  transform: outTransform,
-  ...restProps
-}) => {
+    // item props
+    name,
+    readOnly,
+    disabled,
+    onClick,
+    required,
+    transform: outTransform,
+    ...restProps
+  } = props;
   const [visible, setVisible] = React.useState(false);
   const currentName = React.useMemo(
     () =>
@@ -79,7 +82,7 @@ const BizFormItemCascader: React.FC<BizFormItemCascaderProps> = ({
         {
           validator(rule, value) {
             if (required && (!Array.isArray(value) || value.length <= 0)) {
-              return Promise.reject('请选择${label}');
+              return Promise.reject(locale.form.common.selectRequired);
             }
             return Promise.resolve();
           }

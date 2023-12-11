@@ -1,6 +1,7 @@
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import AreaCodePicker, { AreaCodePickerProps } from './AreaCodePicker';
+import { useConfig } from '../../BizConfigProvider';
 
 const transform = (value: any) => {
   // console.log(value);
@@ -32,25 +33,27 @@ export interface BizFormItemAreaCodeProps
 
 const BizFormItemAreaCode: React.FC<BizFormItemAreaCodeProps> & {
   transform: (value: any) => any;
-} = ({
-  // input props
-  placeholder = '请选择',
+} = (props) => {
+  const { locale } = useConfig();
+  const {
+    // input props
+    placeholder = locale.form.common.selectPlaceholder,
 
-  // cascadePicker props
-  title,
-  options,
-  mapKeys,
-  renderCurrentValue,
-  separator,
-  areaCodeProps,
+    // cascadePicker props
+    title,
+    options,
+    mapKeys,
+    renderCurrentValue,
+    separator,
+    areaCodeProps,
 
-  // item props
-  readOnly,
-  disabled,
-  onClick,
-  required,
-  ...restProps
-}) => {
+    // item props
+    readOnly,
+    disabled,
+    onClick,
+    required,
+    ...restProps
+  } = props;
   const [visible, setVisible] = React.useState(false);
 
   const handleClick = React.useCallback(
@@ -68,13 +71,8 @@ const BizFormItemAreaCode: React.FC<BizFormItemAreaCodeProps> & {
       arrow
       rules={[
         {
-          validator(rule, value) {
-            if (required && !value) {
-              return Promise.reject('请选择${label}');
-            }
-            return Promise.resolve();
-          },
-          transform
+          required,
+          message: locale.form.common.selectRequired
         }
       ]}
       required={required}
