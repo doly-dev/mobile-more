@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import { isArray } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import SuperSelector, { SuperSelectorProps } from './SuperSelector';
 import { formPrefixCls } from '../config';
@@ -37,7 +38,7 @@ const BizFormItemSelector: React.FC<BizFormItemSelectorProps> = ({
         {
           validator(rule, value) {
             if (required) {
-              if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
+              if ((isArray(value) && value.length <= 0) || typeof value === 'undefined') {
                 return Promise.reject(locale.form.common.selectRequired);
               }
             }

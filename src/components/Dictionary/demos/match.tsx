@@ -1,5 +1,6 @@
 import { Dictionary } from 'mobile-more';
 import * as React from 'react';
+import { isArray } from 'ut2';
 
 const ApproveOptions = [
   {
@@ -27,7 +28,7 @@ const ApproveOptions = [
 
 function Demo() {
   const customMatch = React.useCallback((itemValue: any, currentValue: any) => {
-    if (Array.isArray(itemValue)) {
+    if (isArray(itemValue)) {
       return itemValue.includes(currentValue);
     }
     return itemValue === currentValue;

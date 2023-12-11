@@ -1,5 +1,6 @@
 import { Checkbox, CheckboxGroupProps, CheckboxProps, Space, SpaceProps } from 'antd-mobile';
 import * as React from 'react';
+import { isArray } from 'ut2';
 import BizFormItem, { BizFormItemProps } from './FormItem';
 import { useConfig } from '../BizConfigProvider';
 
@@ -55,7 +56,7 @@ const BizFormItemCheckbox: React.FC<BizFormItemCheckboxProps> = ({
         {
           validator(rule, value) {
             if (required) {
-              if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
+              if ((isArray(value) && value.length <= 0) || typeof value === 'undefined') {
                 return Promise.reject(locale.form.common.selectRequired);
               }
             }

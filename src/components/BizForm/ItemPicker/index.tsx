@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { uniqueId } from 'ut2';
+import { isArray, uniqueId } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import { InvalidFormValue } from '../utils/transform';
 import SuperPicker, { SuperPickerProps } from './SuperPicker';
@@ -39,7 +39,7 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = (props) => {
   } = props;
   const [visible, setVisible] = React.useState(false);
   const currentName = React.useMemo(
-    () => name || (Array.isArray(names) && names.length > 0 ? uniqueId('__mm_itemPicker_') : name),
+    () => name || (isArray(names) && names.length > 0 ? uniqueId('__mm_itemPicker_') : name),
     [name, names]
   );
 
@@ -58,10 +58,9 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = (props) => {
         return outTransform(value);
       }
 
-      if (Array.isArray(names) && names.length > 0) {
+      if (isArray(names) && names.length > 0) {
         names.forEach((item, index) => {
-          currentLevelValues[item] =
-            Array.isArray(value) && value.length > 0 ? value[index] : undefined;
+          currentLevelValues[item] = isArray(value) && value.length > 0 ? value[index] : undefined;
         });
         return InvalidFormValue;
       }
@@ -78,7 +77,7 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = (props) => {
         {
           validator(rule, value) {
             if (required) {
-              if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
+              if ((isArray(value) && value.length <= 0) || typeof value === 'undefined') {
                 return Promise.reject(locale.form.common.selectRequired);
               }
             }

@@ -1,11 +1,12 @@
 import * as React from 'react';
+import { isArray } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import AreaCodePicker, { AreaCodePickerProps } from './AreaCodePicker';
 import { useConfig } from '../../BizConfigProvider';
 
 const transform = (value: any) => {
   // console.log(value);
-  if (Array.isArray(value) && value.length > 0) {
+  if (isArray(value) && value.length > 0) {
     // 可能是不设区地级市
     let realValue: string | undefined;
     let index = value.length - 1;

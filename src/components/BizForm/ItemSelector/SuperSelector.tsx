@@ -1,6 +1,7 @@
 import { Selector, SelectorProps } from 'antd-mobile';
 import { useControllableValue } from 'rc-hooks';
 import * as React from 'react';
+import { isArray } from 'ut2';
 import transformKeys from '../utils/transformKeys';
 
 type SelectorValue = string | number;
@@ -60,7 +61,7 @@ function SuperSelector<V extends SelectorValue = SelectorValue>(props: SuperSele
   };
 
   const realValue = React.useMemo(() => {
-    if (Array.isArray(state)) {
+    if (isArray(state)) {
       return state;
     }
     if (typeof state !== 'undefined') {

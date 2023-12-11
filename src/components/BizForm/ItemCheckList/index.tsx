@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isArray } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import SuperCheckList, { SuperCheckListProps, CheckListPopupProps } from './SuperCheckList';
 import { useConfig } from '../../BizConfigProvider';
@@ -73,10 +74,11 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = (props) => {
       rules={[
         {
           validator(rule, value) {
-            if (required) {
-              if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
-                return Promise.reject(locale.form.common.selectRequired);
-              }
+            if (
+              required &&
+              ((isArray(value) && value.length <= 0) || typeof value === 'undefined')
+            ) {
+              return Promise.reject(locale.form.common.selectRequired);
             }
             return Promise.resolve();
           }

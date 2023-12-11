@@ -1,3 +1,5 @@
+import { isArray } from 'ut2';
+
 type Keys = {
   label?: string;
   value?: string;
@@ -55,7 +57,7 @@ function transformKeys(data: DateItem[], keys: KeysWithChildren = {}) {
         newItem.readOnly = item[readOnlyKey];
       }
 
-      if (Array.isArray(item[childrenKey]) && item[childrenKey].length > 0) {
+      if (isArray(item[childrenKey]) && item[childrenKey].length > 0) {
         newItem.children = recursion(item[childrenKey]);
       }
       return newItem;

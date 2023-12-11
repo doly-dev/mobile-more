@@ -10,6 +10,7 @@ import {
 import classnames from 'classnames';
 import { useControllableValue } from 'rc-hooks';
 import * as React from 'react';
+import { isArray } from 'ut2';
 import { prefixClass } from '../../config/prefixClass';
 import Popup, { PopupProps } from '../Popup';
 import { useConfig } from '../BizConfigProvider';
@@ -164,7 +165,7 @@ function CheckListPopup(props: CheckListPopupProps) {
   };
 
   const realValue = React.useMemo(
-    () => (typeof state !== 'undefined' && !Array.isArray(state) ? [state] : state),
+    () => (typeof state !== 'undefined' && !isArray(state) ? [state] : state),
     [state]
   );
 

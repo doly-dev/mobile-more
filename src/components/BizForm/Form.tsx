@@ -2,6 +2,7 @@ import { Form, FormProps } from 'antd-mobile';
 import classnames from 'classnames';
 import namePathSet from 'rc-util/es/utils/set';
 import * as React from 'react';
+import { isArray } from 'ut2';
 import { formPrefixCls } from './config';
 import './Form.less';
 import FormArray from './FormArray';
@@ -31,10 +32,10 @@ const BizForm: React.FC<BizFormProps> & {
     parentListNames
   ) => {
     if (name && transform) {
-      if (Array.isArray(parentListNames) && parentListNames.length > 0) {
+      if (isArray(parentListNames) && parentListNames.length > 0) {
         const paths = getNamePaths(name, parentListNames);
         transformRecordRef.current = namePathSet(transformRecordRef.current, paths, transform);
-      } else if (Array.isArray(name)) {
+      } else if (isArray(name)) {
         transformRecordRef.current = namePathSet(transformRecordRef.current, name, transform);
       } else {
         transformRecordRef.current[String(name)] = transform;

@@ -1,4 +1,5 @@
 // 转换
+import { isArray } from 'ut2';
 
 // 标识无效表单值
 export const InvalidFormValue = `_invalid_${Math.random()}_`;
@@ -21,8 +22,8 @@ export function transformBankCard(val: string, char = ' ') {
 // 转换表单值
 export function transformFormValues(values: any, transforms: any, currentLevelValues?: any) {
   if (
-    (Array.isArray(values) && values.length <= 0) ||
-    (Array.isArray(transforms) && transforms.length <= 0) ||
+    (isArray(values) && values.length <= 0) ||
+    (isArray(transforms) && transforms.length <= 0) ||
     !transforms
   ) {
     return values;
@@ -30,9 +31,9 @@ export function transformFormValues(values: any, transforms: any, currentLevelVa
 
   let ret: any;
 
-  if (Array.isArray(values) && Array.isArray(transforms)) {
+  if (isArray(values) && isArray(transforms)) {
     ret = values.map((item, index) => {
-      if (typeof item === 'object' || Array.isArray(item)) {
+      if (typeof item === 'object' || isArray(item)) {
         return transformFormValues(item, transforms[index]);
       }
       if (typeof transforms[index] === 'function') {
@@ -43,7 +44,7 @@ export function transformFormValues(values: any, transforms: any, currentLevelVa
   } else if (typeof values === 'object' && typeof transforms === 'object') {
     ret = {};
     for (const key in values) {
-      if (typeof values[key] === 'object' || Array.isArray(values[key])) {
+      if (typeof values[key] === 'object' || isArray(values[key])) {
         ret[key] = transformFormValues(values[key], transforms[key], ret);
       } else if (typeof transforms[key] === 'function') {
         ret[key] = transforms[key](values[key], ret);

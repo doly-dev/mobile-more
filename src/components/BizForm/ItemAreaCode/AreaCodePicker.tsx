@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { omit } from 'ut2';
+import { isArray, omit } from 'ut2';
 import SuperCascadePicker, {
   SuperCascadePickerProps,
   CascadePickerProps
@@ -30,7 +30,7 @@ const AreaCodePicker: React.FC<AreaCodePickerProps> = ({
         const currItem = omit(item, 'children');
         ret.push(currItem);
 
-        if (Array.isArray(item?.children) && item.children.length > 0) {
+        if (isArray(item?.children) && item.children.length > 0) {
           recursion(item.children, index + 1);
         }
       });

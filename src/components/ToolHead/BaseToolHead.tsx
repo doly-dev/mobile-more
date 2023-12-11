@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { uniqueId } from 'ut2';
+import { isArray, uniqueId } from 'ut2';
 import { prefixClass } from '../../config/prefixClass';
 import './index.less';
 
@@ -16,7 +16,7 @@ export interface BaseToolHeadProps extends React.HTMLAttributes<HTMLDivElement> 
 const BaseToolHead = React.forwardRef<HTMLDivElement, BaseToolHeadProps>(
   ({ left, right, center, className, ...restProps }, ref) => {
     const generatorChilds = React.useCallback((childs: React.ReactNode | React.ReactNode[]) => {
-      if (Array.isArray(childs)) {
+      if (isArray(childs)) {
         return childs.map((item) => (
           <div
             className={`${prefixCls}-button`}
