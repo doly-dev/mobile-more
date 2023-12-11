@@ -1,7 +1,6 @@
 import { TextArea, TextAreaProps } from 'antd-mobile';
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from './FormItem';
-import getLabel from './utils/getLabel';
 
 export interface BizFormItemTextAreaProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -20,15 +19,13 @@ const BizFormItemTextArea: React.FC<BizFormItemTextAreaProps> = ({
   required,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
-
   return (
     <BizFormItem
       required={required}
       rules={[
         {
           required,
-          message: `请输入${label}`
+          message: '请输入${label}'
         }
       ]}
       {...restProps}

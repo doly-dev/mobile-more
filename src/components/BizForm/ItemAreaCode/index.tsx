@@ -1,7 +1,6 @@
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import AreaCodePicker, { AreaCodePickerProps } from './AreaCodePicker';
-import getLabel from '../utils/getLabel';
 
 const transform = (value: any) => {
   // console.log(value);
@@ -52,7 +51,6 @@ const BizFormItemAreaCode: React.FC<BizFormItemAreaCodeProps> & {
   required,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
   const [visible, setVisible] = React.useState(false);
 
   const handleClick = React.useCallback(
@@ -72,7 +70,7 @@ const BizFormItemAreaCode: React.FC<BizFormItemAreaCodeProps> & {
         {
           validator(rule, value) {
             if (required && !value) {
-              return Promise.reject(`请选择${label}`);
+              return Promise.reject('请选择${label}');
             }
             return Promise.resolve();
           },

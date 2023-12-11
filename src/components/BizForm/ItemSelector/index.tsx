@@ -2,7 +2,6 @@ import * as React from 'react';
 import classnames from 'classnames';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
 import SuperSelector, { SuperSelectorProps } from './SuperSelector';
-import getLabel from '../utils/getLabel';
 import { formPrefixCls } from '../config';
 import './index.less';
 
@@ -28,8 +27,6 @@ const BizFormItemSelector: React.FC<BizFormItemSelectorProps> = ({
   required,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
-
   return (
     <BizFormItem
       className={classnames(prefixCls, className)}
@@ -39,7 +36,7 @@ const BizFormItemSelector: React.FC<BizFormItemSelectorProps> = ({
           validator(rule, value) {
             if (required) {
               if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
-                return Promise.reject(`请选择${label}`);
+                return Promise.reject('请选择${label}');
               }
             }
             return Promise.resolve();

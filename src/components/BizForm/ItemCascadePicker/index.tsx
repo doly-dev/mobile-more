@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { uniqueId } from 'ut2';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
-import getLabel from '../utils/getLabel';
 import { InvalidFormValue } from '../utils/transform';
 import SuperCascadePicker, { SuperCascadePickerProps } from './SuperCascadePicker';
 
@@ -38,7 +37,6 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
   transform: outTransform,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
   const [visible, setVisible] = React.useState(false);
   const currentName = React.useMemo(
     () =>
@@ -82,7 +80,7 @@ const BizFormItemCascadePicker: React.FC<BizFormItemCascadePickerProps> = ({
         {
           validator(rule, value) {
             if (required && (!Array.isArray(value) || value.length <= 0)) {
-              return Promise.reject(`请选择${label}`);
+              return Promise.reject('请选择${label}');
             }
             return Promise.resolve();
           }

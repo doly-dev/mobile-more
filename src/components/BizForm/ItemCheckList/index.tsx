@@ -1,6 +1,5 @@
 import * as React from 'react';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
-import getLabel from '../utils/getLabel';
 import SuperCheckList, { SuperCheckListProps, CheckListPopupProps } from './SuperCheckList';
 
 export interface BizFormItemCheckListProps
@@ -50,7 +49,6 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = ({
   required,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
   const [visible, setVisible] = React.useState(false);
 
   const handleClick = React.useCallback(
@@ -74,7 +72,7 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = ({
           validator(rule, value) {
             if (required) {
               if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
-                return Promise.reject(`请选择${label}`);
+                return Promise.reject('请选择${label}');
               }
             }
             return Promise.resolve();

@@ -2,11 +2,11 @@ import { DatePickerProps } from 'antd-mobile';
 import dayjs from 'dayjs';
 import { BizFormItem, BizFormItemProps } from 'mobile-more';
 import * as React from 'react';
-import SpecialDatePicker, { SpecialDatePickerProps } from './WrapperDatePicker';
+import WrapperDatePicker, { WrapperDatePickerProps } from './WrapperDatePicker';
 
 interface ItemDatePickerWithInfinityProps
   extends Omit<BizFormItemProps, 'children'>,
-    Pick<SpecialDatePickerProps, 'infinityValue' | 'infinityLabel' | 'title'> {
+    Pick<WrapperDatePickerProps, 'infinityValue' | 'infinityLabel' | 'title'> {
   format?: string;
   readOnly?: boolean;
   placeholder?: string;
@@ -15,7 +15,7 @@ interface ItemDatePickerWithInfinityProps
 
 const ItemDatePickerWithInfinity: React.FC<ItemDatePickerWithInfinityProps> = ({
   datePickerProps,
-  format = 'YYYY-MM-DD',
+  format,
   readOnly,
   disabled,
   placeholder,
@@ -25,7 +25,6 @@ const ItemDatePickerWithInfinity: React.FC<ItemDatePickerWithInfinityProps> = ({
   required,
   ...restProps
 }) => {
-  const label = restProps?.messageVariables?.label || restProps?.label;
   const [visible, setVisible] = React.useState(false);
   const transform = React.useCallback(
     (value: Date) => {
@@ -47,7 +46,7 @@ const ItemDatePickerWithInfinity: React.FC<ItemDatePickerWithInfinityProps> = ({
       rules={[
         {
           required,
-          message: `请选择${label}`
+          message: '请选择${label}'
         }
       ]}
       required={required}
@@ -59,7 +58,7 @@ const ItemDatePickerWithInfinity: React.FC<ItemDatePickerWithInfinityProps> = ({
         restProps?.onClick?.(e, widgetRef);
       }}
     >
-      <SpecialDatePicker
+      <WrapperDatePicker
         visible={visible}
         onClose={() => setVisible(false)}
         placeholder={placeholder}

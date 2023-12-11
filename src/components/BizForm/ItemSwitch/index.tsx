@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { formPrefixCls } from '../config';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
-import getLabel from '../utils/getLabel';
 import './index.less';
 
 const prefixCls = `${formPrefixCls}-item-switch`;
@@ -25,8 +24,6 @@ const BizFormItemSwitch: React.FC<BizFormItemSwitchProps> = ({
   required,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
-
   return (
     <BizFormItem
       className={classnames(prefixCls, className)}
@@ -34,7 +31,7 @@ const BizFormItemSwitch: React.FC<BizFormItemSwitchProps> = ({
       rules={[
         {
           required,
-          message: `请输入${label}`
+          message: '请输入${label}'
         }
       ]}
       valuePropName="checked"

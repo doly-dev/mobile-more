@@ -27,7 +27,7 @@ const labelRenderer = (type: string, data: number) => {
   }
 };
 
-export interface SpecialDatePickerProps extends DatePickerProps {
+export interface WrapperDatePickerProps extends DatePickerProps {
   format?: string;
   readOnly?: boolean;
   infinityValue?: string | Date;
@@ -35,7 +35,7 @@ export interface SpecialDatePickerProps extends DatePickerProps {
   placeholder?: string;
 }
 
-const SpecialDatePicker: React.FC<SpecialDatePickerProps> = ({
+const WrapperDatePicker: React.FC<WrapperDatePickerProps> = ({
   value,
   format = DefaultFormat,
   readOnly = false,
@@ -65,7 +65,7 @@ const SpecialDatePicker: React.FC<SpecialDatePickerProps> = ({
   );
 
   return (
-    <div className={styles.specialDatePicker}>
+    <div className={styles.WrapperDatePicker}>
       {!isInfinity && (
         <div className={styles.datePicker}>
           <DatePicker
@@ -98,4 +98,4 @@ const SpecialDatePicker: React.FC<SpecialDatePickerProps> = ({
   );
 };
 
-export default SpecialDatePicker;
+export default WrapperDatePicker;

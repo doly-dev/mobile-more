@@ -2,7 +2,6 @@ import * as React from 'react';
 import { isMobile, isBankCard, isIdCard } from 'util-helpers';
 import { Eye, EyeSlash } from 'doly-icons';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
-import getLabel from '../utils/getLabel';
 import Input, { SuperInputProps, InputRef } from './SuperInput';
 
 export type { InputRef };
@@ -50,7 +49,6 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
     ref
   ) => {
     const inputRef = React.useRef<InputRef>(null);
-    const label = getLabel(restProps);
     const mergeType = React.useMemo(() => {
       return outType || inputProps?.type || 'text';
     }, [inputProps?.type, outType]);
@@ -117,7 +115,7 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
         rules={[
           {
             required,
-            message: `请输入${label}`
+            message: '请输入${label}'
           },
           {
             validator(_, value) {
@@ -128,7 +126,7 @@ const BizFormItemInput = React.forwardRef<InputRef, BizFormItemInputProps>(
                   (outType === 'bankCard' && !isBankCard(value, { loose: true })) ||
                   (outType === 'idCard' && !isIdCard(value))
                 ) {
-                  errMsg = `请输入正确的${label}`;
+                  errMsg = '请输入正确的${label}';
                 }
               }
 

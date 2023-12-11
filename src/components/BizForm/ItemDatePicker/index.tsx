@@ -6,7 +6,6 @@ import SuperDatePicker, {
   DatePickerProps
 } from './SuperDatePicker';
 import BizFormItem, { BizFormItemProps } from '../FormItem';
-import getLabel from '../utils/getLabel';
 
 export interface BizFormItemDatePickerProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -30,7 +29,6 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = ({
   transform: outTransform,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
   const [visible, setVisible] = React.useState(false);
 
   const format = React.useMemo(
@@ -69,7 +67,7 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = ({
       rules={[
         {
           required,
-          message: `请选择${label}`
+          message: '请选择${label}'
         }
       ]}
       onClick={handleClick}

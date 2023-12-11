@@ -1,7 +1,6 @@
 import * as React from 'react';
 import ImageUploader, { ImageUploaderProps } from '../ImageUploader';
 import BizFormItem, { BizFormItemProps } from './FormItem';
-import getLabel from './utils/getLabel';
 
 export interface BizFormItemImageUploaderProps
   extends Omit<BizFormItemProps, 'children'>,
@@ -27,7 +26,6 @@ const BizFormItemImageUploader: React.FC<BizFormItemImageUploaderProps> = ({
   noStyle,
   ...restProps
 }) => {
-  const label = getLabel(restProps);
   const realNoStyle = React.useMemo(
     () => (typeof noStyle !== 'undefined' ? noStyle : !!imageUploaderProps?.type || !!type),
     [imageUploaderProps?.type, noStyle, type]
@@ -41,7 +39,7 @@ const BizFormItemImageUploader: React.FC<BizFormItemImageUploaderProps> = ({
           validator(rule, value) {
             if (required) {
               if ((Array.isArray(value) && value.length <= 0) || typeof value === 'undefined') {
-                return Promise.reject(`请上传${label}`);
+                return Promise.reject('请上传${label}');
               }
             }
             return Promise.resolve();
