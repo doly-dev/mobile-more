@@ -29,13 +29,14 @@ pnpm add mobile-more
 ```javascript
 import { Descriptions } from 'mobile-more';
 
-ReactDon.render(
-  <Descriptions>
-    <Descriptions.Item label="名称">xxx</Descriptions.Item>
-    <Descriptions.Item label="类型">xxx</Descriptions.Item>
-  </Descriptions>,
-  mountNode
-);
+function App() {
+  return (
+    <Descriptions title="标题">
+      <Descriptions.Item label="营业执照编号">1**************6</Descriptions.Item>
+      <Descriptions.Item label="商户名称">xxx生活馆</Descriptions.Item>
+    </Descriptions>
+  );
+}
 ```
 
 ## API

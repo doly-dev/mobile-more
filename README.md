@@ -33,14 +33,14 @@ pnpm add mobile-more
 ```javascript
 import { Descriptions } from 'mobile-more';
 
-// 描述列表
-ReactDon.render(
-  <Descriptions title="标题">
-    <Descriptions.Item label="营业执照编号">1**************6</Descriptions.Item>
-    <Descriptions.Item label="商户名称">xxx生活馆</Descriptions.Item>
-  </Descriptions>,
-  mountNode
-);
+function App() {
+  return (
+    <Descriptions title="标题">
+      <Descriptions.Item label="营业执照编号">1**************6</Descriptions.Item>
+      <Descriptions.Item label="商户名称">xxx生活馆</Descriptions.Item>
+    </Descriptions>
+  );
+}
 ```
 
 ## API
@@ -59,12 +59,14 @@ ReactDon.render(
 
 ### 其他
 
+- [BizConfigProvider] - 上下文配置
 - [CaptchaButton] - 验证码按钮
 - [CheckListPopup] - 勾选列表弹层
 - [ImageUploader] - 图片上传
 - [Popup] - 弹出层
 - [ScrollLoadView] - 滚动加载视图
 - [ToolHead] - 工具头
+- [Upload] - 上传
 
 [npm]: https://img.shields.io/npm/v/mobile-more.svg
 [npm-url]: https://npmjs.com/package/mobile-more
@@ -82,3 +84,5 @@ ReactDon.render(
 [bizform]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/biz-form/form
 [bizformitem]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/biz-form/form-item
 [bizformarray]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/biz-form/form-array
+[bizconfigprovider]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/biz-config-provider
+[upload]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/upload
