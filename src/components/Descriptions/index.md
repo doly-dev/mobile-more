@@ -42,16 +42,16 @@ group:
 
 ### CSS 变量
 
-| 变量名               | 说明                    | 默认值         |
-| -------------------- | ----------------------- | -------------- |
-| --font-size          | 标签和内容的文字大小    | `14px`         |
-| --color              | 颜色                    | `#333`         |
-| --title-color        | 标题颜色                | `var(--color)` |
-| --padding-inner      | 上下内间距              | `6px`          |
-| --flex-direction     | flex 布局，主轴的方向   | `row`          |
-| --justify-content    | flex 布局，水平排列方式 | `flex-start`   |
-| --label-color        | 标签颜色                | `var(--color)` |
-| --label-width        | 标签宽度                | `7em`          |
-| --label-text-align   | 标签对齐方式            | `left`         |
-| --content-color      | 内容颜色                | `var(--color)` |
-| --content-text-align | 内容对齐方式            | `left`         |
+| 变量名               | 说明                    | 默认值                  |
+| -------------------- | ----------------------- | ----------------------- |
+| --font-size          | 标签和内容的文字大小    | `14px`                  |
+| --color              | 颜色                    | `var(--adm-color-text)` |
+| --title-color        | 标题颜色                | `var(--color)`          |
+| --padding-inner      | 上下内间距              | `6px`                   |
+| --flex-direction     | flex 布局，主轴的方向   | `row`                   |
+| --justify-content    | flex 布局，水平排列方式 | `flex-start`            |
+| --label-color        | 标签颜色                | `var(--color)`          |
+| --label-width        | 标签宽度                | `7em`                   |
+| --label-text-align   | 标签对齐方式            | `left`                  |
+| --content-color      | 内容颜色                | `var(--color)`          |
+| --content-text-align | 内容对齐方式            | `left`                  |
