@@ -65,7 +65,7 @@ const WrapperDatePicker: React.FC<WrapperDatePickerProps> = ({
   );
 
   return (
-    <div className={styles.WrapperDatePicker}>
+    <div className={styles.wrapper}>
       {!isInfinity && (
         <div className={styles.datePicker}>
           <DatePicker
