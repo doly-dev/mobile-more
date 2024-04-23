@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import { prefixClass } from '../../config/prefixClass';
-import { CSSPropertiesWithVariable } from '../../types/css';
+import { StyleWithVariable } from '../../types';
 import './index.less';
 
 const prefixCls = `${prefixClass}-descriptions`;
@@ -43,7 +43,19 @@ export interface DescriptionsProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'style'> {
   title?: React.ReactNode;
   colon?: boolean;
-  style?: CSSPropertiesWithVariable;
+  style?: StyleWithVariable<
+    | '--font-size'
+    | '--color'
+    | '--title-color'
+    | '--padding-inner'
+    | '--justify-content'
+    | '--flex-direction'
+    | '--label-color'
+    | '--label-width'
+    | '--label-text-align'
+    | '--content-color'
+    | '--content-text-align'
+  >;
 }
 
 const Descriptions: React.FC<DescriptionsProps> & {
