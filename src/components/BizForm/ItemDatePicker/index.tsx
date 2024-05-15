@@ -45,8 +45,8 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = (props) => {
       'week-day': (date: Date) => {
         const d = dayjs(date);
         const fmtStr = d.format('YYYY-W') + locale.form.date.unit.week;
-        let day = d.day();
-        day = day === 0 ? 7 : day;
+        let day = d.day() as number;
+        day = day === 0 ? 7 : day; // fix: 兼容处理
         return `${fmtStr} ${locale.form.date.weekday(day)}`;
       }
     }),
