@@ -105,7 +105,8 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
       className={classnames(prefixCls, {
         [`${prefixCls}-${type}`]: type,
         [`${prefixCls}-block`]: !!type,
-        [`${prefixCls}-delete-circle`]: deleteStyle === 'circle'
+        [`${prefixCls}-delete-circle`]: deleteStyle === 'circle',
+        [`${prefixCls}-single`]: maxCount === 1
       })}
       ref={wrapperRef}
     >

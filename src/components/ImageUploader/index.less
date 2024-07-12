@@ -9,6 +9,8 @@
   --delete-icon-size: var(~'--@{prefixCls}-delete-icon-size', 16px);
 
   &-block {
+    width: 100%;
+
     .adm-image-uploader {
       height: var(--cell-size);
     }
@@ -18,6 +20,12 @@
         width: 100%;
         margin-right: 0;
       }
+    }
+  }
+
+  &-single {
+    .adm-space-horizontal > .adm-space-item {
+      margin-right: 0;
     }
   }
 

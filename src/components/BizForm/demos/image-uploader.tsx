@@ -1,15 +1,17 @@
 import * as React from 'react';
 import { BizFormItemImageUploader, ImageUploader } from 'mobile-more';
-import { Grid } from 'antd-mobile';
+import { Grid, Space } from 'antd-mobile';
 import DemoForm from './components/DemoForm';
 import mockUpload from './services/mockUpload';
-import './image-uploader.less';
 
 function Demo() {
   return (
     <DemoForm
-      className="demo-form-image-uploader"
-      style={{ '--border-inner': '0 none' } as React.CSSProperties}
+      style={{
+        '--border-inner': '0 none',
+        '--border-top': '0 none',
+        '--border-bottom': '0 none'
+      }}
       initialValues={{
         image1: [
           {
@@ -52,6 +54,34 @@ function Demo() {
       >
         <ImageUploader.UploadCustom border="dashed" style={{ background: '#fff' }} />
       </BizFormItemImageUploader>
+      <h3>多个单张上传+名称</h3>
+      <Space
+        style={
+          { '--gap': '16px', '--padding-left': 0, '--padding-right': 0 } as React.CSSProperties
+        }
+      >
+        <BizFormItemImageUploader
+          messageVariables={{ label: '门头照' }}
+          name="image6-1"
+          upload={mockUpload}
+          maxCount={1}
+          description={<div style={{ textAlign: 'center', marginTop: 5 }}>门头照</div>}
+        />
+        <BizFormItemImageUploader
+          messageVariables={{ label: '内景照' }}
+          name="image6-2"
+          upload={mockUpload}
+          maxCount={1}
+          description={<div style={{ textAlign: 'center', marginTop: 5 }}>内景照</div>}
+        />
+        <BizFormItemImageUploader
+          messageVariables={{ label: '其他补充' }}
+          name="image6-3"
+          upload={mockUpload}
+          maxCount={1}
+          description={<div style={{ textAlign: 'center', marginTop: 5 }}>其他补充</div>}
+        />
+      </Space>
     </DemoForm>
   );
 }
