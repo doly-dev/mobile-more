@@ -14,7 +14,7 @@ async function sendCaptcha(mobile: string) {
 function Demo() {
   const [form] = BizForm.useForm();
 
-  const handleGetCaptcha = React.useCallback(async () => {
+  const handleGetCaptcha = async () => {
     try {
       // 验证手机号码
       await form.validateFields(['mobile']);
@@ -25,7 +25,7 @@ function Demo() {
 
     //  发送验证码
     return sendCaptcha(form.getFieldValue(['mobile']));
-  }, [form]);
+  };
 
   return (
     <DemoForm

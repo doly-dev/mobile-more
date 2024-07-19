@@ -52,17 +52,14 @@ const WrapperDatePicker: React.FC<WrapperDatePickerProps> = ({
     [fmtValue, format, infinityValue]
   );
 
-  const handleChange = React.useCallback(
-    (checked: boolean) => {
-      onClose?.();
-      if (!readOnly) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        onConfirm?.(checked ? infinityValue : undefined);
-      }
-    },
-    [onClose, onConfirm, readOnly, infinityValue]
-  );
+  const handleChange = (checked: boolean) => {
+    onClose?.();
+    if (!readOnly) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      onConfirm?.(checked ? infinityValue : undefined);
+    }
+  };
 
   return (
     <div className={styles.wrapper}>

@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { List, Mask } from 'antd-mobile';
+import { useSetState } from 'rc-hooks';
 import { BizForm, BizFormItemInput } from 'mobile-more';
 import DemoForm from '../components/BizForm/demos/components/DemoForm';
 import styles from './item-branch-bank2.less';
-import { List, Mask } from 'antd-mobile';
 
 const allOptions = [
   '中国农业银行',
@@ -17,8 +18,10 @@ const allOptions = [
 
 const Demo = () => {
   const [form] = BizForm.useForm();
-  const [visible, setVisible] = React.useState(false);
-  const [options, setOptions] = React.useState(allOptions);
+  const [state, setState] = useSetState({
+    visible: false,
+    options: allOptions
+  });
 
   return (
     <div style={{ padding: 50 }}>
@@ -33,34 +36,34 @@ const Demo = () => {
               clearable
               inputProps={{
                 onFocus() {
-                  setVisible(true);
+                  setState({ visible: true });
                 },
                 onChange(val) {
                   const realVal = val.trim();
-                  if (!realVal) {
-                    setOptions(allOptions);
-                  } else {
-                    setOptions(allOptions.filter((item) => item.indexOf(realVal) > -1));
-                  }
+                  setState({
+                    options: !realVal
+                      ? allOptions
+                      : allOptions.filter((item) => item.indexOf(realVal) > -1)
+                  });
                 }
               }}
             />
-            <List className={styles.result} style={{ display: visible ? 'block' : 'none' }}>
-              {options.map((item) => (
+            <List className={styles.result} style={{ display: state.visible ? 'block' : 'none' }}>
+              {state.options.map((item) => (
                 <List.Item
                   key={item}
                   onClick={() => {
                     form.setFieldValue('bankBranch', item);
-                    setVisible(false);
+                    setState({ visible: false });
                   }}
-                  arrow={false}
+                  arrowIcon={false}
                 >
                   {item}
                 </List.Item>
               ))}
             </List>
           </div>
-          <Mask visible={visible} onMaskClick={() => setVisible(false)} />
+          <Mask visible={state.visible} onMaskClick={() => setState({ visible: false })} />
         </div>
         <BizFormItemInput label="后表单项" name="after" />
       </DemoForm>

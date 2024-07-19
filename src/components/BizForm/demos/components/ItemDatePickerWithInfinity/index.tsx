@@ -40,7 +40,7 @@ const ItemDatePickerWithInfinity: React.FC<ItemDatePickerWithInfinityProps> = ({
     <BizFormItem
       trigger="onConfirm"
       validateTrigger="onConfirm"
-      arrow={false}
+      arrowIcon={false}
       transform={transform}
       disabled={disabled}
       rules={[

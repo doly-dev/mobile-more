@@ -1,8 +1,13 @@
 import { Button, Selector, Space } from 'antd-mobile';
 import { BizForm, BizFormProps } from 'mobile-more';
+import { useSetState } from 'rc-hooks';
 import * as React from 'react';
+import { uniqueId } from 'ut2';
 
-const layoutOptions = [
+type LayoutType = NonNullable<BizFormProps['layout']>;
+type JustifyType = NonNullable<BizFormProps['justify']>;
+
+const layoutOptions: { label: string; value: LayoutType }[] = [
   {
     label: '水平布局',
     value: 'horizontal'
@@ -13,7 +18,7 @@ const layoutOptions = [
   }
 ];
 
-const justifyOptions = [
+const justifyOptions: { label: string; value: JustifyType }[] = [
   {
     label: '左对齐',
     value: 'start'
@@ -29,30 +34,32 @@ const justifyOptions = [
 ];
 
 const DemoForm: React.FC<BizFormProps> = (props) => {
-  const uniqueFormName = React.useMemo(() => `form-${Math.random()}`, []);
-  const [justify, setJustify] = React.useState<[NonNullable<BizFormProps['justify']>]>(['start']);
-  const [layout, setLayout] = React.useState<[NonNullable<BizFormProps['layout']>]>(['horizontal']);
+  const formName = React.useMemo(() => uniqueId('form'), []);
+  const [state, setState] = useSetState({
+    layout: layoutOptions[0].value,
+    justify: justifyOptions[0].value
+  });
 
   return (
     <>
       <div style={{ marginBottom: 16 }}>
         <Space block wrap style={{ '--gap': '24px' }}>
           <Selector
-            value={layout}
-            onChange={(value) => value && value.length > 0 && setLayout(value as typeof layout)}
+            value={[state.layout]}
+            onChange={(value) => value[0] && setState({ layout: value[0] })}
             options={layoutOptions}
           />
           <Selector
-            value={justify}
-            onChange={(value) => value && value.length > 0 && setJustify(value as typeof justify)}
+            value={[state.justify]}
+            onChange={(value) => value[0] && setState({ justify: value[0] })}
             options={justifyOptions}
           />
         </Space>
       </div>
       <BizForm
-        name={uniqueFormName}
-        layout={layout[0]}
-        justify={justify[0]}
+        name={formName}
+        layout={state.layout}
+        justify={state.justify}
         onFinish={(values) => {
           console.log(values);
         }}
