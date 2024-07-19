@@ -15,20 +15,20 @@ function Demo() {
   const [loading, setLoading] = React.useState(false);
   const [start, setStart] = React.useState(false);
 
-  const handleClickCaptcha = React.useCallback(async () => {
+  const handleClickCaptcha = async () => {
     try {
       await form.validateFields(['mobile']);
     } catch (err: any) {
       Toast.show({ content: err.errorFields[0].errors[0] });
-      return false;
+      return;
     }
 
     setLoading(true);
-    return sendCaptcha(form.getFieldValue(['mobile'])).finally(() => {
+    sendCaptcha(form.getFieldValue(['mobile'])).finally(() => {
       setLoading(false);
       setStart(true);
     });
-  }, [form]);
+  };
 
   return (
     <BizForm
@@ -37,6 +37,9 @@ function Demo() {
       layout="horizontal"
       hasFeedback={false}
       requiredMarkStyle="text-optional"
+      initialValues={{
+        mobile: '13000000000'
+      }}
       onFinish={(values) => {
         console.log(values);
       }}

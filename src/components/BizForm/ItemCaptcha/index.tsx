@@ -62,10 +62,10 @@ const BizFormItemCaptcha: React.FC<BizFormItemCaptchaProps> = ({
     }
   };
 
-  const handleEnd = React.useCallback(() => {
+  const handleEnd = () => {
     setStart(false);
     captchaButtonProps?.onEnd?.();
-  }, [captchaButtonProps]);
+  };
 
   return (
     <BizFormItemInput

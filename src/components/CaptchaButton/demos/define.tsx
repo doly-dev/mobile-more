@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { sleep } from 'ut2';
 import { CaptchaButton } from 'mobile-more';
 
@@ -12,16 +12,13 @@ const Demo = () => {
   const [start, setStart] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleClick = useCallback(() => {
+  const handleClick = () => {
     setLoading(true);
     getValidateCode().then(() => {
       setLoading(false);
       setStart(true);
     });
-  }, []);
-  const handleEnd = useCallback(() => {
-    setStart(false);
-  }, []);
+  };
 
   return (
     <CaptchaButton
@@ -31,7 +28,9 @@ const Demo = () => {
       initText="点击开始倒计时"
       runText="剩余%s秒"
       resetText="重新开始"
-      onEnd={handleEnd}
+      onEnd={() => {
+        setStart(false);
+      }}
       loading={loading}
     />
   );

@@ -1,10 +1,13 @@
 import { Button, ButtonProps } from 'antd-mobile';
 import CountDown from 'countdown-pro';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useLatest, useUpdateEffect } from 'rc-hooks';
 import type { ButtonRef } from '../../antd-mobile.interface';
 import { useConfig } from '../BizConfigProvider';
 
 export type { ButtonRef };
+
+type CountDownType = InstanceType<typeof CountDown>;
 
 export interface CaptchaButtonProps extends ButtonProps {
   start?: boolean;
@@ -33,52 +36,44 @@ const CaptchaButton = React.forwardRef<ButtonRef, CaptchaButtonProps>((props, re
     ...restProps
   } = props;
 
-  // 0-初始化 1-运行中 2-结束
-  const [status, setStatus] = useState(() => (start ? 1 : 0));
-  const [runSecond, setRunSecond] = useState(second);
+  const [time, setTime] = useState(second);
 
-  const countdown = useMemo(
-    () =>
-      new CountDown({
-        time: second * 1000,
-        onChange(currentTime) {
-          setRunSecond(currentTime / 1000);
-        },
-        onEnd() {
-          setStatus(2);
-          onEnd?.();
-        }
-      }),
-    [onEnd, second]
-  );
+  const completedRef = useRef(false);
+  const latestOnEnd = useLatest(onEnd);
+  const countdownRef = useRef<CountDownType>();
+  if (!countdownRef.current) {
+    countdownRef.current = new CountDown({
+      time: second * 1000,
+      onChange(currentTime) {
+        setTime(currentTime / 1000);
+      },
+      onEnd() {
+        completedRef.current = true;
+        latestOnEnd.current?.();
+      }
+    });
+  }
 
   useEffect(() => {
     if (start) {
-      setStatus(1);
-      countdown.start();
-
-      return () => {
-        countdown.pause();
-      };
+      countdownRef.current?.restart();
+    } else {
+      countdownRef.current?.pause();
     }
-  }, [countdown, start]);
 
-  useEffect(() => {
-    if (status !== 1) {
-      countdown.reset();
-    }
-  }, [countdown, status]);
+    return () => {
+      countdownRef.current?.pause();
+    };
+  }, [start]);
+
+  useUpdateEffect(() => {
+    countdownRef.current?.updateOptions({ time: second * 1000 });
+  }, [second]);
 
   return (
-    <Button
-      loadingText={locale.captcha.loadingText}
-      {...restProps}
-      ref={ref}
-      disabled={status === 1}
-    >
-      {status === 0 && initText}
-      {status === 1 && runText.replace(/%s/g, runSecond.toString())}
-      {status === 2 && resetText}
+    <Button loadingText={locale.captcha.loadingText} {...restProps} ref={ref} disabled={start}>
+      {!start && (completedRef.current ? resetText : initText)}
+      {start && runText.replace(/%s/g, time.toString())}
     </Button>
   );
 });
