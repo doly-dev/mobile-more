@@ -22,7 +22,7 @@ export const defaultConfigRef: {
 };
 
 export function setDefaultConfig(config: DeepPartial<Config>) {
-  defaultConfigRef.current = merge(defaultConfigRef.current, config);
+  defaultConfigRef.current = merge(defaultConfigRef.current, config, merge.NOT_MERGE_ARRAYS);
 }
 
 export function getDefaultConfig() {
@@ -36,8 +36,8 @@ export type BizConfigProviderProps = Omit<Config, 'locale'> & { locale?: DeepPar
 export const BizConfigProvider: React.FC<BizConfigProviderProps> = (props) => {
   const { children, ...config } = props;
   const parentConfig = useConfig();
-  const mergeParentConfig = merge({}, parentConfig);
-  const mergeConfig = merge(mergeParentConfig, config);
+  const mergeParentConfig = merge({}, parentConfig, merge.NOT_MERGE_ARRAYS);
+  const mergeConfig = merge(mergeParentConfig, config, merge.NOT_MERGE_ARRAYS);
 
   return <ConfigContext.Provider value={mergeConfig}>{children}</ConfigContext.Provider>;
 };
