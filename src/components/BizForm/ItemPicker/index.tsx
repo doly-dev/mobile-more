@@ -71,7 +71,7 @@ const BizFormItemPicker: React.FC<BizFormItemPickerProps> = (props) => {
 
   return (
     <BizFormItem
-      arrow
+      arrowIcon
       name={currentName}
       rules={[
         {

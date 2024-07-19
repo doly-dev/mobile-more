@@ -57,19 +57,16 @@ const BizFormItemAreaCode: React.FC<BizFormItemAreaCodeProps> & {
   } = props;
   const [visible, setVisible] = React.useState(false);
 
-  const handleClick = React.useCallback(
-    (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
-      if (!disabled && !readOnly) {
-        setVisible(true);
-      }
-      onClick?.(e, widgetRef);
-    },
-    [disabled, onClick, readOnly]
-  );
+  const handleClick = (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
+    if (!disabled && !readOnly) {
+      setVisible(true);
+    }
+    onClick?.(e, widgetRef);
+  };
 
   return (
     <BizFormItem
-      arrow
+      arrowIcon
       rules={[
         {
           required,

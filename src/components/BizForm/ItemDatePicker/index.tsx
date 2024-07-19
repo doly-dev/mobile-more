@@ -50,12 +50,12 @@ const BizFormItemDatePicker: React.FC<BizFormItemDatePickerProps> = (props) => {
         return `${fmtStr} ${locale.form.date.weekday(day)}`;
       }
     }),
-    []
+    [locale.form.date]
   );
 
   const format = React.useMemo(
     () => outFormat || defaultFormat[precision] || defaultFormat.day,
-    [outFormat, precision]
+    [outFormat, precision, defaultFormat]
   );
   const transform = React.useCallback(
     (value: Date) => {

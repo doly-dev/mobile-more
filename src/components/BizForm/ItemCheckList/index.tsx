@@ -67,7 +67,7 @@ const BizFormItemCheckList: React.FC<BizFormItemCheckListProps> = (props) => {
 
   return (
     <BizFormItem
-      arrow
+      arrowIcon
       onClick={handleClick}
       disabled={disabled}
       required={required}

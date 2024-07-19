@@ -56,40 +56,34 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
     return type ? <UploadBackground type={type} /> : null;
   }, [type]);
 
-  const handleBeforeUpload = React.useCallback(
-    (file: File, files: File[]) => {
-      // 校验文件大小
-      if (file.size > maxSize * 1024 * 1024) {
-        Toast.show(locale.form.upload.fileSizeMessage.replace(/%s/g, maxSize + ''));
-        return null;
-      }
+  const handleBeforeUpload = (file: File, files: File[]) => {
+    // 校验文件大小
+    if (file.size > maxSize * 1024 * 1024) {
+      Toast.show(locale.form.upload.fileSizeMessage.replace(/%s/g, maxSize + ''));
+      return null;
+    }
 
-      // 校验文件类型
-      const isSupportFileType = checkFileType(file, accept);
-      if (!isSupportFileType) {
-        Toast.show(locale.form.upload.fileTypeMessage.replace(/%s/g, accept));
-        return null;
-      }
+    // 校验文件类型
+    const isSupportFileType = checkFileType(file, accept);
+    if (!isSupportFileType) {
+      Toast.show(locale.form.upload.fileTypeMessage.replace(/%s/g, accept));
+      return null;
+    }
 
-      return typeof beforeUpload === 'function' ? beforeUpload?.(file, files) : file;
-    },
-    [accept, beforeUpload, maxSize]
-  );
+    return typeof beforeUpload === 'function' ? beforeUpload?.(file, files) : file;
+  };
 
-  const handleDelete = React.useCallback(
-    (item: ImageUploadItem) => {
-      if (typeof onDelete === 'function') {
-        return onDelete(item);
-      }
+  const handleDelete = (item: ImageUploadItem) => {
+    if (typeof onDelete === 'function') {
+      return onDelete(item);
+    }
 
-      return comfirmDelete
-        ? Dialog.confirm({
-            content: locale.form.upload.deleteTiptext
-          })
-        : true;
-    },
-    [comfirmDelete, onDelete]
-  );
+    return comfirmDelete
+      ? Dialog.confirm({
+          content: locale.form.upload.deleteTiptext
+        })
+      : true;
+  };
 
   React.useImperativeHandle(actionRef, () => ({
     clickInput() {

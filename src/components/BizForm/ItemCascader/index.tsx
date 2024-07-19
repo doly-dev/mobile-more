@@ -46,15 +46,12 @@ const BizFormItemCascader: React.FC<BizFormItemCascaderProps> = (props) => {
     [name, names]
   );
 
-  const handleClick = React.useCallback(
-    (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
-      if (!disabled && !readOnly) {
-        setVisible(true);
-      }
-      onClick?.(e, widgetRef);
-    },
-    [disabled, onClick, readOnly]
-  );
+  const handleClick = (e: React.MouseEvent, widgetRef: React.MutableRefObject<any>) => {
+    if (!disabled && !readOnly) {
+      setVisible(true);
+    }
+    onClick?.(e, widgetRef);
+  };
   const transform = React.useCallback(
     (value: string[], currentLevelValues: any) => {
       if (typeof outTransform === 'function') {
@@ -74,7 +71,7 @@ const BizFormItemCascader: React.FC<BizFormItemCascaderProps> = (props) => {
 
   return (
     <BizFormItem
-      arrow
+      arrowIcon
       name={currentName}
       rules={[
         {
