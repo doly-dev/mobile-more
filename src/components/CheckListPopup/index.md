@@ -66,6 +66,7 @@ type Option = {
 | visible | 是否展示弹层 | `boolean` | - |
 | onVisibleChange | 弹层切换展示时触发 | `(visible: boolean) => void` | - |
 | header | 自定义头部组件 | `ReactNode` | - |
+| headerProps | 自定义头部属性 | [CloseToolHeadProps](/components/tool-head#toolheadclosetoolhead) | - |
 | checkListProps | 可选项列表属性 | [CheckListProps](https://mobile.ant.design/zh/components/check-list#checklist) | - |
 | searchBarProps | 搜索框属性 | [SearchBarProps](https://mobile.ant.design/zh/components/search-bar#属性) | - |
 | emptyProps | 空状态属性 | [EmptyProps](https://mobile.ant.design/zh/components/empty#属性) | - |

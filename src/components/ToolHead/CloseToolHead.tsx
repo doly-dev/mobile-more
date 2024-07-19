@@ -6,8 +6,7 @@ import { prefixClass } from '../../config/prefixClass';
 
 const prefixCls = `${prefixClass}-tool-head-close`;
 
-export interface CloseToolHeadProps
-  extends Omit<BaseToolHeadProps, 'left' | 'right' | 'center' | 'title'> {
+export interface CloseToolHeadProps extends Omit<BaseToolHeadProps, 'center' | 'title'> {
   title?: React.ReactNode;
   showCloseIcon?: boolean;
   closeIcon?: React.ReactNode;
@@ -35,9 +34,9 @@ const CloseToolHead: React.FC<CloseToolHeadProps> = ({
   return (
     <BaseToolHead
       className={classnames(prefixCls, className)}
-      {...restProps}
       center={title}
       {...closeProps}
+      {...restProps}
     />
   );
 };

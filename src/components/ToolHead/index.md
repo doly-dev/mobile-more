@@ -33,13 +33,15 @@ group:
 
 ### ToolHead.CloseToolHead
 
-| 参数             | 说明             | 类型                | 默认值    |
-| ---------------- | ---------------- | ------------------- | --------- |
-| title            | 标题             | `ReactNode`         | -         |
-| showCloseIcon    | 是否显示关闭图标 | `boolean`           | `true`    |
-| closeIcon        | 自定义关闭图标   | `ReactNode`         | -         |
-| onClickCloseIcon | 点击关闭图标触发 | `string`            | -         |
-| closePlacement   | 关闭图标位置     | `'left' \| 'right'` | `'right'` |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| title | 标题 | `ReactNode` | - |
+| showCloseIcon | 是否显示关闭图标 | `boolean` | `true` |
+| closeIcon | 自定义关闭图标 | `ReactNode` | - |
+| onClickCloseIcon | 点击关闭图标触发 | `string` | - |
+| closePlacement | 关闭图标位置。如果同时自定义 `left` `right` 将覆盖关闭图标。 | `'left' \| 'right'` | `'right'` |
+| left | 左边内容 | `ReactNode \| ReactNode[]` | - |
+| right | 右边内容 | `ReactNode \| ReactNode[]` | - |
 
 ### ToolHead.ConfirmToolHead
 

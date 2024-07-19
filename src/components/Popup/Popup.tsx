@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { useControllableValue } from 'rc-hooks';
 import * as React from 'react';
 import { prefixClass } from '../../config/prefixClass';
-import ToolHead from '../ToolHead';
+import ToolHead, { CloseToolHeadProps } from '../ToolHead';
 import './index.less';
 
 const prefixCls = `${prefixClass}-popup`;
@@ -12,6 +12,7 @@ export interface PopupProps extends BasePopupProps {
   header?: React.ReactNode;
   headerStyle?: React.CSSProperties;
   headerClassName?: string;
+  headerProps?: CloseToolHeadProps;
   contentStyle?: React.CSSProperties;
   contentClassName?: string;
   title?: React.ReactNode;
@@ -29,6 +30,7 @@ const Popup: React.FC<PopupProps> = (props) => {
     header,
     headerStyle,
     headerClassName,
+    headerProps,
     contentStyle,
     contentClassName,
     closable = true,
@@ -86,6 +88,7 @@ const Popup: React.FC<PopupProps> = (props) => {
             title={title}
             showCloseIcon={closable}
             onClickCloseIcon={handleClickClose}
+            {...headerProps}
           />
         )}
         {extra}

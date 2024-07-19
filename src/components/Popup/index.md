@@ -37,5 +37,6 @@ group:
 | header | 自定义头部 | `ReactNode` | - |
 | headerStyle | 自定义头部样式 | `CSSProperties` | - |
 | headerClassName | 自定义头部类名 | `string` | - |
+| headerProps | 自定义头部属性 | [CloseToolHeadProps](/components/tool-head#toolheadclosetoolhead) | - |
 | contentStyle | 自定义内容样式 | `CSSProperties` | - |
 | contentClassName | 自定义内容类名 | `string` | - |
