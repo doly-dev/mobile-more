@@ -30,25 +30,32 @@ export interface ImageUploaderProps extends ImageUploaderBaseProps {
   maxSize?: number;
   comfirmDelete?: boolean;
   actionRef?: React.MutableRefObject<ImageUploaderActionType | undefined>;
+  fileTypeMessage?: string | false; // 文件类型错误提示
+  fileSizeMessage?: string | false; // 文件超过最大尺寸提示
+  deleteTiptext?: React.ReactNode;
 }
 
 const ImageUploader: React.FC<ImageUploaderProps> & {
   UploadBackground: typeof UploadBackground;
   UploadCustom: typeof UploadCustom;
-} = ({
-  type,
-  deleteStyle = 'circle',
-  comfirmDelete = false,
-  maxSize = 2, // 单位 MB
-  beforeUpload,
-  accept = 'image/*',
-  onDelete,
-  maxCount: outMaxCount,
-  children,
-  actionRef,
-  ...restProps
-}) => {
+} = (props) => {
   const { locale } = useConfig();
+  const {
+    type,
+    deleteStyle = 'circle',
+    comfirmDelete = false,
+    maxSize = 2, // 单位 MB
+    beforeUpload,
+    accept = 'image/*',
+    onDelete,
+    maxCount: outMaxCount,
+    children,
+    actionRef,
+    fileTypeMessage = locale.form.upload.fileTypeMessage,
+    fileSizeMessage = locale.form.upload.fileSizeMessage,
+    deleteTiptext = locale.form.upload.deleteTiptext,
+    ...restProps
+  } = props;
   const wrapperRef = React.useRef<HTMLDivElement>(null);
 
   const maxCount = React.useMemo(() => (type ? 1 : outMaxCount), [outMaxCount, type]);
@@ -59,14 +66,14 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
   const handleBeforeUpload = (file: File, files: File[]) => {
     // 校验文件大小
     if (file.size > maxSize * 1024 * 1024) {
-      Toast.show(locale.form.upload.fileSizeMessage.replace(/%s/g, maxSize + ''));
+      fileSizeMessage && Toast.show(fileSizeMessage.replace(/%s/g, maxSize + ''));
       return null;
     }
 
     // 校验文件类型
     const isSupportFileType = checkFileType(file, accept);
     if (!isSupportFileType) {
-      Toast.show(locale.form.upload.fileTypeMessage.replace(/%s/g, accept));
+      fileTypeMessage && Toast.show(fileTypeMessage.replace(/%s/g, accept));
       return null;
     }
 
@@ -80,7 +87,7 @@ const ImageUploader: React.FC<ImageUploaderProps> & {
 
     return comfirmDelete
       ? Dialog.confirm({
-          content: locale.form.upload.deleteTiptext
+          content: deleteTiptext
         })
       : true;
   };

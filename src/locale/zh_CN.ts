@@ -48,7 +48,7 @@ const localeValues = {
     },
     upload: {
       fileTypeMessage: '只支持上传 %s 文件',
-      fileSizeMessage: '请选择小于 %sM 的图片',
+      fileSizeMessage: '请选择小于 %sM 的文件',
       deleteTiptext: '是否确认删除'
     }
   },

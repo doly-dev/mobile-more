@@ -52,3 +52,14 @@ group:
 | comfirmDelete | 删除时是否需要二次确认 | `boolean` | `false` |
 | deleteStyle | 删除样式 | `'default' \| 'circle'` | `'circle'` |
 | actionRef | 操作引用 | `MutableRefObject<ImageUploaderActionType \| undefined>` | - |
+| fileTypeMessage | 文件类型错误时提示，包含 `%s` 会自动替换为 `accept`。 | `string \| false` | `'只支持上传 %s 文件'` |
+| fileSizeMessage | 文件超过最大尺寸时提示，包含 `%s` 会自动替换为 `maxFileSizeStr`。 | `string \| false` | `'请选择小于 %sM 的文件'` |
+| deleteTiptext | 删除提示内容，`comfirmDelete=true` 时才生效 | `ReactNode` | `'是否确认删除'` |
+
+### ImageUploaderActionType
+
+```typescript
+{
+  clickInput: () => void;
+}
+```

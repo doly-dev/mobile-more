@@ -48,7 +48,7 @@ const localeValues = {
     },
     upload: {
       fileTypeMessage: 'Only %s files are supported',
-      fileSizeMessage: 'Please select images less than %sM',
+      fileSizeMessage: 'Please select files less than %sM',
       deleteTiptext: 'Confirm deletion'
     }
   },
