@@ -30,18 +30,15 @@ const Image: React.FC<ImageProps> = ({
   nameWrap = false,
   ...restProps
 }) => {
-  const handleClick = React.useCallback(
-    (e: React.MouseEvent<HTMLImageElement, Event>) => {
-      onClick?.(e);
+  const handleClick = (e: React.MouseEvent<HTMLImageElement, Event>) => {
+    onClick?.(e);
 
-      if (preview && (previewUrl || src)) {
-        ImageViewer.show({
-          image: previewUrl || src
-        });
-      }
-    },
-    [onClick, preview, previewUrl, src]
-  );
+    if (preview && (previewUrl || src)) {
+      ImageViewer.show({
+        image: previewUrl || src
+      });
+    }
+  };
 
   return (
     <div className={classnames(prefixCls, rootClassName)} style={rootStyle}>
