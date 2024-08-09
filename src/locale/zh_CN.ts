@@ -63,6 +63,9 @@ const localeValues = {
     loading: '加载中',
     done: '全部加载完成',
     error: '加载失败'
+  },
+  fileViewer: {
+    unsupportedTipText: '该文件不支持预览'
   }
 };
 

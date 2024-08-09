@@ -63,6 +63,9 @@ const localeValues = {
     loading: 'Loading',
     done: 'All loaded',
     error: 'Fail to load'
+  },
+  fileViewer: {
+    unsupportedTipText: 'Preview is not supported for this file'
   }
 };
 

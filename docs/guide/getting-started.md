@@ -43,25 +43,42 @@ function App() {
 
 ### 数据录入
 
-- [BizForm](/components/biz-form/form) - 表单
-- [BizFormItem](/components/biz-form/form-item) - 表单项
-- [BizFormArray](/components/biz-form/form-array) - 表单数组
+- [BizForm] - 表单
+- [BizFormItem] - 表单项
+- [BizFormArray] - 表单数组
 
 ### 数据展示
 
-- [Descriptions](/components/descriptions) - 描述列表
-- [Dictionary](/components/dictionary) - 数据字典
-- [Image](/components/image) - 图片，支持预览
+- [Descriptions] - 描述列表
+- [Dictionary] - 数据字典
+- [Image] - 图片，支持预览
 
 ### 其他
 
-- [CaptchaButton](/components/captcha-button) - 验证码按钮
-- [CheckListPopup](/components/check-list-popup) - 勾选列表弹层
-- [ImageUploader](/components/image-uploader) - 图片上传
-- [Popup](/components/popup) - 弹出层
-- [ScrollLoadView](/components/scroll-load-view) - 滚动加载视图
-- [ToolHead](/components/tool-head) - 工具头
+- [BizConfigProvider] - 上下文配置
+- [CaptchaButton] - 验证码按钮
+- [CheckListPopup] - 勾选列表弹层
+- [FileViewer] - 文件预览
+- [ImageUploader] - 图片上传
+- [Popup] - 弹出层
+- [ScrollLoadView] - 滚动加载视图
+- [ToolHead] - 工具头
+- [Upload] - 上传
 
 [npm]: https://img.shields.io/npm/v/mobile-more.svg
 [npm-url]: https://npmjs.com/package/mobile-more
-[site]: https://doly-dev.github.io/mobile-more/latest/index.html
+[captchabutton]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/captcha-button
+[checklistpopup]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/check-list-popup
+[FileViewer]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/file-viewer
+[imageuploader]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/image-uploader
+[popup]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/popup
+[scrollloadview]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/scroll-load-view
+[toolhead]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/tool-head
+[descriptions]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/descriptions
+[dictionary]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/dictionary
+[image]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/image
+[bizform]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/biz-form/form
+[bizformitem]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/biz-form/form-item
+[bizformarray]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/biz-form/form-array
+[bizconfigprovider]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/biz-config-provider
+[upload]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/upload

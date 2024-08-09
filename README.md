@@ -62,6 +62,7 @@ function App() {
 - [BizConfigProvider] - 上下文配置
 - [CaptchaButton] - 验证码按钮
 - [CheckListPopup] - 勾选列表弹层
+- [FileViewer] - 文件预览
 - [ImageUploader] - 图片上传
 - [Popup] - 弹出层
 - [ScrollLoadView] - 滚动加载视图
@@ -74,6 +75,7 @@ function App() {
 [antd-mobile]: https://mobile.ant.design
 [captchabutton]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/captcha-button
 [checklistpopup]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/check-list-popup
+[FileViewer]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/file-viewer
 [imageuploader]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/image-uploader
 [popup]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/popup
 [scrollloadview]: https://doly-dev.github.io/mobile-more/latest/index.html#/components/scroll-load-view

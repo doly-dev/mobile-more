@@ -37,3 +37,6 @@ export type {
   Locale as BizLocale,
   DeepPartial
 } from './components/BizConfigProvider';
+
+export { default as FileViewer } from './components/FileViewer';
+export * from './components/FileViewer';

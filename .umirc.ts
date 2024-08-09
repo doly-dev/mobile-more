@@ -1,6 +1,14 @@
 import { defineConfig } from 'dumi';
 import pkg from './package.json';
 
+function fileTypeLoader(config: any) {
+  config.module
+    .rule('file-type')
+    .test(/.(docx?|mp3|mp4|ofd|pdf|xlsx?|zip)$/)
+    .use('file-type-loader')
+    .loader('file-loader');
+}
+
 const isDev = process.env.NODE_ENV === 'development';
 
 const MajorVersionNumber = Number(pkg.version.split('.')[0]);
@@ -39,7 +47,8 @@ gtag('config', 'G-Z3NN7XXV9E');
     }
   ];
   prodConfig.chunks = ['vendors', 'umi'];
-  prodConfig.chainWebpack = function (config, { webpack }) {
+  prodConfig.chainWebpack = function (config) {
+    fileTypeLoader(config);
     config.merge({
       optimization: {
         minimize: true,
@@ -107,6 +116,9 @@ export default defineConfig({
       path: `https://github.com/doly-dev/${pkg.name}/releases`
     }
   ],
+  chainWebpack(config) {
+    fileTypeLoader(config);
+  },
   ...prodConfig
   // more config: https://d.umijs.org/config
 });
